@@ -1,0 +1,952 @@
+Full Name,department,12th Mark,10th Mark,Current CGPA,Backlogs,Company Placed,Skills Known,Projects Done,Certifications/Internships
+Rahul Sharma,cse,80,85.6,7.2,0,KPIT Technologies, Python,"E-commerce Website Development, Student Database Management","Infosys Internship,  Java Certification"
+Priya Patel,it,89.3,82.7,6.8,0,Wipro Technologies,Css,"Inventory Management System, Network Security Tool",
+Karan Mehta,ece,81,88,7.5,0,Cognizant, JavaScript,"Food Delivery App, Travel Experience App","Wipro Internship,  CompTIA Security+"
+Pooja Gupta,eee,81,86.5,7.1,0,KPIT Technologies, PHP,"Sales Forecasting System, Cloud Migration Project",Tech Mahindra Internship
+Ankit Verma,cse,76.7,80.5,6.5,0,Tech Mahindra, Java,"Online Voting System, DevOps Implementation",HCL Technologies Internship
+Sneha Singh,it,84,89.2,7.8,0,Infosys, Python,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+Rohit Saini,ece,86.7,81.8,6.9,0,Wipro Technologies, JavaScript,"Bug Tracking System, UI Redesign for an App","Mphasis Internship, Machine Learning Certification"
+Simran Yadav,eee,82,87.3,7.4,0,Cognizant, SQL,"CRM Software, Inventory Management System",Mindtree Internship
+Abhishek Gupta,cse,88,84.2,6.7,0,Wipro Technologies, Python,"Cloud Migration Project, Data Analysis Tool",Persistent Systems Internship
+Priyanka Kapoor,it,81.6,87.7,7.3,0,KPIT Technologies, Ruby,"E-commerce Platform, Mobile Task Management App",L&T Technology Services Internship
+Jatin Verma,ece,78.2,79.5,6.3,0,Tech Mahindra, JavaScript,"Inventory Management System, UI/UX Redesign",Hexaware Technologies Internship
+Kavita Sharma,eee,81.2,86.2,7.1,0,KPIT Technologies, Java,"Customer Data Analysis, Database Optimization Tool",Mindfire Solutions Internship
+Alok Yadav,cse,87.4,81.3,6.8,0,Wipro Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Cognizant Internship,  Data Science Certification"
+Meenakshi Singh,it,82.5,88.5,7.6,0,Cognizant, SQL,"Software Testing Framework, Cloud Migration Project",Techjini Internship
+Rishabh Kapoor,ece,79,80.2,6.5,0,Tech Mahindra, PHP,"E-commerce Website Development, Data Analysis Tool","Mphasis Internship,  CompTIA Cloud+"
+Aparna Verma,eee,80.6,86.3,7.2,0,KPIT Technologies, JavaScript,"Finance Management App, UI Redesign for Web App","Quinnox Internship,  PHP Certification"
+Arjun Saini,cse,76.1,79,6.2,3,Tech Mahindra,Css,"Automotive Diagnostics Software, Embedded System for Vehicles",Birlasoft Internship
+Ritu Singh,it,91.4,87,7,0,Wipro Technologies, Ruby,"Content Management System, Mobile Task Management App",KPIT Technologies Internship
+Sameer Gupta,ece,77.5,81.7,6.6,0,Tech Mahindra, JavaScript,"Bug Tracking System, Database Optimization Tool",Sonata Software Internship
+Nisha Yadav,eee,81.5,87.6,7.5,0,Cognizant, SQL,"Sales Forecasting System, Cloud Migration Project",Syntel Internship
+Deepak Verma,cse,78.1,79.4,6.3,0,Tech Mahindra, JavaScript,"Website Redesign, UI/UX Redesign for Web App",Coforge Internship
+Kirti Kapoor,it,89.9,84.5,6.7,0,Wipro Technologies, Java,"Inventory Management System, Database Optimization Tool",CSS Corp Internship
+Arjun Saini,ece,70,90.3,4,1,css corp, Python,"E-commerce Website Development, Student Database Management",L&T Infotech Internship
+Ritu Singh,eee,82,85.6,7.4,0,Cognizant, SQL,"Inventory Management System, Network Security Tool","Infosys Internship,  Java Certification"
+Sameer Gupta,cse,88,82.7,6.7,0,Wipro Technologies, JavaScript,"Food Delivery App, Travel Experience App","Wipro Internship,  CompTIA Security+"
+Nisha Yadav,it,80.1,88,7.3,0,KPIT Technologies,Css,"Sales Forecasting System, Cloud Migration Project",Tech Mahindra Internship
+Deepak Verma,ece,78.6,86.5,6.3,0,Tech Mahindra, Java,"Online Voting System, DevOps Implementation",HCL Technologies Internship
+Kirti Kapoor,eee,82,80.5,7.1,0,KPIT Technologies, Python,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+Rahul Sharma,cse,87.4,89.2,6.8,0,Wipro Technologies, JavaScript,"Bug Tracking System, UI Redesign for an App","Mphasis Internship, Machine Learning Certification"
+Priya Patel,it,81.5,81.8,7.6,0,Cognizant, SQL,"CRM Software, Inventory Management System",Mindtree Internship
+Karan Mehta,ece,79.2,87.3,6.5,0,Tech Mahindra, Python,"Cloud Migration Project, Data Analysis Tool",Persistent Systems Internship
+Pooja Gupta,eee,82.6,84.2,7.2,0,KPIT Technologies, Ruby,"E-commerce Platform, Mobile Task Management App",L&T Technology Services Internship
+Ankit Verma,cse,76,87.7,6.2,2,Tech Mahindra,Css,"Inventory Management System, UI/UX Redesign",Hexaware Technologies Internship
+Sneha Singh,it,91.4,79.5,7,0,Wipro Technologies, Java,"Customer Data Analysis, Database Optimization Tool",Mindfire Solutions Internship
+Rohit Saini,ece,77.2,86.2,6.6,0,Tech Mahindra, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Cognizant Internship,  Data Science Certification"
+Simran Yadav,eee,92.3,81.3,9.1,0,Hexaware Technologies, SQL,"Software Testing Framework, Cloud Migration Project",Techjini Internship
+Abhishek Gupta,cse,85.5,85.6,8,0,Infosys, PHP,"E-commerce Website Development, Data Analysis Tool","Mphasis Internship,  CompTIA Cloud+"
+Priyanka Kapoor,it,91,82.7,7,0,Wipro Technologies, JavaScript,"Finance Management App, UI Redesign for Web App","Quinnox Internship,  PHP Certification"
+Jatin Verma,ece,86.5,88,8,0,Infosys, Java,"Automotive Diagnostics Software, Embedded System for Vehicles",Birlasoft Internship
+Kavita Sharma,eee,93,86.5,9.4,0,Hexaware Technologies, Ruby,"Content Management System, Mobile Task Management App",KPIT Technologies Internship
+Alok Yadav,cse,82.5,80.5,7.5,0,Cognizant,Css,"Bug Tracking System, Database Optimization Tool",Sonata Software Internship
+Meenakshi Singh,it,94,89.2,9.4,0,Hexaware Technologies, SQL,"Sales Forecasting System, Cloud Migration Project",Syntel Internship
+Rishabh Kapoor,ece,92,90,8.6,0,Birlasoft, JavaScript,"Website Redesign, UI/UX Redesign for Web App",Coforge Internship
+Aparna Verma,eee,71,87.3,6,1,css corp, Java,"Inventory Management System, Database Optimization Tool",CSS Corp Internship
+Arjun Saini,cse,72,84.2,5,1,css corp, Python,"E-commerce Website Development, Student Database Management",L&T Infotech Internship
+Ritu Singh,it,92,87.7,9.6,0,L&T Infotech, SQL,"Inventory Management System, Network Security Tool","Infosys Internship,  Java Certification"
+Sameer Gupta,ece,83,79.5,7.2,0,KPIT Technologies, JavaScript,"Food Delivery App, Travel Experience App",
+Nisha Yadav,eee,93,86.2,6.8,0,Wipro Technologies, PHP,"Sales Forecasting System, Cloud Migration Project","Wipro Internship,  CompTIA Security+"
+Deepak Verma,cse,81,81.3,7.5,0,Cognizant, Java,"Online Voting System, DevOps Implementation",Tech Mahindra Internship
+Kirti Kapoor,it,81.2,88.5,7.1,0,KPIT Technologies,Css,"Sentiment Analysis Model, E-commerce Platform",HCL Technologies Internship
+Ram,ece,78.1,80.2,6.5,0,Tech Mahindra, JavaScript,"Bug Tracking System, UI Redesign for an App",L&T Infotech Internship
+Shahul,eee,87.7,86.3,7.8,0,Infosys, SQL,"CRM Software, Inventory Management System","Mphasis Internship, Machine Learning Certification"
+Charan,cse,85,79,6.9,0,Wipro Technologies, Python,"Cloud Migration Project, Data Analysis Tool",Mindtree Internship
+yamini,it,82,87,7.4,0,Cognizant, Ruby,"E-commerce Platform, Mobile Task Management App",Persistent Systems Internship
+suresh,ece,84.2,81.7,6.7,0,Wipro Technologies, JavaScript,"Inventory Management System, UI/UX Redesign",L&T Technology Services Internship
+rituram,eee,80.4,87.6,7.3,0,KPIT Technologies, Java,"Customer Data Analysis, Database Optimization Tool",Hexaware Technologies Internship
+Ram,cse,79.6,79.4,6.3,0,Tech Mahindra, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",Mindfire Solutions Internship
+Kiran,it,80.3,84.5,7.1,0,KPIT Technologies, SQL,"Software Testing Framework, Cloud Migration Project","Cognizant Internship,  Data Science Certification"
+Meenakshi,ece,92.5,90.3,6.8,0,Wipro Technologies, PHP,"E-commerce Website Development, Data Analysis Tool",Techjini Internship
+Meera,eee,81.5,85.6,7.6,0,Cognizant,Css,"Finance Management App, UI Redesign for Web App","Mphasis Internship,  CompTIA Cloud+"
+Rahul,cse,76.3,82.7,6.5,0,Tech Mahindra, Java,"Automotive Diagnostics Software, Embedded System for Vehicles","Quinnox Internship,  PHP Certification"
+Chandran,it,83.4,88,7.2,0,KPIT Technologies, Ruby,"Content Management System, Mobile Task Management App",Birlasoft Internship
+raiu,ece,77.2,86.5,6.2,3,Tech Mahindra, JavaScript,"Bug Tracking System, Database Optimization Tool",KPIT Technologies Internship
+raja,eee,93.5,80.5,7,0,Wipro Technologies, SQL,"Sales Forecasting System, Cloud Migration Project",Sonata Software Internship
+maran,cse,76,89.2,6.6,0,Tech Mahindra, JavaScript,"Website Redesign, UI/UX Redesign for Web App",Syntel Internship
+Krishna,it,82.5,81.8,7.5,0,Cognizant, Java,"Inventory Management System, Database Optimization Tool",Coforge Internship
+Singh,ece,77,87.3,6.3,0,Tech Mahindra, Python,"E-commerce Website Development, Student Database Management",CSS Corp Internship
+Kohal,eee,92.3,84.2,6.7,0,Wipro Technologies, SQL,"Inventory Management System, Network Security Tool",L&T Infotech Internship
+Ramkiran,cse,73,87.7,4,1,css corp, JavaScript,"Inventory Management System, Network Security Tool","Infosys Internship,  Java Certification"
+Chandra,it,81.5,79.5,7.4,0,Cognizant, PHP,"E-commerce Website Development, Student Database Management","Infosys Internship,  Java Certification"
+sekar,ece,87.4,86.2,6.8,0,Wipro Technologies, Java,"Inventory Management System, Network Security Tool",
+manoj,eee,82,81.3,7.5,0,Cognizant,Css,"Food Delivery App, Travel Experience App","Wipro Internship,  CompTIA Security+"
+remuyuka,cse,83.6,85.6,7.1,0,KPIT Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project",Tech Mahindra Internship
+reshu,it,78.6,82.7,6.5,0,Tech Mahindra, SQL,"Online Voting System, DevOps Implementation",HCL Technologies Internship
+kala,ece,88,88,7.8,0,Infosys, Python,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+hariharan,eee,91.4,86.5,6.9,0,Wipro Technologies, Ruby,"Bug Tracking System, UI Redesign for an App","Mphasis Internship, Machine Learning Certification"
+harish,cse,81,80.5,7.4,0,Cognizant, JavaScript,"CRM Software, Inventory Management System",Mindtree Internship
+ranjith,it,92.1,89.2,6.7,0,Wipro Technologies, Java,"Cloud Migration Project, Data Analysis Tool",Persistent Systems Internship
+Sam,ece,80.1,81.8,7.3,0,KPIT Technologies, JavaScript,"E-commerce Platform, Mobile Task Management App",L&T Technology Services Internship
+samuel,eee,78.2,87.3,6.3,0,Tech Mahindra, SQL,"Inventory Management System, UI/UX Redesign",Hexaware Technologies Internship
+Edwin,cse,81.5,84.2,7.1,0,KPIT Technologies, PHP,"Customer Data Analysis, Database Optimization Tool",Mindfire Solutions Internship
+adhi,it,90.5,87.7,6.8,0,Wipro Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Cognizant Internship,  Data Science Certification"
+lakshmi,ece,82.5,79.5,7.6,0,Cognizant, Java,"Software Testing Framework, Cloud Migration Project",Techjini Internship
+asvitha,eee,79.5,86.2,6.5,0,Tech Mahindra, Ruby,"E-commerce Website Development, Data Analysis Tool","Mphasis Internship,  CompTIA Cloud+"
+semel,cse,82.4,81.3,7.2,0,KPIT Technologies,Css,"Finance Management App, UI Redesign for Web App","Quinnox Internship,  PHP Certification"
+yogi,it,76.2,88.5,6.2,0,Tech Mahindra, SQL,"Automotive Diagnostics Software, Embedded System for Vehicles",Birlasoft Internship
+babu chandra,ece,85.8,80.2,7,0,Wipro Technologies, JavaScript,"Content Management System, Mobile Task Management App",KPIT Technologies Internship
+sekar chandran,eee,75.3,86.3,6.6,0,Tech Mahindra, Java,"Bug Tracking System, Database Optimization Tool",Sonata Software Internship
+renu,cse,81.5,79,7.5,0,Cognizant, Python,"Sales Forecasting System, Cloud Migration Project",Syntel Internship
+niru,it,74.2,87,6.3,0,Tech Mahindra, SQL,"Website Redesign, UI/UX Redesign for Web App",Coforge Internship
+sakthi,ece,88,81.7,6.7,0,Wipro Technologies, JavaScript,"Inventory Management System, Database Optimization Tool",CSS Corp Internship
+abirami,eee,70.5,87.6,4,1,css corp, PHP,"E-commerce Website Development, Student Database Management",L&T Infotech Internship
+mufa,cse,82.5,79.4,7.4,0,Cognizant, Java,"Inventory Management System, Network Security Tool","Infosys Internship,  Java Certification"
+gopika,it,86,84.5,8,0,Infosys, Python,"Food Delivery App, Travel Experience App","Wipro Internship,  CompTIA Security+"
+gopi,ece,90,95,9,0,Birlasoft, JavaScript,"Sales Forecasting System, Cloud Migration Project",Tech Mahindra Internship
+hariharan,eee,72.5,85.6,5,1,css corp, SQL,"Online Voting System, DevOps Implementation",HCL Technologies Internship
+harish,cse,82.1,85.6,7.2,0,KPIT Technologies, Python,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+ranjith,it,90.8,82.7,6.8,0,Wipro Technologies, Ruby,"Bug Tracking System, UI Redesign for an App","Mphasis Internship, Machine Learning Certification"
+Sam,ece,81.5,88,7.5,0,Cognizant, JavaScript,"CRM Software, Inventory Management System",Mindtree Internship
+samuel,eee,83.6,86.5,7.1,0,KPIT Technologies,Css,"Cloud Migration Project, Data Analysis Tool",Persistent Systems Internship
+Edwin,cse,76.2,80.5,6.5,0,Tech Mahindra, JavaScript,"E-commerce Platform, Mobile Task Management App",L&T Technology Services Internship
+adhi,it,87,89.2,7.8,0,Infosys, SQL,"Inventory Management System, UI/UX Redesign",Hexaware Technologies Internship
+lakshmi,ece,84.2,81.8,6.9,0,Wipro Technologies, PHP,"Customer Data Analysis, Database Optimization Tool",Mindfire Solutions Internship
+asvitha,eee,81,87.3,7.4,0,Cognizant, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Cognizant Internship,  Data Science Certification"
+semel,cse,78.4,84.2,6.7,0,Wipro Technologies, Java,"Software Testing Framework, Cloud Migration Project",Techjini Internship
+yogi,it,82.9,87.7,7.3,0,KPIT Technologies, Ruby,"E-commerce Website Development, Student Database Management","Mphasis Internship,  CompTIA Cloud+"
+babu chandra,ece,79.5,79.5,6.3,0,Tech Mahindra, JavaScript,"Inventory Management System, Network Security Tool","Quinnox Internship,  PHP Certification"
+sekar chandran,eee,83.4,86.2,7.1,0,KPIT Technologies, SQL,"Food Delivery App, Travel Experience App",Birlasoft Internship
+renu,cse,94.2,81.3,6.8,0,Wipro Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project",KPIT Technologies Internship
+niru,it,82,88.5,7.6,0,Cognizant, Java,"Online Voting System, DevOps Implementation",Sonata Software Internship
+sakthi,ece,78.3,80.2,6.5,0,Tech Mahindra,Css,"Sentiment Analysis Model, E-commerce Platform",Syntel Internship
+abirami,eee,81.2,86.3,7.2,0,KPIT Technologies, SQL,"Bug Tracking System, UI Redesign for an App",Coforge Internship
+mufa,cse,77.2,79,6.2,0,Tech Mahindra, Python,"CRM Software, Inventory Management System",CSS Corp Internship
+gopika,it,90.5,87,7,0,Wipro Technologies, SQL,"Cloud Migration Project, Data Analysis Tool",L&T Infotech Internship
+gopi,ece,76.2,81.7,6.6,0,Tech Mahindra, JavaScript,"E-commerce Platform, Mobile Task Management App","Infosys Internship,  Java Certification"
+barath,eee,81.5,87.6,7.5,0,Cognizant, PHP,"Inventory Management System, UI/UX Redesign",
+raj,cse,77.6,79.4,6.3,0,Tech Mahindra, Java,"Customer Data Analysis, Database Optimization Tool","Wipro Internship,  CompTIA Security+"
+Pooja Gupta,it,91.6,84.5,6.7,0,Wipro Technologies, Python,"Location-Based Services App, UI Redesign for Mobile App",Tech Mahindra Internship
+Ankit Verma,ece,73.5,90.3,4,1,css corp, JavaScript,"Software Testing Framework, Cloud Migration Project",HCL Technologies Internship
+Sneha Singh,eee,82.5,85.6,7.4,0,Cognizant, SQL,"E-commerce Website Development, Data Analysis Tool",L&T Infotech Internship
+Rohit Saini,cse,86,82.7,6.7,0,Wipro Technologies, Python,"Finance Management App, UI Redesign for Web App","Infosys Internship,  Java Certification"
+Simran Yadav,it,80.6,88,7.3,0,KPIT Technologies, Ruby,"Automotive Diagnostics Software, Embedded System for Vehicles",
+Abhishek Gupta,ece,74.2,86.5,6.3,0,Tech Mahindra, JavaScript,"Content Management System, Mobile Task Management App","Wipro Internship,  CompTIA Security+"
+Priyanka Kapoor,eee,80.7,80.5,7.1,0,KPIT Technologies, Java,"Bug Tracking System, Database Optimization Tool",Tech Mahindra Internship
+Jatin Verma,cse,85,89.2,6.8,0,Wipro Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project",HCL Technologies Internship
+Kavita Sharma,it,81,81.8,7.6,0,Cognizant,Css,"Website Redesign, UI/UX Redesign for Web App",L&T Infotech Internship
+Alok Yadav,ece,75.2,87.3,6.5,0,Tech Mahindra, PHP,"Inventory Management System, Database Optimization Tool","Mphasis Internship, Machine Learning Certification"
+Meenakshi Singh,eee,82.5,84.2,7.2,0,KPIT Technologies, JavaScript,"E-commerce Website Development, Student Database Management",Mindtree Internship
+Rishabh Kapoor,cse,76.2,87.7,6.2,0,Tech Mahindra, Java,"Inventory Management System, Network Security Tool",Persistent Systems Internship
+Aparna Verma,it,90.5,79.5,7,0,Wipro Technologies, Ruby,"Food Delivery App, Travel Experience App",L&T Technology Services Internship
+Arjun Saini,ece,75.1,86.2,6.6,0,Tech Mahindra, JavaScript,"Sales Forecasting System, Cloud Migration Project",Hexaware Technologies Internship
+Ritu Singh,eee,92,81.3,9.1,0,Hexaware Technologies, SQL,"Online Voting System, DevOps Implementation",Mindfire Solutions Internship
+Sameer Gupta,cse,84.6,85.6,8,0,Infosys, JavaScript,"Sentiment Analysis Model, E-commerce Platform","Cognizant Internship,  Data Science Certification"
+Nisha Yadav,it,91,82.7,7,0,Wipro Technologies, Java,"Bug Tracking System, UI Redesign for an App",Techjini Internship
+Deepak Verma,ece,86,88,8,0,Infosys, Python,"CRM Software, Inventory Management System","Mphasis Internship,  CompTIA Cloud+"
+Kirti Kapoor,eee,94.5,86.5,9.4,0,Hexaware Technologies, SQL,"Cloud Migration Project, Data Analysis Tool","Quinnox Internship,  PHP Certification"
+Ram,cse,82.5,80.5,7.5,0,Cognizant, Python,"E-commerce Platform, Mobile Task Management App",Birlasoft Internship
+Shahul,it,93,89.2,9.4,0,Hexaware Technologies, SQL,"Inventory Management System, UI/UX Redesign",KPIT Technologies Internship
+Charan,ece,93,96,8.6,0,Birlasoft, JavaScript,"Customer Data Analysis, Database Optimization Tool",Sonata Software Internship
+yamini,eee,74,87.3,6,1,css corp, PHP,"Location-Based Services App, UI Redesign for Mobile App",Syntel Internship
+suresh,it,72.5,84.2,5,1,css corp, Java,"Software Testing Framework, Cloud Migration Project",Coforge Internship
+ltiman,cse,91.6,87.7,9.6,0,L&T Infotech, Python,"E-commerce Website Development, Data Analysis Tool",CSS Corp Internship
+manu,it,80.2,79.5,7.2,0,KPIT Technologies, JavaScript,"Finance Management App, UI Redesign for Web App",L&T Infotech Internship
+saanu,ece,93,86.2,6.8,0,Wipro Technologies, SQL,"Automotive Diagnostics Software, Embedded System for Vehicles","Infosys Internship,  Java Certification"
+sharan,eee,81.5,81.3,7.5,0,Cognizant,Css,"Content Management System, Mobile Task Management App","Wipro Internship,  CompTIA Security+"
+abi,cse,83.7,88.5,7.1,0,KPIT Technologies, Ruby,"Bug Tracking System, Database Optimization Tool",Tech Mahindra Internship
+keerthi,cse,76,80.2,6.5,0,Tech Mahindra, JavaScript,"Sales Forecasting System, Cloud Migration Project",HCL Technologies Internship
+jothi,it,87,86.3,7.8,0,Infosys, Java,"Website Redesign, UI/UX Redesign for Web App",L&T Infotech Internship
+mayuri,ece,85,79,6.9,0,Wipro Technologies, JavaScript,"Inventory Management System, Database Optimization Tool","Mphasis Internship, Machine Learning Certification"
+mohini,eee,80,87,7.4,0,Cognizant, SQL,"E-commerce Website Development, Student Database Management",Mindtree Internship
+karthik,it,84.2,81.7,6.7,0,Wipro Technologies, PHP,"Inventory Management System, Network Security Tool",Persistent Systems Internship
+yuvaraj,cse,81.5,87.6,7.3,0,KPIT Technologies, JavaScript,"Food Delivery App, Travel Experience App",L&T Technology Services Internship
+yuva,cse,74.2,79.4,6.3,0,Tech Mahindra, Java,"Sales Forecasting System, Cloud Migration Project",Hexaware Technologies Internship
+ranjitha,it,81.6,84.5,7.1,0,KPIT Technologies, Ruby,"Online Voting System, DevOps Implementation",Mindfire Solutions Internship
+rani,ece,92.5,90.3,6.8,0,Wipro Technologies, JavaScript,"Sentiment Analysis Model, E-commerce Platform","Cognizant Internship,  Data Science Certification"
+hema,eee,80.5,85.6,7.6,0,Cognizant, SQL,"Bug Tracking System, UI Redesign for an App",Techjini Internship
+hemaraj,it,75.2,82.7,6.5,0,Tech Mahindra, JavaScript,"CRM Software, Inventory Management System","Mphasis Internship,  CompTIA Cloud+"
+parvathi,cse,80.3,88,7.2,0,KPIT Technologies, Java,"Cloud Migration Project, Data Analysis Tool","Quinnox Internship,  PHP Certification"
+aarthi,cse,80.4,87.6,7.2,0,KPIT Technologies, Python,"E-commerce Platform, Mobile Task Management App",Birlasoft Internship
+aarthka,it,93.5,79.4,6.8,0,Wipro Technologies, SQL,"Inventory Management System, UI/UX Redesign",KPIT Technologies Internship
+Abhishek Gupta,ece,82.5,84.5,7.5,0,Cognizant, Python,"Customer Data Analysis, Database Optimization Tool",Sonata Software Internship
+Priyanka Kapoor,eee,80.2,90.3,7.1,0,KPIT Technologies, SQL,"Location-Based Services App, UI Redesign for Mobile App",Syntel Internship
+Jatin Verma,it,75.2,85.6,6.5,0,Tech Mahindra, JavaScript,"Software Testing Framework, Cloud Migration Project",Coforge Internship
+Kavita Sharma,cse,88,82.7,7.8,0,Infosys, PHP,"E-commerce Website Development, Data Analysis Tool",CSS Corp Internship
+Alok Yadav,cse,85.2,88,6.9,0,Wipro Technologies,Css,"Finance Management App, UI Redesign for Web App",L&T Infotech Internship
+Meenakshi Singh,it,82,86.5,7.4,0,Cognizant, Python,"Automotive Diagnostics Software, Embedded System for Vehicles","Infosys Internship,  Java Certification"
+Rishabh Kapoor,ece,87.4,80.5,6.7,0,Wipro Technologies, JavaScript,"Content Management System, Mobile Task Management App",
+Aparna Verma,eee,80.5,89.2,7.3,0,KPIT Technologies, SQL,"Bug Tracking System, Database Optimization Tool","Wipro Internship,  CompTIA Security+"
+Arjun Saini,cse,78.2,81.8,6.3,0,Tech Mahindra, Python,"Sales Forecasting System, Cloud Migration Project",Tech Mahindra Internship
+Ritu Singh,it,83.2,87.3,7.1,0,KPIT Technologies, Ruby,"Website Redesign, UI/UX Redesign for Web App",HCL Technologies Internship
+Sameer Gupta,cse,84.5,84.2,6.8,0,Wipro Technologies, JavaScript,"Inventory Management System, Database Optimization Tool",L&T Infotech Internship
+Nisha Yadav,it,80.5,87.7,7.6,0,Cognizant, Java,"E-commerce Website Development, Student Database Management","Infosys Internship,  Java Certification"
+Deepak Verma,ece,7.4,79.5,6.5,0,Tech Mahindra, JavaScript,"Inventory Management System, Network Security Tool",
+Kirti Kapoor,eee,80.1,86.2,7.2,0,KPIT Technologies, SQL,"Inventory Management System, Network Security Tool","Wipro Internship,  CompTIA Security+"
+Ram,cse,7.6,81.3,6.2,2,Tech Mahindra, PHP,"E-commerce Website Development, Student Database Management",Tech Mahindra Internship
+Shahul,it,89.9,85.6,7,0,Wipro Technologies, JavaScript,"Inventory Management System, Network Security Tool",HCL Technologies Internship
+Charan,cse,77.5,82.7,6.6,0,Tech Mahindra, Java,"Food Delivery App, Travel Experience App",L&T Infotech Internship
+yamini,it,81,88,7.5,0,Cognizant, Ruby,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship, Machine Learning Certification"
+suresh,ece,77.2,86.5,6.3,0,Tech Mahindra, JavaScript,"Online Voting System, DevOps Implementation",Mindtree Internship
+ltiman,eee,92.3,80.5,6.7,0,Wipro Technologies, SQL,"Sentiment Analysis Model, E-commerce Platform",Persistent Systems Internship
+manu,cse,73.5,89.2,4,1,css corp, JavaScript,"Bug Tracking System, UI Redesign for an App",L&T Technology Services Internship
+saanu,cse,81.5,81.8,7.4,0,Cognizant, Java,"CRM Software, Inventory Management System",Hexaware Technologies Internship
+sharan,it,87.4,87.3,6.7,0,Wipro Technologies, Python,"Cloud Migration Project, Data Analysis Tool",Mindfire Solutions Internship
+abi,ece,82,84.2,7.3,0,KPIT Technologies,Css,"E-commerce Platform, Mobile Task Management App","Cognizant Internship,  Data Science Certification"
+keerthi,eee,75,87.7,6.3,0,Tech Mahindra, Python,"Inventory Management System, UI/UX Redesign",Techjini Internship
+jothi,it,80.1,79.5,7.1,0,KPIT Technologies, SQL,"Customer Data Analysis, Database Optimization Tool","Mphasis Internship,  CompTIA Cloud+"
+mayuri,it,84.5,86.2,6.8,0,Wipro Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Quinnox Internship,  PHP Certification"
+mohini,ece,81.5,81.3,7.6,0,Cognizant, PHP,"Software Testing Framework, Cloud Migration Project",Birlasoft Internship
+karthik,it,76,88.5,6.5,0,Tech Mahindra, Java,"E-commerce Website Development, Data Analysis Tool",KPIT Technologies Internship
+yuvaraj,cse,80.9,80.2,7.2,0,KPIT Technologies, Python,"Finance Management App, UI Redesign for Web App",Sonata Software Internship
+yuva,cse,76.8,86.3,6.2,0,Tech Mahindra, JavaScript,"Automotive Diagnostics Software, Embedded System for Vehicles",Syntel Internship
+ranjitha,it,91,79,7,0,Wipro Technologies, SQL,"Content Management System, Mobile Task Management App",Coforge Internship
+rani,ece,77,87,6.6,0,Tech Mahindra, Python,"Bug Tracking System, Database Optimization Tool",CSS Corp Internship
+hema,eee,92.5,81.7,9.1,0,Hexaware Technologies, Ruby,"Sales Forecasting System, Cloud Migration Project",L&T Infotech Internship
+hemaraj,cse,87.2,87.6,8,0,Infosys, JavaScript,"Website Redesign, UI/UX Redesign for Web App","Infosys Internship,  Java Certification"
+parvathi,cse,90.5,79.4,7,0,Wipro Technologies, Java,"Inventory Management System, Database Optimization Tool","Wipro Internship,  CompTIA Security+"
+aarthi,it,83,84.5,8,0,Infosys, JavaScript,"E-commerce Website Development, Student Database Management",Tech Mahindra Internship
+aarthka,ece,92,90.3,9.4,0,Hexaware Technologies, SQL,"Inventory Management System, Network Security Tool",HCL Technologies Internship
+maalavi,eee,82,85.6,7.5,0,Cognizant, PHP,"Food Delivery App, Travel Experience App",L&T Infotech Internship
+Rahul Sharma,ece,83.2,85.6,7.2,0,KPIT Technologies, Python,"E-commerce Website Development, Student Database Management","Infosys Internship,  Java Certification"
+Priya Patel,eee,779,82.7,6.8,0,Wipro Technologies, SQL,"Inventory Management System, Network Security Tool",
+Karan Mehta,cse,96.3,88,7.5,0,Cognizant,Css,"Food Delivery App, Travel Experience App","Wipro Internship,  CompTIA Security+"
+Pooja Gupta,it,70.4,86.5,7.1,0,KPIT Technologies, PHP,"Sales Forecasting System, Cloud Migration Project",Tech Mahindra Internship
+Ankit Verma,cse,89,80.5,6.5,0,Tech Mahindra, Java,"Online Voting System, DevOps Implementation",HCL Technologies Internship
+Sneha Singh,it,73.6,89.2,7.8,0,Infosys, Python,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+Rohit Saini,ece,95.6,81.8,6.9,0,Wipro Technologies, JavaScript,"Bug Tracking System, UI Redesign for an App","Mphasis Internship, Machine Learning Certification"
+Simran Yadav,eee,73.5,87.3,7.4,0,Cognizant, SQL,"CRM Software, Inventory Management System",Mindtree Internship
+Abhishek Gupta,cse,89.5,84.2,6.7,0,Wipro Technologies, Python,"Cloud Migration Project, Data Analysis Tool",Persistent Systems Internship
+Priyanka Kapoor,it,86.5,87.7,7.3,0,KPIT Technologies, Ruby,"E-commerce Platform, Mobile Task Management App",L&T Technology Services Internship
+Jatin Verma,cse,80.6,79.5,6.3,0,Tech Mahindra, JavaScript,"Inventory Management System, UI/UX Redesign",Hexaware Technologies Internship
+Kavita Sharma,it,74.2,86.2,7.1,0,KPIT Technologies, Java,"Customer Data Analysis, Database Optimization Tool",Mindfire Solutions Internship
+Alok Yadav,ece,80.7,81.3,6.8,0,Wipro Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Cognizant Internship,  Data Science Certification"
+Meenakshi Singh,eee,85,88.5,7.6,0,Cognizant, SQL,"Software Testing Framework, Cloud Migration Project",Techjini Internship
+Rishabh Kapoor,cse,81,80.2,6.5,0,Tech Mahindra, PHP,"E-commerce Website Development, Data Analysis Tool","Mphasis Internship,  CompTIA Cloud+"
+Aparna Verma,cse,87.2,86.3,7.2,0,KPIT Technologies, JavaScript,"Finance Management App, UI Redesign for Web App","Quinnox Internship,  PHP Certification"
+Arjun Saini,it,77.5,79,6.2,3,Tech Mahindra, Java,"Automotive Diagnostics Software, Embedded System for Vehicles",Birlasoft Internship
+Ritu Singh,ece,73.2,87,7,0,Wipro Technologies, Ruby,"Content Management System, Mobile Task Management App",KPIT Technologies Internship
+Sameer Gupta,eee,92.5,81.7,6.6,0,Tech Mahindra, JavaScript,"Bug Tracking System, Database Optimization Tool",Sonata Software Internship
+Nisha Yadav,it,96.1,87.6,7.5,0,Cognizant, SQL,"Sales Forecasting System, Cloud Migration Project",Syntel Internship
+Deepak Verma,it,82,79.4,6.3,0,Tech Mahindra,Css,"Website Redesign, UI/UX Redesign for Web App",Coforge Internship
+Ram,ece,94.6,84.5,6.7,0,Wipro Technologies, Java,"Inventory Management System, Database Optimization Tool",CSS Corp Internship
+Shahul,it,71,90.3,4,1,css corp, Python,"E-commerce Website Development, Student Database Management",L&T Infotech Internship
+Charan,cse,86,85.6,7.4,0,Cognizant, SQL,"Inventory Management System, Network Security Tool","Infosys Internship,  Java Certification"
+yamini,cse,76.5,82.7,6.7,0,Wipro Technologies, JavaScript,"Food Delivery App, Travel Experience App","Wipro Internship,  CompTIA Security+"
+suresh,eee,82.5,88,7.3,0,KPIT Technologies, PHP,"Sales Forecasting System, Cloud Migration Project",Tech Mahindra Internship
+ltiman,cse,93,86.5,6.3,0,Tech Mahindra, Java,"Online Voting System, DevOps Implementation",HCL Technologies Internship
+manu,it,93,80.5,7.1,0,KPIT Technologies, Python,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+saanu,ece,74,89.2,6.8,0,Wipro Technologies, JavaScript,"Bug Tracking System, UI Redesign for an App","Mphasis Internship, Machine Learning Certification"
+sharan,eee,72.5,81.8,7.6,0,Cognizant, SQL,"CRM Software, Inventory Management System",Mindtree Internship
+abi,cse,91.6,87.3,6.5,0,Tech Mahindra, Python,"Cloud Migration Project, Data Analysis Tool",Persistent Systems Internship
+keerthi,it,80.2,84.2,7.2,0,KPIT Technologies, Ruby,"E-commerce Platform, Mobile Task Management App",L&T Technology Services Internship
+jothi,ece,93,87.7,6.2,2,Tech Mahindra, JavaScript,"Inventory Management System, UI/UX Redesign",Hexaware Technologies Internship
+mayuri,eee,81.5,79.5,7,0,Wipro Technologies, Java,"Customer Data Analysis, Database Optimization Tool",Mindfire Solutions Internship
+mohini,cse,83.7,86.2,6.6,0,Tech Mahindra, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Cognizant Internship,  Data Science Certification"
+karthik,it,76,81.3,9.1,0,Hexaware Technologies, SQL,"Software Testing Framework, Cloud Migration Project",Techjini Internship
+yuvaraj,ece,87,85.6,8,0,Infosys, PHP,"E-commerce Website Development, Data Analysis Tool","Mphasis Internship,  CompTIA Cloud+"
+yuva,eee,85,82.7,7,0,Wipro Technologies, JavaScript,"Finance Management App, UI Redesign for Web App","Quinnox Internship,  PHP Certification"
+ranjitha,cse,80,88,8,0,Infosys,Css,"Automotive Diagnostics Software, Embedded System for Vehicles",Birlasoft Internship
+rani,it,84.2,86.5,9.4,0,Hexaware Technologies, Ruby,"Content Management System, Mobile Task Management App",KPIT Technologies Internship
+hema,ece,81.5,80.5,7.5,0,Cognizant, JavaScript,"Bug Tracking System, Database Optimization Tool",Sonata Software Internship
+hemaraj,eee,74.2,89.2,9.4,0,Hexaware Technologies, SQL,"Sales Forecasting System, Cloud Migration Project",Syntel Internship
+parvathi,cse,81.6,90,8.6,0,Birlasoft, JavaScript,"Website Redesign, UI/UX Redesign for Web App",Coforge Internship
+aarthi,it,92.5,87.3,6,1,css corp, Java,"Inventory Management System, Database Optimization Tool",CSS Corp Internship
+Aparna Verma,ece,80.5,84.2,5,1,css corp, Python,"E-commerce Website Development, Student Database Management",L&T Infotech Internship
+Arjun Saini,eee,75.2,87.7,9.6,0,L&T Infotech, SQL,"Inventory Management System, Network Security Tool","Infosys Internship,  Java Certification"
+Ritu Singh,it,80.3,79.5,7.2,0,KPIT Technologies, JavaScript,"Food Delivery App, Travel Experience App",
+Sameer Gupta,cse,80.4,86.2,6.8,0,Wipro Technologies, PHP,"Sales Forecasting System, Cloud Migration Project","Wipro Internship,  CompTIA Security+"
+Nisha Yadav,it,93.5,81.3,7.5,0,Cognizant, Java,"Online Voting System, DevOps Implementation",Tech Mahindra Internship
+Deepak Verma,ece,82.5,88.5,7.1,0,KPIT Technologies, Python,"Sentiment Analysis Model, E-commerce Platform",HCL Technologies Internship
+Kirti Kapoor,it,80.2,80.2,6.5,0,Tech Mahindra, JavaScript,"Bug Tracking System, UI Redesign for an App",L&T Infotech Internship
+Ram,ece,75.2,86.3,7.8,0,Infosys, SQL,"CRM Software, Inventory Management System","Mphasis Internship, Machine Learning Certification"
+Shahul,eee,88,79,6.9,0,Wipro Technologies, Python,"Cloud Migration Project, Data Analysis Tool",Mindtree Internship
+Charan,cse,85.2,87,7.4,0,Cognizant, Ruby,"E-commerce Platform, Mobile Task Management App",Persistent Systems Internship
+yamini,cse,82,81.7,6.7,0,Wipro Technologies, JavaScript,"Inventory Management System, UI/UX Redesign",L&T Technology Services Internship
+suresh,it,87.4,87.6,7.3,0,KPIT Technologies, Java,"Customer Data Analysis, Database Optimization Tool",Hexaware Technologies Internship
+rituram,ece,80.5,79.4,6.3,0,Tech Mahindra, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",Mindfire Solutions Internship
+Ram,eee,78.2,84.5,7.1,0,KPIT Technologies,Css,"Software Testing Framework, Cloud Migration Project","Cognizant Internship,  Data Science Certification"
+Kiran,it,83.2,90.3,6.8,0,Wipro Technologies, PHP,"E-commerce Website Development, Data Analysis Tool",Techjini Internship
+Meenakshi,it,84.5,85.6,7.6,0,Cognizant, JavaScript,"Finance Management App, UI Redesign for Web App","Mphasis Internship,  CompTIA Cloud+"
+Meera,ece,80.5,82.7,6.5,0,Tech Mahindra, Java,"Automotive Diagnostics Software, Embedded System for Vehicles","Quinnox Internship,  PHP Certification"
+Rahul,it,7.4,88,7.2,0,KPIT Technologies, Ruby,"Content Management System, Mobile Task Management App",Birlasoft Internship
+Chandran,cse,80.1,86.5,6.2,3,Tech Mahindra, JavaScript,"Bug Tracking System, Database Optimization Tool",KPIT Technologies Internship
+raiu,cse,7.6,80.5,7,0,Wipro Technologies, SQL,"Sales Forecasting System, Cloud Migration Project",Sonata Software Internship
+raja,it,89.9,89.2,6.6,0,Tech Mahindra, JavaScript,"Website Redesign, UI/UX Redesign for Web App",Syntel Internship
+maran,ece,77.5,81.8,7.5,0,Cognizant, Java,"Inventory Management System, Database Optimization Tool",Coforge Internship
+Krishna,eee,81,87.3,6.3,0,Tech Mahindra, Python,"E-commerce Website Development, Student Database Management",CSS Corp Internship
+Singh,cse,77.2,84.2,6.7,0,Wipro Technologies, SQL,"Inventory Management System, Network Security Tool",L&T Infotech Internship
+Kohal,cse,92.3,87.7,4,1,css corp, JavaScript,"Inventory Management System, Network Security Tool","Infosys Internship,  Java Certification"
+Ramkiran,it,73.5,79.5,7.4,0,Cognizant, PHP,"E-commerce Website Development, Student Database Management","Infosys Internship,  Java Certification"
+Chandra,ece,81.5,86.2,6.8,0,Wipro Technologies, Java,"Inventory Management System, Network Security Tool",
+sekar,eee,97.4,81.3,7.5,0,Cognizant, Python,"Food Delivery App, Travel Experience App","Wipro Internship,  CompTIA Security+"
+manoj,ece,82,85.6,7.1,0,KPIT Technologies,Css,"Sales Forecasting System, Cloud Migration Project",Tech Mahindra Internship
+remuyuka,eee,75,82.7,6.5,0,Tech Mahindra, SQL,"Online Voting System, DevOps Implementation",HCL Technologies Internship
+reshu,cse,80.1,88,7.8,0,Infosys, Python,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+kala,it,78.5,86.5,6.9,0,Wipro Technologies, Ruby,"Bug Tracking System, UI Redesign for an App","Mphasis Internship, Machine Learning Certification"
+hariharan,cse,81.5,80.5,7.4,0,Cognizant, JavaScript,"CRM Software, Inventory Management System",Mindtree Internship
+harish,it,76,89.2,6.7,0,Wipro Technologies, Java,"Cloud Migration Project, Data Analysis Tool",Persistent Systems Internship
+ranjith,ece,80.9,81.8,7.3,0,KPIT Technologies, JavaScript,"E-commerce Platform, Mobile Task Management App",L&T Technology Services Internship
+Sam,eee,76.8,87.3,6.3,0,Tech Mahindra, SQL,"Inventory Management System, UI/UX Redesign",Hexaware Technologies Internship
+samuel,cse,91,84.2,7.1,0,KPIT Technologies, PHP,"Customer Data Analysis, Database Optimization Tool",Mindfire Solutions Internship
+Edwin,it,77,87.7,6.8,0,Wipro Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Cognizant Internship,  Data Science Certification"
+adhi,cse,92.5,79.5,7.6,0,Cognizant, Java,"Software Testing Framework, Cloud Migration Project",Techjini Internship
+lakshmi,it,97.2,86.2,6.5,0,Tech Mahindra, Ruby,"E-commerce Website Development, Data Analysis Tool","Mphasis Internship,  CompTIA Cloud+"
+asvitha,ece,94.5,81.3,7.2,0,KPIT Technologies, JavaScript,"Finance Management App, UI Redesign for Web App","Quinnox Internship,  PHP Certification"
+semel,eee,83,88.5,6.2,0,Tech Mahindra, SQL,"Automotive Diagnostics Software, Embedded System for Vehicles",Birlasoft Internship
+yogi,cse,92,80.2,7,0,Wipro Technologies, JavaScript,"Content Management System, Mobile Task Management App",KPIT Technologies Internship
+babu chandra,cse,82,86.3,6.6,0,Tech Mahindra, Java,"Bug Tracking System, Database Optimization Tool",Sonata Software Internship
+sekar chandran,it,92.3,79,7.5,0,Cognizant, Python,"Sales Forecasting System, Cloud Migration Project",Syntel Internship
+renu,ece,73.5,87,6.3,0,Tech Mahindra, SQL,"Website Redesign, UI/UX Redesign for Web App",Coforge Internship
+niru,eee,81.5,81.7,6.7,0,Wipro Technologies, JavaScript,"Inventory Management System, Database Optimization Tool",CSS Corp Internship
+sakthi,it,87.4,87.6,4,1,css corp, PHP,"E-commerce Website Development, Student Database Management",L&T Infotech Internship
+abirami,it,82,79.4,7.4,0,Cognizant, Java,"Inventory Management System, Network Security Tool","Infosys Internship,  Java Certification"
+mufa,ece,75,84.5,8,0,Infosys,Css,"Food Delivery App, Travel Experience App","Wipro Internship,  CompTIA Security+"
+gopika,it,80.1,95,9,0,Birlasoft, JavaScript,"Sales Forecasting System, Cloud Migration Project","Infosys Internship,  Java Certification"
+gopi,cse,84.5,85.6,7.4,1,css corp, SQL,"Online Voting System, DevOps Implementation",
+hariharan,cse,81.5,85.6,6.7,0,KPIT Technologies, Python,"Sentiment Analysis Model, E-commerce Platform","Wipro Internship,  CompTIA Security+"
+harish,eee,76,82.7,7.3,0,Wipro Technologies, Ruby,"Bug Tracking System, UI Redesign for an App",Tech Mahindra Internship
+ranjith,cse,80.9,88,6.3,0,Cognizant, JavaScript,"CRM Software, Inventory Management System",HCL Technologies Internship
+Sam,it,76.8,86.5,7.1,0,KPIT Technologies, Java,"Cloud Migration Project, Data Analysis Tool",L&T Infotech Internship
+samuel,cse,91,80.5,6.8,0,Tech Mahindra, JavaScript,"E-commerce Platform, Mobile Task Management App","Mphasis Internship, Machine Learning Certification"
+Edwin,it,77,89.2,7.6,0,Infosys, SQL,"Inventory Management System, UI/UX Redesign",Mindtree Internship
+adhi,ece,92.5,81.8,6.5,0,Wipro Technologies, PHP,"Customer Data Analysis, Database Optimization Tool",Persistent Systems Internship
+lakshmi,eee,87.2,87.3,7.2,0,Cognizant, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",L&T Technology Services Internship
+asvitha,cse,90.5,84.2,6.2,0,Wipro Technologies, Java,"Software Testing Framework, Cloud Migration Project",Hexaware Technologies Internship
+Meenakshi Singh,it,83,87.7,7,0,KPIT Technologies, Ruby,"E-commerce Website Development, Student Database Management",Mindfire Solutions Internship
+Rishabh Kapoor,ece,92,79.5,6.6,0,Tech Mahindra, JavaScript,"Inventory Management System, Network Security Tool","Cognizant Internship,  Data Science Certification"
+Aparna Verma,eee,82,86.2,7.5,0,KPIT Technologies, SQL,"Food Delivery App, Travel Experience App",Techjini Internship
+Arjun Saini,cse,83.2,81.3,6.3,0,Wipro Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship,  CompTIA Cloud+"
+Ritu Singh,it,779,88.5,6.7,0,Cognizant, Java,"Online Voting System, DevOps Implementation","Quinnox Internship,  PHP Certification"
+Sameer Gupta,ece,96.3,80.2,4,0,Tech Mahindra, Python,"Sentiment Analysis Model, E-commerce Platform",Birlasoft Internship
+Nisha Yadav,eee,70.4,86.3,7.4,0,KPIT Technologies, SQL,"Bug Tracking System, UI Redesign for an App",KPIT Technologies Internship
+Deepak Verma,cse,89,79,6.7,0,Tech Mahindra, Python,"CRM Software, Inventory Management System",Sonata Software Internship
+Kirti Kapoor,it,73.6,87,7.3,0,Wipro Technologies, SQL,"Cloud Migration Project, Data Analysis Tool",Syntel Internship
+Ram,ece,95.6,81.7,6.3,0,Tech Mahindra, JavaScript,"E-commerce Platform, Mobile Task Management App",Coforge Internship
+Shahul,eee,73.5,87.6,7.1,0,Cognizant, PHP,"Inventory Management System, UI/UX Redesign",CSS Corp Internship
+Charan,cse,89.5,79.4,6.8,0,Tech Mahindra,Css,"Customer Data Analysis, Database Optimization Tool",L&T Infotech Internship
+yamini,it,86.5,84.5,7.6,0,Wipro Technologies, Python,"Location-Based Services App, UI Redesign for Mobile App","Infosys Internship,  Java Certification"
+suresh,ece,80.6,90.3,6.5,1,css corp, JavaScript,"Software Testing Framework, Cloud Migration Project","Wipro Internship,  CompTIA Security+"
+ltiman,eee,74.2,85.6,7.2,0,Cognizant, SQL,"E-commerce Website Development, Data Analysis Tool",Tech Mahindra Internship
+manu,cse,80.7,82.7,6.2,0,Wipro Technologies, Python,"Finance Management App, UI Redesign for Web App",HCL Technologies Internship
+saanu,it,85,88,7,0,KPIT Technologies, Ruby,"Automotive Diagnostics Software, Embedded System for Vehicles",L&T Infotech Internship
+sharan,ece,81,86.5,6.6,0,Tech Mahindra, JavaScript,"Content Management System, Mobile Task Management App","Mphasis Internship, Machine Learning Certification"
+abi,eee,87.2,80.5,9.1,0,KPIT Technologies, Java,"Bug Tracking System, Database Optimization Tool",Mindtree Internship
+keerthi,cse,77.5,89.2,8,0,Wipro Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project",Persistent Systems Internship
+jothi,it,73.2,81.8,7,0,Cognizant, SQL,"Website Redesign, UI/UX Redesign for Web App",L&T Technology Services Internship
+mayuri,ece,92.5,87.3,8,0,Tech Mahindra, PHP,"Inventory Management System, Database Optimization Tool",Hexaware Technologies Internship
+mohini,eee,96.1,84.2,9.4,0,KPIT Technologies, JavaScript,"E-commerce Website Development, Student Database Management",Mindfire Solutions Internship
+karthik,cse,82,87.7,7.5,0,Tech Mahindra, Java,"Inventory Management System, Network Security Tool","Cognizant Internship,  Data Science Certification"
+yuvaraj,it,94.6,79.5,9.4,0,Wipro Technologies, Ruby,"Food Delivery App, Travel Experience App",Techjini Internship
+yuva,ece,71,86.2,8.6,0,Tech Mahindra, JavaScript,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship,  CompTIA Cloud+"
+ranjitha,eee,86,81.3,6,0,Hexaware Technologies, SQL,"Online Voting System, DevOps Implementation","Quinnox Internship,  PHP Certification"
+rani,cse,76.5,85.6,5,0,Infosys, JavaScript,"Sentiment Analysis Model, E-commerce Platform",Birlasoft Internship
+hema,it,82.5,85.6,9.6,0,Wipro Technologies, Java,"Bug Tracking System, UI Redesign for an App",KPIT Technologies Internship
+hemaraj,ece,93,82.7,7.2,0,Infosys, Python,"CRM Software, Inventory Management System",Sonata Software Internship
+parvathi,eee,93,88,6.8,0,Hexaware Technologies, SQL,"Cloud Migration Project, Data Analysis Tool",Syntel Internship
+aarthi,cse,74,86.5,7.5,0,Cognizant, Python,"E-commerce Platform, Mobile Task Management App",Coforge Internship
+aarthka,it,72.5,80.5,7.1,0,Hexaware Technologies, SQL,"Inventory Management System, UI/UX Redesign",CSS Corp Internship
+maalavi,ece,91.6,89.2,6.5,0,Birlasoft, JavaScript,"Customer Data Analysis, Database Optimization Tool",L&T Infotech Internship
+Rahul Sharma,eee,80.2,81.8,7.8,1,css corp,Css,"Location-Based Services App, UI Redesign for Mobile App","Infosys Internship,  Java Certification"
+Priya Patel,cse,93,87.3,6.9,1,css corp, Java,"Software Testing Framework, Cloud Migration Project",
+Karan Mehta,it,81.5,84.2,7.4,0,L&T Infotech, Python,"E-commerce Website Development, Data Analysis Tool","Wipro Internship,  CompTIA Security+"
+Pooja Gupta,ece,83.7,87.7,6.7,0,KPIT Technologies, JavaScript,"Finance Management App, UI Redesign for Web App",Tech Mahindra Internship
+Ankit Verma,eee,76,79.5,7.3,0,Wipro Technologies, SQL,"Automotive Diagnostics Software, Embedded System for Vehicles",HCL Technologies Internship
+Sneha Singh,cse,87,86.2,6.3,0,Cognizant, Python,"Content Management System, Mobile Task Management App",L&T Infotech Internship
+Rohit Saini,it,85,81.3,7.1,0,KPIT Technologies, Ruby,"Bug Tracking System, Database Optimization Tool","Mphasis Internship, Machine Learning Certification"
+Simran Yadav,ece,80,88.5,6.8,0,Tech Mahindra, JavaScript,"Sales Forecasting System, Cloud Migration Project",Mindtree Internship
+Abhishek Gupta,eee,84.2,80.2,7.6,0,Infosys, Java,"Website Redesign, UI/UX Redesign for Web App",Persistent Systems Internship
+Priyanka Kapoor,cse,81.5,86.3,6.5,0,Wipro Technologies, JavaScript,"Inventory Management System, Database Optimization Tool",L&T Technology Services Internship
+Jatin Verma,it,74.2,79,7.2,0,Cognizant, SQL,"E-commerce Website Development, Student Database Management",Hexaware Technologies Internship
+Kavita Sharma,ece,81.6,87,7.2,0,Wipro Technologies, PHP,"Inventory Management System, Network Security Tool",Mindfire Solutions Internship
+Alok Yadav,eee,92.5,81.7,6.8,0,KPIT Technologies, JavaScript,"Food Delivery App, Travel Experience App","Cognizant Internship,  Data Science Certification"
+Meenakshi Singh,cse,80.5,87.6,7.5,0,Tech Mahindra, Java,"Sales Forecasting System, Cloud Migration Project",Techjini Internship
+Rishabh Kapoor,it,75.2,79.4,7.1,0,KPIT Technologies, Ruby,"Online Voting System, DevOps Implementation","Mphasis Internship,  CompTIA Cloud+"
+Aparna Verma,ece,80.3,84.5,6.5,0,Wipro Technologies, JavaScript,"Sentiment Analysis Model, E-commerce Platform","Quinnox Internship,  PHP Certification"
+Arjun Saini,eee,80.4,90.3,7.8,0,Cognizant, SQL,"Bug Tracking System, UI Redesign for an App",Birlasoft Internship
+Ritu Singh,cse,93.5,85.6,6.9,0,Tech Mahindra, JavaScript,"CRM Software, Inventory Management System",KPIT Technologies Internship
+Sameer Gupta,it,82.5,82.7,7.4,0,KPIT Technologies, Java,"Cloud Migration Project, Data Analysis Tool",Sonata Software Internship
+Nisha Yadav,ece,80.2,88,6.7,0,KPIT Technologies, Python,"E-commerce Platform, Mobile Task Management App",Syntel Internship
+Deepak Verma,eee,75.2,86.5,7.3,0,Wipro Technologies, SQL,"Inventory Management System, UI/UX Redesign",Coforge Internship
+Ram,cse,88,80.5,6.3,0,Cognizant,Css,"Customer Data Analysis, Database Optimization Tool",CSS Corp Internship
+Shahul,it,85.2,89.2,7.1,0,KPIT Technologies, SQL,"Location-Based Services App, UI Redesign for Mobile App",L&T Infotech Internship
+Deepak Verma,ece,82,81.8,6.8,0,Tech Mahindra, JavaScript,"Software Testing Framework, Cloud Migration Project","Infosys Internship,  Java Certification"
+Kirti Kapoor,eee,87.4,87.3,7.6,0,Infosys, PHP,"E-commerce Website Development, Data Analysis Tool","Infosys Internship,  Java Certification"
+Ram,cse,80.5,84.2,6.5,0,Wipro Technologies, Java,"Finance Management App, UI Redesign for Web App",
+Shahul,it,78.2,87.7,7.2,0,Cognizant, Python,"Automotive Diagnostics Software, Embedded System for Vehicles","Wipro Internship,  CompTIA Security+"
+Charan,ece,83.2,79.5,6.2,0,Wipro Technologies, JavaScript,"Content Management System, Mobile Task Management App",Tech Mahindra Internship
+yamini,eee,84.5,86.2,7,0,KPIT Technologies, SQL,"Bug Tracking System, Database Optimization Tool",HCL Technologies Internship
+suresh,cse,80.5,81.3,6.6,0,Tech Mahindra, Python,"Sales Forecasting System, Cloud Migration Project",L&T Infotech Internship
+ltiman,it,7.4,85.6,7.5,0,KPIT Technologies, Ruby,"Website Redesign, UI/UX Redesign for Web App","Mphasis Internship, Machine Learning Certification"
+manu,ece,80.1,82.7,6.3,0,Wipro Technologies, JavaScript,"Inventory Management System, Database Optimization Tool",Mindtree Internship
+saanu,eee,7.6,88,6.7,0,Cognizant, Java,"E-commerce Website Development, Student Database Management",Persistent Systems Internship
+sharan,cse,89.9,86.5,4,0,Tech Mahindra, JavaScript,"Inventory Management System, Network Security Tool",L&T Technology Services Internship
+abi,it,77.5,80.5,7.4,0,KPIT Technologies, SQL,"Inventory Management System, Network Security Tool",Hexaware Technologies Internship
+keerthi,ece,81,89.2,6.7,2,Tech Mahindra, PHP,"E-commerce Website Development, Student Database Management",Mindfire Solutions Internship
+jothi,eee,77.2,90,7.3,0,Wipro Technologies, JavaScript,"Inventory Management System, Network Security Tool","Cognizant Internship,  Data Science Certification"
+mayuri,cse,92.3,87.3,6.3,0,Tech Mahindra, Java,"Food Delivery App, Travel Experience App",Techjini Internship
+mohini,it,73.5,84.2,7.1,0,Cognizant, Ruby,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship,  CompTIA Cloud+"
+karthik,ece,81.5,87.7,6.8,0,Tech Mahindra, JavaScript,"Online Voting System, DevOps Implementation","Quinnox Internship,  PHP Certification"
+yuvaraj,eee,97.4,79.5,7.6,0,Wipro Technologies, SQL,"Sentiment Analysis Model, E-commerce Platform",Birlasoft Internship
+yuva,cse,82,86.2,6.5,1,css corp,Html,"Bug Tracking System, UI Redesign for an App",KPIT Technologies Internship
+ranjitha,it,75,81.3,7.2,0,Cognizant, Java,"CRM Software, Inventory Management System",Sonata Software Internship
+rani,ece,80.1,88.5,6.2,0,Wipro Technologies, Python,"Cloud Migration Project, Data Analysis Tool",Syntel Internship
+hema,eee,78.5,80.2,7,0,KPIT Technologies, SQL,"E-commerce Platform, Mobile Task Management App",Coforge Internship
+hemaraj,cse,81.5,86.3,6.6,0,Tech Mahindra, Python,"Inventory Management System, UI/UX Redesign",CSS Corp Internship
+parvathi,it,76,79,9.1,0,KPIT Technologies, SQL,"Customer Data Analysis, Database Optimization Tool",L&T Infotech Internship
+aarthi,ece,80.9,87,8,0,Wipro Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Infosys Internship,  Java Certification"
+aarthka,ece,76.8,81.7,7,0,Cognizant, PHP,"Software Testing Framework, Cloud Migration Project","Wipro Internship,  CompTIA Security+"
+Abhishek Gupta,eee,91,87.6,8,0,Tech Mahindra, Java,"E-commerce Website Development, Data Analysis Tool",CSS Corp Internship
+Priyanka Kapoor,cse,77,79.4,9.4,0,KPIT Technologies, Python,"Finance Management App, UI Redesign for Web App",L&T Infotech Internship
+Jatin Verma,it,92.5,84.5,7.5,0,Tech Mahindra, JavaScript,"Automotive Diagnostics Software, Embedded System for Vehicles","Infosys Internship,  Java Certification"
+Kavita Sharma,ece,97.2,90.3,7.2,0,Wipro Technologies, SQL,"Content Management System, Mobile Task Management App","Wipro Internship,  CompTIA Security+"
+Alok Yadav,eee,94.5,85.6,6.8,0,Tech Mahindra, Python,"Bug Tracking System, Database Optimization Tool",Tech Mahindra Internship
+Meenakshi Singh,cse,83,82.7,7.5,0,Hexaware Technologies, Ruby,"Sales Forecasting System, Cloud Migration Project",HCL Technologies Internship
+Rishabh Kapoor,it,92,88,7.1,0,Infosys, JavaScript,"Website Redesign, UI/UX Redesign for Web App",L&T Infotech Internship
+Aparna Verma,ece,82,86.5,6.5,0,Wipro Technologies, Java,"Inventory Management System, Database Optimization Tool","Mphasis Internship, Machine Learning Certification"
+Arjun Saini,eee,92.3,80.5,7.8,0,Infosys, JavaScript,"E-commerce Website Development, Student Database Management",Mindtree Internship
+Ritu Singh,cse,73.5,89.2,6.9,0,Hexaware Technologies, SQL,"Inventory Management System, Network Security Tool",Persistent Systems Internship
+Sameer Gupta,it,81.5,81.8,7.4,0,Cognizant, PHP,"Food Delivery App, Travel Experience App",L&T Technology Services Internship
+Nisha Yadav,ece,87.4,87.3,6.7,0,KPIT Technologies, Python,"E-commerce Website Development, Student Database Management",Hexaware Technologies Internship
+Deepak Verma,eee,82,84.2,7.3,0,Wipro Technologies, SQL,"Inventory Management System, Network Security Tool",Mindfire Solutions Internship
+Kirti Kapoor,cse,75,87.7,6.3,0,Cognizant, JavaScript,"Food Delivery App, Travel Experience App","Cognizant Internship,  Data Science Certification"
+rani,it,80.1,79.5,7.1,0,KPIT Technologies, PHP,"Sales Forecasting System, Cloud Migration Project",Techjini Internship
+hema,ece,84.5,86.2,6.8,0,Tech Mahindra, Java,"Online Voting System, DevOps Implementation","Mphasis Internship,  CompTIA Cloud+"
+hemaraj,eee,81.5,81.3,7.6,0,Infosys, Python,"Sentiment Analysis Model, E-commerce Platform","Quinnox Internship,  PHP Certification"
+parvathi,cse,76,85.6,6.5,0,Wipro Technologies, JavaScript,"Bug Tracking System, UI Redesign for an App",Birlasoft Internship
+aarthi,it,80.9,82.7,7.2,0,Cognizant, SQL,"CRM Software, Inventory Management System",KPIT Technologies Internship
+aarthka,ece,76.8,88,6.2,0,Wipro Technologies,Html,"Cloud Migration Project, Data Analysis Tool",Sonata Software Internship
+maalavi,eee,91,86.5,7,0,KPIT Technologies, Ruby,"E-commerce Platform, Mobile Task Management App",Syntel Internship
+Rahul Sharma,cse,77,80.5,6.6,0,Tech Mahindra, JavaScript,"Inventory Management System, UI/UX Redesign",Coforge Internship
+Priya Patel,it,92.5,89.2,7.5,0,KPIT Technologies, Java,"Customer Data Analysis, Database Optimization Tool",CSS Corp Internship
+Karan Mehta,ece,87.2,81.8,6.3,0,Wipro Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",L&T Infotech Internship
+Pooja Gupta,eee,90.5,87.3,6.7,0,Cognizant, SQL,"Software Testing Framework, Cloud Migration Project","Infosys Internship,  Java Certification"
+Ankit Verma,cse,83,84.2,4,0,Tech Mahindra, PHP,"E-commerce Website Development, Data Analysis Tool",
+Sneha Singh,it,92,87.7,7.4,0,KPIT Technologies, JavaScript,"Finance Management App, UI Redesign for Web App","Wipro Internship,  CompTIA Security+"
+Rohit Saini,ece,82,79.5,6.7,3,Tech Mahindra,bootstrap,"Automotive Diagnostics Software, Embedded System for Vehicles",Tech Mahindra Internship
+Simran Yadav,eee,83.2,86.2,7.3,0,Wipro Technologies, Ruby,"Content Management System, Mobile Task Management App",HCL Technologies Internship
+Abhishek Gupta,cse,779,81.3,6.3,0,Tech Mahindra, JavaScript,"Bug Tracking System, Database Optimization Tool",L&T Infotech Internship
+Priyanka Kapoor,it,96.3,88.5,7.1,0,Cognizant, SQL,"Sales Forecasting System, Cloud Migration Project","Infosys Internship,  Java Certification"
+Jatin Verma,ece,70.4,80.2,6.8,0,Tech Mahindra, JavaScript,"Website Redesign, UI/UX Redesign for Web App",
+Kavita Sharma,eee,89,86.3,7.6,0,Wipro Technologies, Java,"Inventory Management System, Database Optimization Tool","Wipro Internship,  CompTIA Security+"
+Alok Yadav,cse,73.6,79,7.4,1,css corp, Python,"E-commerce Website Development, Student Database Management",Tech Mahindra Internship
+Meenakshi Singh,it,95.6,87,6.7,0,Cognizant, SQL,"Inventory Management System, Network Security Tool",HCL Technologies Internship
+Rishabh Kapoor,ece,73.5,81.7,7.3,0,Wipro Technologies, JavaScript,"Food Delivery App, Travel Experience App",L&T Infotech Internship
+Aparna Verma,eee,89.5,87.6,6.3,0,KPIT Technologies, PHP,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship, Machine Learning Certification"
+Arjun Saini,cse,86.5,79.4,7.1,0,Tech Mahindra,bootstrap,"Online Voting System, DevOps Implementation",Mindtree Internship
+Ritu Singh,ece,80.6,84.5,6.8,0,KPIT Technologies, Python,"Sentiment Analysis Model, E-commerce Platform",Persistent Systems Internship
+Sameer Gupta,eee,74.2,95,7.6,0,Wipro Technologies, JavaScript,"Bug Tracking System, UI Redesign for an App",L&T Technology Services Internship
+Nisha Yadav,cse,80.7,85.6,6.5,0,Cognizant, SQL,"CRM Software, Inventory Management System",Hexaware Technologies Internship
+Deepak Verma,it,85,85.6,7.2,0,Tech Mahindra,C,"Cloud Migration Project, Data Analysis Tool",Mindfire Solutions Internship
+Ram,ece,81,82.7,6.2,0,KPIT Technologies, Ruby,"E-commerce Platform, Mobile Task Management App","Cognizant Internship,  Data Science Certification"
+Shahul,eee,87.2,88,7,2,Tech Mahindra, JavaScript,"Inventory Management System, UI/UX Redesign",Techjini Internship
+Charan,cse,77.5,86.5,6.6,0,Wipro Technologies, Java,"Customer Data Analysis, Database Optimization Tool","Mphasis Internship,  CompTIA Cloud+"
+yamini,it,73.2,80.5,7.5,0,Tech Mahindra, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Quinnox Internship,  PHP Certification"
+suresh,ece,92.5,89.2,6.3,0,Hexaware Technologies, SQL,"Software Testing Framework, Cloud Migration Project",Birlasoft Internship
+ltiman,eee,96.1,81.8,6.7,0,Infosys, PHP,"E-commerce Website Development, Data Analysis Tool",KPIT Technologies Internship
+manu,cse,82,87.3,4,0,Wipro Technologies, JavaScript,"Finance Management App, UI Redesign for Web App",Sonata Software Internship
+saanu,it,94.6,84.2,7.4,0,Infosys,bootstrap,"Automotive Diagnostics Software, Embedded System for Vehicles",Syntel Internship
+sharan,ece,71,87.7,6.7,0,Hexaware Technologies, Ruby,"Content Management System, Mobile Task Management App",Coforge Internship
+abi,eee,86,79.5,7.3,0,Cognizant, JavaScript,"Bug Tracking System, Database Optimization Tool",CSS Corp Internship
+keerthi,cse,76.5,86.2,6.3,0,Hexaware Technologies, SQL,"Sales Forecasting System, Cloud Migration Project",L&T Infotech Internship
+jothi,it,82.5,81.3,7.1,0,Birlasoft, JavaScript,"Website Redesign, UI/UX Redesign for Web App","Infosys Internship,  Java Certification"
+mayuri,ece,93,88.5,6.8,1,css corp,C,"Inventory Management System, Database Optimization Tool","Wipro Internship,  CompTIA Security+"
+mohini,eee,93,80.2,7.6,1,css corp, Python,"E-commerce Website Development, Student Database Management",Tech Mahindra Internship
+karthik,cse,74,86.3,6.5,0,L&T Infotech, SQL,"Inventory Management System, Network Security Tool",HCL Technologies Internship
+yuvaraj,it,72.5,79,7.2,0,KPIT Technologies, JavaScript,"Food Delivery App, Travel Experience App",L&T Infotech Internship
+yuva,ece,91.6,87,6.2,0,Wipro Technologies, PHP,"Sales Forecasting System, Cloud Migration Project","Infosys Internship,  Java Certification"
+ranjitha,eee,80.2,81.7,7,0,Cognizant, Java,"Online Voting System, DevOps Implementation",
+rani,cse,93,87.6,6.6,0,KPIT Technologies, Python,"Sentiment Analysis Model, E-commerce Platform","Wipro Internship,  CompTIA Security+"
+hema,it,81.5,79.4,9.1,0,Tech Mahindra, JavaScript,"Bug Tracking System, UI Redesign for an App",Tech Mahindra Internship
+hemaraj,ece,83.7,84.5,8,0,Infosys, SQL,"CRM Software, Inventory Management System",HCL Technologies Internship
+parvathi,eee,76,90.3,7,0,Wipro Technologies, Python,"Cloud Migration Project, Data Analysis Tool",L&T Infotech Internship
+aarthi,cse,87,85.6,8,0,Cognizant, Ruby,"E-commerce Platform, Mobile Task Management App","Mphasis Internship, Machine Learning Certification"
+Aparna Verma,it,85,82.7,9.4,0,Wipro Technologies,bootstrap,"Inventory Management System, UI/UX Redesign",Mindtree Internship
+Arjun Saini,ece,80,88,7.5,0,KPIT Technologies, Java,"Customer Data Analysis, Database Optimization Tool",Persistent Systems Internship
+Ritu Singh,eee,84.2,86.5,9.4,0,Tech Mahindra, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",L&T Technology Services Internship
+Sameer Gupta,cse,81.5,80.5,8.6,0,KPIT Technologies, SQL,"Software Testing Framework, Cloud Migration Project",Hexaware Technologies Internship
+Nisha Yadav,it,74.2,89.2,6,0,Wipro Technologies,C,"E-commerce Website Development, Data Analysis Tool",Mindfire Solutions Internship
+Deepak Verma,ece,81.6,81.8,5,0,Cognizant, JavaScript,"Finance Management App, UI Redesign for Web App",CSS Corp Internship
+Kirti Kapoor,eee,92.5,87.3,9.6,0,Tech Mahindra, Java,"Automotive Diagnostics Software, Embedded System for Vehicles",L&T Infotech Internship
+Ram,cse,80.5,84.2,7.2,0,KPIT Technologies,Html,"Content Management System, Mobile Task Management App","Infosys Internship,  Java Certification"
+Shahul,it,75.2,87.7,6.8,3,Tech Mahindra, JavaScript,"Bug Tracking System, Database Optimization Tool","Wipro Internship,  CompTIA Security+"
+Charan,ece,80.3,79.5,7.5,0,Wipro Technologies, SQL,"Sales Forecasting System, Cloud Migration Project",Tech Mahindra Internship
+yamini,eee,80.4,86.2,7.1,0,Tech Mahindra, JavaScript,"Website Redesign, UI/UX Redesign for Web App",HCL Technologies Internship
+suresh,cse,93.5,81.3,6.5,0,Cognizant, Java,"Inventory Management System, Database Optimization Tool",L&T Infotech Internship
+rituram,cse,82.5,85.6,7.8,0,Tech Mahindra, Python,"E-commerce Website Development, Student Database Management","Mphasis Internship, Machine Learning Certification"
+Ram,it,80.2,85.6,6.9,0,Wipro Technologies, SQL,"Inventory Management System, Network Security Tool",Mindtree Internship
+Kiran,ece,75.2,82.7,7.4,1,css corp, JavaScript,"Inventory Management System, Network Security Tool",Persistent Systems Internship
+Meenakshi,eee,88,88,6.7,0,Cognizant, PHP,"E-commerce Website Development, Student Database Management",L&T Technology Services Internship
+parvathi,ece,85.2,86.5,7.3,0,Wipro Technologies, Java,"Inventory Management System, Network Security Tool",Hexaware Technologies Internship
+aarthi,eee,82,80.5,6.3,0,Cognizant, Python,"Food Delivery App, Travel Experience App",Mindfire Solutions Internship
+aarthka,cse,87.4,89.2,7.1,0,KPIT Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project","Cognizant Internship,  Data Science Certification"
+Abhishek Gupta,it,80.5,81.8,6.8,0,Tech Mahindra, SQL,"Online Voting System, DevOps Implementation",Techjini Internship
+Priyanka Kapoor,cse,78.2,87.3,7.6,0,Infosys,bootstrap,"Sentiment Analysis Model, E-commerce Platform","Mphasis Internship,  CompTIA Cloud+"
+Jatin Verma,it,83.2,84.2,6.5,0,Wipro Technologies, Ruby,"Bug Tracking System, UI Redesign for an App","Quinnox Internship,  PHP Certification"
+Kavita Sharma,ece,84.5,87.7,7.2,0,Cognizant, JavaScript,"CRM Software, Inventory Management System",Birlasoft Internship
+Alok Yadav,eee,80.5,79.5,7.2,0,Wipro Technologies, Java,"Cloud Migration Project, Data Analysis Tool",KPIT Technologies Internship
+Meenakshi Singh,cse,7.4,86.2,6.8,0,KPIT Technologies, JavaScript,"E-commerce Platform, Mobile Task Management App",Sonata Software Internship
+Rishabh Kapoor,it,80.1,81.3,7.5,0,Tech Mahindra, SQL,"Inventory Management System, UI/UX Redesign",Syntel Internship
+Aparna Verma,cse,7.6,88.5,7.1,0,KPIT Technologies, PHP,"Customer Data Analysis, Database Optimization Tool",Coforge Internship
+Arjun Saini,it,89.9,80.2,6.5,0,Wipro Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",CSS Corp Internship
+Ritu Singh,ece,77.5,86.3,7.8,0,Cognizant, Java,"Software Testing Framework, Cloud Migration Project",L&T Infotech Internship
+Sameer Gupta,eee,81,79,6.9,0,Tech Mahindra, Ruby,"E-commerce Website Development, Data Analysis Tool","Infosys Internship,  Java Certification"
+Nisha Yadav,cse,77.2,87,7.4,0,KPIT Technologies,Html,"Finance Management App, UI Redesign for Web App",
+Deepak Verma,cse,92.3,81.7,6.7,0,Tech Mahindra, SQL,"Automotive Diagnostics Software, Embedded System for Vehicles","Wipro Internship,  CompTIA Security+"
+Kirti Kapoor,it,73.5,87.6,7.3,0,Wipro Technologies, JavaScript,"Content Management System, Mobile Task Management App",Tech Mahindra Internship
+Ram,ece,81.5,79.4,6.3,0,Tech Mahindra, Java,"Bug Tracking System, Database Optimization Tool",HCL Technologies Internship
+Shahul,eee,97.4,84.5,7.1,0,Cognizant, Python,"Sales Forecasting System, Cloud Migration Project",L&T Infotech Internship
+Charan,it,82,90.3,6.8,0,Tech Mahindra, SQL,"Website Redesign, UI/UX Redesign for Web App","Infosys Internship,  Java Certification"
+yamini,it,75,85.6,7.6,0,Wipro Technologies, JavaScript,"Inventory Management System, Database Optimization Tool",
+suresh,ece,80.1,82.7,6.5,1,css corp, PHP,"E-commerce Website Development, Student Database Management","Wipro Internship,  CompTIA Security+"
+ltiman,it,78.5,88,7.2,0,Cognizant,bootstrap,"Inventory Management System, Network Security Tool",Tech Mahindra Internship
+manu,cse,81.5,86.5,6.2,0,Infosys, Python,"Food Delivery App, Travel Experience App",HCL Technologies Internship
+saanu,cse,76,80.5,7,0,Birlasoft, JavaScript,"Sales Forecasting System, Cloud Migration Project",L&T Infotech Internship
+sharan,eee,80.9,89.2,6.6,1,css corp, SQL,"Online Voting System, DevOps Implementation","Mphasis Internship, Machine Learning Certification"
+abi,cse,76.8,81.8,7.5,0,KPIT Technologies, Python,"Sentiment Analysis Model, E-commerce Platform",Mindtree Internship
+keerthi,it,91,87.3,6.3,0,Wipro Technologies, Ruby,"Bug Tracking System, UI Redesign for an App",Persistent Systems Internship
+jothi,cse,77,84.2,6.7,0,Cognizant, JavaScript,"CRM Software, Inventory Management System",L&T Technology Services Internship
+mayuri,it,92.5,87.7,4,0,KPIT Technologies, Java,"Cloud Migration Project, Data Analysis Tool",Hexaware Technologies Internship
+mohini,ece,97.2,79.5,7.4,0,Tech Mahindra, JavaScript,"E-commerce Platform, Mobile Task Management App",Mindfire Solutions Internship
+karthik,eee,94.5,86.2,6.7,0,Infosys, SQL,"Inventory Management System, UI/UX Redesign","Cognizant Internship,  Data Science Certification"
+yuvaraj,cse,83,81.3,7.3,0,Wipro Technologies, PHP,"Customer Data Analysis, Database Optimization Tool",Techjini Internship
+yuva,it,92,85.6,6.3,0,Cognizant, JavaScript,"Location-Based Services App, UI Redesign for Mobile App","Mphasis Internship,  CompTIA Cloud+"
+ranjitha,ece,82,82.7,7.1,0,Wipro Technologies, Java,"Software Testing Framework, Cloud Migration Project","Quinnox Internship,  PHP Certification"
+Rahul Sharma,eee,81.5,86.3,6.6,0,Tech Mahindra, PHP,"Sales Forecasting System, Cloud Migration Project",L&T Infotech Internship
+Priya Patel,cse,76,79,9.1,0,Wipro Technologies, Java,"Online Voting System, DevOps Implementation","Infosys Internship,  Java Certification"
+Karan Mehta,it,80.9,87,8,0,css corp, Python,"Sentiment Analysis Model, E-commerce Platform","Infosys Internship,  Java Certification"
+Pooja Gupta,ece,76.8,81.7,7,0,Cognizant, JavaScript,"Bug Tracking System, UI Redesign for an App",
+Ankit Verma,eee,91,87.6,8,0,Wipro Technologies, SQL,"CRM Software, Inventory Management System","Wipro Internship,  CompTIA Security+"
+Sneha Singh,cse,77,79.4,9.4,1,KPIT Technologies,Html,"Cloud Migration Project, Data Analysis Tool",Tech Mahindra Internship
+Rohit Saini,it,92.5,84.5,7.5,0,Tech Mahindra,bootstrap,"E-commerce Platform, Mobile Task Management App",HCL Technologies Internship
+Simran Yadav,ece,97.2,90.3,7.2,0,KPIT Technologies, JavaScript,"Inventory Management System, UI/UX Redesign",L&T Infotech Internship
+Abhishek Gupta,eee,94.5,85.6,6.8,0,Wipro Technologies, Java,"Customer Data Analysis, Database Optimization Tool","Mphasis Internship, Machine Learning Certification"
+Priyanka Kapoor,cse,83,82.7,7.5,1,Cognizant, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",Mindtree Internship
+Jatin Verma,it,92,88,7.1,0,Tech Mahindra, SQL,"Software Testing Framework, Cloud Migration Project",Persistent Systems Internship
+Kavita Sharma,ece,82,86.5,6.5,0,KPIT Technologies, PHP,"E-commerce Website Development, Data Analysis Tool",L&T Technology Services Internship
+Alok Yadav,eee,92.3,80.5,7.8,0,Tech Mahindra, JavaScript,"Finance Management App, UI Redesign for Web App",Hexaware Technologies Internship
+Meenakshi Singh,cse,73.5,89.2,6.9,0,Wipro Technologies, Java,"Automotive Diagnostics Software, Embedded System for Vehicles",Mindfire Solutions Internship
+Rishabh Kapoor,ece,81.5,81.8,7.4,0,Tech Mahindra, Ruby,"Content Management System, Mobile Task Management App","Cognizant Internship,  Data Science Certification"
+Aparna Verma,eee,87.4,87.3,6.7,0,Hexaware Technologies,C,"Bug Tracking System, Database Optimization Tool",Techjini Internship
+Arjun Saini,cse,82,84.2,7.3,0,Infosys, SQL,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship,  CompTIA Cloud+"
+Ritu Singh,it,75,87.7,6.3,0,Wipro Technologies, JavaScript,"Website Redesign, UI/UX Redesign for Web App","Quinnox Internship,  PHP Certification"
+Sameer Gupta,ece,80.1,79.5,7.1,0,Infosys, Java,"Inventory Management System, Database Optimization Tool",Birlasoft Internship
+Nisha Yadav,eee,84.5,86.2,6.8,0,Hexaware Technologies, Python,"E-commerce Website Development, Student Database Management",KPIT Technologies Internship
+Deepak Verma,cse,81.5,81.3,7.6,0,Cognizant, SQL,"Inventory Management System, Network Security Tool",Sonata Software Internship
+Kirti Kapoor,it,76,85.6,6.5,0,Hexaware Technologies, JavaScript,"Food Delivery App, Travel Experience App",Syntel Internship
+Arjun Saini,ece,80.9,82.7,7.2,0,Birlasoft, PHP,"Sales Forecasting System, Cloud Migration Project",Coforge Internship
+Ritu Singh,eee,76.8,88,6.2,0,css corp,bootstrap,"Online Voting System, DevOps Implementation",CSS Corp Internship
+Sameer Gupta,cse,91,86.5,7,0,css corp, Python,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+Nisha Yadav,it,77,80.5,6.6,0,L&T Infotech,C,"Bug Tracking System, UI Redesign for an App","Infosys Internship,  Java Certification"
+Deepak Verma,ece,92.5,89.2,7.5,0,KPIT Technologies, SQL,"CRM Software, Inventory Management System","Wipro Internship,  CompTIA Security+"
+Kirti Kapoor,eee,87.2,81.8,6.3,0,Wipro Technologies, Python,"Cloud Migration Project, Data Analysis Tool",Tech Mahindra Internship
+Rahul Sharma,cse,90.5,87.3,6.7,0,Cognizant, Ruby,"E-commerce Platform, Mobile Task Management App",HCL Technologies Internship
+Priya Patel,it,83,84.2,4,0,KPIT Technologies, JavaScript,"Inventory Management System, UI/UX Redesign",L&T Infotech Internship
+Karan Mehta,ece,92,87.7,7.4,0,Tech Mahindra, Java,"Customer Data Analysis, Database Optimization Tool","Mphasis Internship, Machine Learning Certification"
+Pooja Gupta,eee,82,79.5,6.7,0,Infosys, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",Mindtree Internship
+Ankit Verma,cse,83.2,86.2,7.3,1,Wipro Technologies, SQL,"Software Testing Framework, Cloud Migration Project",Persistent Systems Internship
+Sneha Singh,it,779,81.3,6.3,0,Cognizant,Html,"E-commerce Website Development, Data Analysis Tool",L&T Technology Services Internship
+Rohit Saini,ece,96.3,88.5,7.1,0,Wipro Technologies, JavaScript,"Finance Management App, UI Redesign for Web App",Hexaware Technologies Internship
+Simran Yadav,eee,70.4,80.2,6.8,0,KPIT Technologies, Java,"Automotive Diagnostics Software, Embedded System for Vehicles",Mindfire Solutions Internship
+Abhishek Gupta,cse,89,86.3,7.6,0,Tech Mahindra, Ruby,"Content Management System, Mobile Task Management App","Cognizant Internship,  Data Science Certification"
+Priyanka Kapoor,it,73.6,79,6.5,0,KPIT Technologies, JavaScript,"Bug Tracking System, Database Optimization Tool",Techjini Internship
+Jatin Verma,ece,95.6,87,7.2,0,Wipro Technologies, SQL,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship,  CompTIA Cloud+"
+Kavita Sharma,eee,73.5,81.7,6.2,0,Cognizant,bootstrap,"Website Redesign, UI/UX Redesign for Web App","Quinnox Internship,  PHP Certification"
+Alok Yadav,cse,89.5,87.6,7,0,Tech Mahindra,C,"Inventory Management System, Database Optimization Tool",Birlasoft Internship
+saanu,it,86.5,79.4,6.6,0,KPIT Technologies, Python,"E-commerce Website Development, Student Database Management",KPIT Technologies Internship
+sharan,ece,80.6,84.5,9.1,0,KPIT Technologies, SQL,"Inventory Management System, Network Security Tool",Sonata Software Internship
+abi,eee,74.2,95,8,0,Wipro Technologies, Python,"Inventory Management System, Network Security Tool",Syntel Internship
+keerthi,cse,80.7,85.6,7,0,Cognizant, SQL,"E-commerce Website Development, Student Database Management",Coforge Internship
+jothi,it,85,85.6,8,0,KPIT Technologies, JavaScript,"Inventory Management System, Network Security Tool",CSS Corp Internship
+mayuri,ece,81,82.7,9.4,0,Tech Mahindra, PHP,"Food Delivery App, Travel Experience App",L&T Infotech Internship
+mohini,eee,87.2,88,7.5,0,Infosys, Java,"Sales Forecasting System, Cloud Migration Project","Infosys Internship,  Java Certification"
+karthik,cse,77.5,86.5,9.4,0,Wipro Technologies, Python,"Online Voting System, DevOps Implementation",
+yuvaraj,it,73.2,80.5,8.6,0,Cognizant,C,"Sentiment Analysis Model, E-commerce Platform","Wipro Internship,  CompTIA Security+"
+yuva,ece,92.5,89.2,6,0,Wipro Technologies, SQL,"Bug Tracking System, UI Redesign for an App",Tech Mahindra Internship
+ranjitha,eee,96.1,81.8,5,0,KPIT Technologies, Python,"CRM Software, Inventory Management System",HCL Technologies Internship
+rani,cse,82,87.3,9.6,0,Tech Mahindra, Ruby,"Cloud Migration Project, Data Analysis Tool",L&T Infotech Internship
+hema,cse,94.6,84.2,7.2,1,KPIT Technologies, JavaScript,"E-commerce Platform, Mobile Task Management App","Infosys Internship,  Java Certification"
+hemaraj,it,71,87.7,6.8,1,Wipro Technologies, Java,"Inventory Management System, UI/UX Redesign",
+parvathi,ece,86,79.5,7.5,0,Cognizant, JavaScript,"Customer Data Analysis, Database Optimization Tool","Wipro Internship,  CompTIA Security+"
+aarthi,eee,76.5,86.2,7.1,0,Tech Mahindra, SQL,"Location-Based Services App, UI Redesign for Mobile App",Tech Mahindra Internship
+Aparna Verma,ece,82.5,81.3,6.5,0,KPIT Technologies,bootstrap,"Software Testing Framework, Cloud Migration Project",HCL Technologies Internship
+Arjun Saini,eee,93,88.5,7.8,0,Tech Mahindra,Html,"E-commerce Website Development, Data Analysis Tool",L&T Infotech Internship
+Ritu Singh,cse,93,80.2,6.9,0,Wipro Technologies, Java,"Finance Management App, UI Redesign for Web App","Mphasis Internship, Machine Learning Certification"
+Sameer Gupta,it,74,86.3,7.4,0,Tech Mahindra, Ruby,"Automotive Diagnostics Software, Embedded System for Vehicles",Mindtree Internship
+Nisha Yadav,cse,72.5,79,6.7,0,Cognizant, JavaScript,"Content Management System, Mobile Task Management App",Persistent Systems Internship
+Deepak Verma,it,91.6,87,7.3,0,Tech Mahindra, SQL,"Bug Tracking System, Database Optimization Tool",L&T Technology Services Internship
+Kirti Kapoor,ece,80.2,81.7,6.3,0,Wipro Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project",Hexaware Technologies Internship
+Ram,eee,93,87.6,7.1,0,css corp, Java,"Website Redesign, UI/UX Redesign for Web App",Mindfire Solutions Internship
+Shahul,cse,81.5,79.4,6.8,0,Cognizant, Python,"Inventory Management System, Database Optimization Tool","Cognizant Internship,  Data Science Certification"
+Charan,it,83.7,84.5,7.6,0,Wipro Technologies, SQL,"E-commerce Website Development, Student Database Management",Techjini Internship
+yamini,cse,76,90.3,6.5,0,KPIT Technologies, Python,"Inventory Management System, Network Security Tool","Mphasis Internship,  CompTIA Cloud+"
+suresh,it,87,85.6,7.2,0,Tech Mahindra, SQL,"Food Delivery App, Travel Experience App","Quinnox Internship,  PHP Certification"
+rituram,ece,85,82.7,6.2,0,KPIT Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project",Birlasoft Internship
+Ram,eee,80,88,7,0,Wipro Technologies,C,"Online Voting System, DevOps Implementation",KPIT Technologies Internship
+Kiran,cse,84.2,86.5,6.6,0,Cognizant, Java,"Sentiment Analysis Model, E-commerce Platform",Sonata Software Internship
+Meenakshi,cse,81.5,80.5,7.5,0,Tech Mahindra, Python,"Bug Tracking System, UI Redesign for an App",Syntel Internship
+parvathi,it,74.2,89.2,6.3,0,KPIT Technologies, JavaScript,"CRM Software, Inventory Management System",Coforge Internship
+aarthi,ece,81.6,81.8,6.7,0,Tech Mahindra, SQL,"Cloud Migration Project, Data Analysis Tool",CSS Corp Internship
+aarthka,eee,92.5,87.3,4,0,Wipro Technologies, Python,"E-commerce Platform, Mobile Task Management App",L&T Infotech Internship
+Abhishek Gupta,it,80.5,84.2,7.4,0,Tech Mahindra, Ruby,"Inventory Management System, UI/UX Redesign","Infosys Internship,  Java Certification"
+Priyanka Kapoor,it,75.2,87.7,6.8,0,Hexaware Technologies, JavaScript,"Customer Data Analysis, Database Optimization Tool","Wipro Internship,  CompTIA Security+"
+Jatin Verma,ece,80.3,79.5,7.5,0,Infosys,bootstrap,"Location-Based Services App, UI Redesign for Mobile App",Tech Mahindra Internship
+Kavita Sharma,it,80.4,86.2,7.1,0,Wipro Technologies, JavaScript,"Software Testing Framework, Cloud Migration Project",HCL Technologies Internship
+Alok Yadav,cse,93.5,81.3,6.5,0,Infosys, SQL,"E-commerce Website Development, Student Database Management",L&T Infotech Internship
+Meenakshi Singh,cse,82.5,85.6,7.8,0,Hexaware Technologies, PHP,"Inventory Management System, Network Security Tool","Mphasis Internship, Machine Learning Certification"
+Rishabh Kapoor,eee,80.2,85.6,6.9,0,Cognizant, JavaScript,"Food Delivery App, Travel Experience App",Mindtree Internship
+Aparna Verma,cse,75.2,82.7,7.4,0,KPIT Technologies, Java,"Sales Forecasting System, Cloud Migration Project",Persistent Systems Internship
+Arjun Saini,it,88,88,6.7,0,Wipro Technologies,C,"Online Voting System, DevOps Implementation",L&T Technology Services Internship
+Ritu Singh,cse,85.2,86.5,7.3,0,Cognizant,Html,"Sentiment Analysis Model, E-commerce Platform",Hexaware Technologies Internship
+Sameer Gupta,it,82,80.5,6.3,0,KPIT Technologies, SQL,"Bug Tracking System, UI Redesign for an App",Mindfire Solutions Internship
+Nisha Yadav,ece,87.4,89.2,7.1,0,Tech Mahindra, JavaScript,"CRM Software, Inventory Management System","Cognizant Internship,  Data Science Certification"
+Deepak Verma,eee,80.5,81.8,6.8,2,Infosys, Java,"Cloud Migration Project, Data Analysis Tool",Techjini Internship
+Kirti Kapoor,cse,78.2,87.3,7.6,0,Wipro Technologies, Python,"E-commerce Platform, Mobile Task Management App","Mphasis Internship,  CompTIA Cloud+"
+Ram,it,83.2,84.2,6.5,0,Cognizant, SQL,"Inventory Management System, UI/UX Redesign","Quinnox Internship,  PHP Certification"
+Shahul,ece,84.5,87.7,7.2,0,Wipro Technologies, Python,"Customer Data Analysis, Database Optimization Tool",Birlasoft Internship
+Charan,cse,80.5,79.5,6.2,0,KPIT Technologies, SQL,"Location-Based Services App, UI Redesign for Mobile App",KPIT Technologies Internship
+yamini,it,7.4,86.2,7,0,Tech Mahindra, JavaScript,"Software Testing Framework, Cloud Migration Project",Sonata Software Internship
+suresh,ece,80.1,81.3,6.6,1,KPIT Technologies, PHP,"E-commerce Website Development, Data Analysis Tool",Syntel Internship
+ltiman,eee,7.6,88.5,7.5,0,Wipro Technologies, Java,"Finance Management App, UI Redesign for Web App",Coforge Internship
+manu,cse,89.9,80.2,6.3,0,Cognizant,bootstrap,"Automotive Diagnostics Software, Embedded System for Vehicles",CSS Corp Internship
+saanu,it,77.5,86.3,6.7,0,Tech Mahindra, JavaScript,"Content Management System, Mobile Task Management App",L&T Infotech Internship
+sharan,ece,81,79,4,0,KPIT Technologies, SQL,"Bug Tracking System, Database Optimization Tool","Infosys Internship,  Java Certification"
+abi,eee,77.2,87,7.4,0,Tech Mahindra, Python,"Sales Forecasting System, Cloud Migration Project",
+keerthi,cse,92.3,81.7,8,0,Wipro Technologies, Ruby,"Website Redesign, UI/UX Redesign for Web App","Wipro Internship,  CompTIA Security+"
+jothi,it,73.5,87.6,9,0,Tech Mahindra, JavaScript,"Inventory Management System, Database Optimization Tool",Tech Mahindra Internship
+mayuri,ece,81.5,79.4,7.4,0,Cognizant,C,"E-commerce Website Development, Student Database Management",HCL Technologies Internship
+mohini,eee,97.4,84.5,6.7,0,Tech Mahindra, JavaScript,"Inventory Management System, Network Security Tool",L&T Infotech Internship
+karthik,cse,82,90.3,7.3,0,Wipro Technologies, SQL,"Food Delivery App, Travel Experience App","Infosys Internship,  Java Certification"
+yuvaraj,it,75,85.6,6.3,0,css corp, PHP,"Sales Forecasting System, Cloud Migration Project",
+yuva,ece,80.1,82.7,7.1,0,Cognizant, JavaScript,"Online Voting System, DevOps Implementation","Wipro Internship,  CompTIA Security+"
+ranjitha,eee,78.5,88,6.8,0,Wipro Technologies, Java,"Sentiment Analysis Model, E-commerce Platform",Tech Mahindra Internship
+Rahul Sharma,cse,81.5,86.5,7.6,0,KPIT Technologies, Ruby,"Bug Tracking System, UI Redesign for an App",HCL Technologies Internship
+Priya Patel,it,76,80.5,6.5,0,Tech Mahindra, JavaScript,"CRM Software, Inventory Management System",L&T Infotech Internship
+Karan Mehta,ece,80.9,89.2,7.2,0,KPIT Technologies, SQL,"Cloud Migration Project, Data Analysis Tool","Mphasis Internship, Machine Learning Certification"
+Pooja Gupta,eee,76.8,81.8,6.2,0,Wipro Technologies,Html,"E-commerce Platform, Mobile Task Management App",Mindtree Internship
+Ankit Verma,cse,91,87.3,7,0,Cognizant, Java,"Inventory Management System, UI/UX Redesign",Persistent Systems Internship
+Sneha Singh,it,77,84.2,6.6,0,Tech Mahindra, Python,"Customer Data Analysis, Database Optimization Tool",L&T Technology Services Internship
+Rohit Saini,ece,92.5,87.7,7.5,0,KPIT Technologies, SQL,"Location-Based Services App, UI Redesign for Mobile App",Hexaware Technologies Internship
+Simran Yadav,eee,97.2,79.5,6.3,0,Tech Mahindra, Python,"Software Testing Framework, Cloud Migration Project",Mindfire Solutions Internship
+Abhishek Gupta,cse,94.5,86.2,6.7,0,Wipro Technologies, SQL,"E-commerce Website Development, Data Analysis Tool","Cognizant Internship,  Data Science Certification"
+Priyanka Kapoor,it,80.2,81.3,4,0,Tech Mahindra,C,"Finance Management App, UI Redesign for Web App",Techjini Internship
+Jatin Verma,ece,86.3,85.6,7.4,0,Hexaware Technologies, PHP,"Automotive Diagnostics Software, Embedded System for Vehicles","Mphasis Internship,  CompTIA Cloud+"
+Kavita Sharma,eee,79,82.7,6.7,0,Infosys,bootstrap,"Content Management System, Mobile Task Management App","Quinnox Internship,  PHP Certification"
+Alok Yadav,cse,87,75.2,7.3,0,Wipro Technologies, Python,"Bug Tracking System, Database Optimization Tool",Birlasoft Internship
+Meenakshi Singh,cse,81.7,80.3,6.3,0,Infosys, JavaScript,"Sales Forecasting System, Cloud Migration Project",KPIT Technologies Internship
+Rishabh Kapoor,it,87.6,80.4,7.1,0,Hexaware Technologies, SQL,"Website Redesign, UI/UX Redesign for Web App",Sonata Software Internship
+Aparna Verma,ece,79.4,93.5,6.8,0,Cognizant, Python,"Inventory Management System, Database Optimization Tool",Syntel Internship
+Arjun Saini,eee,84.5,82.5,7.6,0,Hexaware Technologies, Ruby,"E-commerce Website Development, Student Database Management",Coforge Internship
+Ritu Singh,ece,90.3,80.2,6.5,0,Birlasoft, JavaScript,"Inventory Management System, Network Security Tool",CSS Corp Internship
+Sameer Gupta,eee,85.6,75.2,7.2,0,css corp, Java,"Food Delivery App, Travel Experience App",L&T Infotech Internship
+Nisha Yadav,cse,82.7,88,6.2,0,css corp, JavaScript,"Sales Forecasting System, Cloud Migration Project","Infosys Internship,  Java Certification"
+Deepak Verma,it,88,85.2,7,0,L&T Infotech, SQL,"Online Voting System, DevOps Implementation","Wipro Internship,  CompTIA Security+"
+Kirti Kapoor,cse,86.5,82,6.6,3,KPIT Technologies, PHP,"Sentiment Analysis Model, E-commerce Platform",Tech Mahindra Internship
+Arjun Saini,it,80.5,87.4,9.1,0,Wipro Technologies, Python,"Bug Tracking System, UI Redesign for an App",HCL Technologies Internship
+Ritu Singh,ece,89.2,80.5,8,0,Cognizant, SQL,"CRM Software, Inventory Management System",L&T Infotech Internship
+Sameer Gupta,eee,81.8,78.2,7,0,KPIT Technologies, JavaScript,"Cloud Migration Project, Data Analysis Tool","Infosys Internship,  Java Certification"
+Nisha Yadav,cse,87.3,83.2,8,0,Tech Mahindra, PHP,"E-commerce Platform, Mobile Task Management App",
+Deepak Verma,it,84.2,84.5,9.4,0,Infosys, Java,"Inventory Management System, UI/UX Redesign","Wipro Internship,  CompTIA Security+"
+Kirti Kapoor,cse,87.7,80.5,7.5,1,Wipro Technologies,C,"Customer Data Analysis, Database Optimization Tool",Tech Mahindra Internship
+Rahul Sharma,it,79.5,7.4,9.4,0,Cognizant, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",HCL Technologies Internship
+Priya Patel,ece,86.2,80.1,8.6,0,Wipro Technologies, SQL,"Software Testing Framework, Cloud Migration Project",L&T Infotech Internship
+Karan Mehta,eee,81.3,7.6,6,0,KPIT Technologies,Html,"E-commerce Website Development, Data Analysis Tool","Mphasis Internship, Machine Learning Certification"
+Pooja Gupta,cse,85.6,89.9,5,0,Tech Mahindra, Ruby,"Finance Management App, UI Redesign for Web App",Mindtree Internship
+Ankit Verma,cse,85.6,77.5,9.6,0,KPIT Technologies,bootstrap,"Automotive Diagnostics Software, Embedded System for Vehicles",Persistent Systems Internship
+Sneha Singh,it,82.7,81,7.2,0,Wipro Technologies, Java,"Content Management System, Mobile Task Management App",L&T Technology Services Internship
+Rohit Saini,ece,88,77.2,6.8,0,Cognizant, JavaScript,"Bug Tracking System, Database Optimization Tool",Hexaware Technologies Internship
+Simran Yadav,eee,86.5,92.3,7.5,0,Tech Mahindra, SQL,"Sales Forecasting System, Cloud Migration Project",Mindfire Solutions Internship
+Abhishek Gupta,it,80.5,73.5,7.1,0,KPIT Technologies, PHP,"Website Redesign, UI/UX Redesign for Web App","Cognizant Internship,  Data Science Certification"
+Priyanka Kapoor,it,89.2,81.5,6.5,2,Tech Mahindra, JavaScript,"Inventory Management System, Database Optimization Tool",Techjini Internship
+Jatin Verma,ece,81.8,97.4,7.8,0,Wipro Technologies, Java,"E-commerce Website Development, Student Database Management","Mphasis Internship,  CompTIA Cloud+"
+Kavita Sharma,it,87.3,82,6.9,0,Tech Mahindra, Ruby,"Inventory Management System, Network Security Tool","Quinnox Internship,  PHP Certification"
+Alok Yadav,cse,84.2,75,7.4,0,Cognizant, JavaScript,"Inventory Management System, Network Security Tool",Birlasoft Internship
+saanu,cse,87.7,80.1,6.7,0,Tech Mahindra, SQL,"E-commerce Website Development, Student Database Management",KPIT Technologies Internship
+sharan,eee,79.5,78.5,7.3,0,Wipro Technologies, JavaScript,"Inventory Management System, Network Security Tool",Sonata Software Internship
+abi,cse,86.2,81.5,6.3,2,css corp,C,"Food Delivery App, Travel Experience App",Syntel Internship
+keerthi,it,81.3,76,7.1,0,Cognizant, Python,"Sales Forecasting System, Cloud Migration Project",Coforge Internship
+jothi,cse,88.5,80.9,6.8,0,Wipro Technologies, SQL,"Online Voting System, DevOps Implementation",CSS Corp Internship
+mayuri,it,80.2,76.8,7.6,0,Cognizant, JavaScript,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+mohini,ece,86.3,91,6.5,0,KPIT Technologies, PHP,"Bug Tracking System, UI Redesign for an App","Infosys Internship,  Java Certification"
+karthik,eee,79,77,7.2,0,Tech Mahindra,bootstrap,"CRM Software, Inventory Management System","Wipro Internship,  CompTIA Security+"
+yuvaraj,cse,87,92.5,7.2,1,Infosys, Python,"Cloud Migration Project, Data Analysis Tool",Tech Mahindra Internship
+yuva,it,81.7,97.2,6.8,0,Wipro Technologies, JavaScript,"E-commerce Platform, Mobile Task Management App",HCL Technologies Internship
+ranjitha,ece,87.6,94.5,7.5,0,Cognizant, SQL,"Inventory Management System, UI/UX Redesign",L&T Infotech Internship
+rani,cse,79.4,75.2,7.1,0,Wipro Technologies, Python,"Customer Data Analysis, Database Optimization Tool","Mphasis Internship, Machine Learning Certification"
+hema,it,84.5,80.3,6.5,0,KPIT Technologies, Ruby,"Location-Based Services App, UI Redesign for Mobile App",Mindtree Internship
+hemaraj,ece,90.3,80.4,7.8,0,Tech Mahindra, JavaScript,"Software Testing Framework, Cloud Migration Project",Persistent Systems Internship
+parvathi,eee,80.2,93.5,6.9,0,KPIT Technologies, Java,"E-commerce Website Development, Data Analysis Tool",L&T Technology Services Internship
+aarthi,cse,86.3,82.5,7.4,0,Wipro Technologies, JavaScript,"Finance Management App, UI Redesign for Web App",Hexaware Technologies Internship
+Aparna Verma,it,79,80.2,6.7,0,Cognizant, SQL,"Automotive Diagnostics Software, Embedded System for Vehicles",Mindfire Solutions Internship
+Arjun Saini,cse,87,75.2,7.3,0,Tech Mahindra,Html,"Content Management System, Mobile Task Management App","Cognizant Internship,  Data Science Certification"
+Ritu Singh,it,81.7,88,6.3,0,KPIT Technologies, JavaScript,"Bug Tracking System, Database Optimization Tool",Techjini Internship
+Sameer Gupta,ece,87.6,85.2,7.1,0,Tech Mahindra, Java,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship,  CompTIA Cloud+"
+Nisha Yadav,eee,79.4,82,6.8,0,Wipro Technologies, Ruby,"Website Redesign, UI/UX Redesign for Web App","Quinnox Internship,  PHP Certification"
+Deepak Verma,cse,84.5,87.4,7.6,0,Tech Mahindra,C,"Inventory Management System, Database Optimization Tool",Birlasoft Internship
+Kirti Kapoor,cse,90.3,80.5,6.5,0,Cognizant, SQL,"E-commerce Website Development, Student Database Management",KPIT Technologies Internship
+Ram,it,85.6,78.2,7.2,0,Tech Mahindra, JavaScript,"Inventory Management System, Network Security Tool",Sonata Software Internship
+Shahul,ece,82.7,83.2,6.2,0,Wipro Technologies, Java,"Food Delivery App, Travel Experience App",Syntel Internship
+Charan,eee,88,84.5,7,0,css corp, Python,"E-commerce Website Development, Student Database Management",Coforge Internship
+yamini,it,86.5,80.5,6.6,0,Cognizant, SQL,"Inventory Management System, Network Security Tool",CSS Corp Internship
+suresh,it,80.5,7.4,7.5,0,Infosys, JavaScript,"Food Delivery App, Travel Experience App",L&T Infotech Internship
+rituram,ece,89.2,80.1,6.3,0,Birlasoft, PHP,"Sales Forecasting System, Cloud Migration Project","Infosys Internship,  Java Certification"
+Ram,it,81.8,7.6,6.7,0,css corp, Java,"Online Voting System, DevOps Implementation",
+Kiran,cse,87.3,89.9,4,0,KPIT Technologies,bootstrap,"Sentiment Analysis Model, E-commerce Platform","Wipro Internship,  CompTIA Security+"
+Meenakshi,cse,84.2,77.5,7.4,0,Wipro Technologies, JavaScript,"Bug Tracking System, UI Redesign for an App",Tech Mahindra Internship
+parvathi,eee,87.7,81,6.7,0,Cognizant, SQL,"CRM Software, Inventory Management System",HCL Technologies Internship
+aarthi,cse,79.5,77.2,7.3,0,KPIT Technologies, Python,"Cloud Migration Project, Data Analysis Tool",L&T Infotech Internship
+aarthka,it,86.2,92.3,6.3,0,Tech Mahindra, Ruby,"E-commerce Platform, Mobile Task Management App","Mphasis Internship, Machine Learning Certification"
+Abhishek Gupta,cse,81.3,73.5,7.1,0,Infosys, JavaScript,"Inventory Management System, UI/UX Redesign",Mindtree Internship
+Priyanka Kapoor,it,85.6,81.5,6.8,0,Wipro Technologies, Java,"Customer Data Analysis, Database Optimization Tool",Persistent Systems Internship
+Jatin Verma,ece,85.6,97.4,7.6,0,Cognizant, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",L&T Technology Services Internship
+Kavita Sharma,eee,82.7,82,6.5,0,Wipro Technologies,C,"Software Testing Framework, Cloud Migration Project",Hexaware Technologies Internship
+Alok Yadav,cse,88,75,7.2,0,Cognizant, PHP,"E-commerce Website Development, Data Analysis Tool",Mindfire Solutions Internship
+Meenakshi Singh,it,86.5,80.1,6.2,0,Wipro Technologies,Html,"Finance Management App, UI Redesign for Web App","Cognizant Internship,  Data Science Certification"
+Rishabh Kapoor,ece,80.5,78.5,7,0,Cognizant, Java,"Automotive Diagnostics Software, Embedded System for Vehicles",Techjini Internship
+Aparna Verma,cse,89.2,81.5,6.6,0,KPIT Technologies, Ruby,"Content Management System, Mobile Task Management App","Mphasis Internship,  CompTIA Cloud+"
+Arjun Saini,it,81.8,76,9.1,3,Tech Mahindra, JavaScript,"Bug Tracking System, Database Optimization Tool","Quinnox Internship,  PHP Certification"
+Ritu Singh,ece,87.3,80.9,8,0,Infosys, SQL,"Sales Forecasting System, Cloud Migration Project",Birlasoft Internship
+Sameer Gupta,eee,84.2,76.8,7,0,Wipro Technologies, JavaScript,"Website Redesign, UI/UX Redesign for Web App",KPIT Technologies Internship
+Nisha Yadav,cse,87.7,91,8,0,Cognizant, Java,"Inventory Management System, Database Optimization Tool",Sonata Software Internship
+Deepak Verma,it,79.5,77,9.4,0,Wipro Technologies, Python,"E-commerce Website Development, Student Database Management",Syntel Internship
+Kirti Kapoor,ece,86.2,92.5,7.5,0,KPIT Technologies, SQL,"Inventory Management System, Network Security Tool",Coforge Internship
+Ram,eee,81.3,97.2,7.2,1,Tech Mahindra, JavaScript,"Food Delivery App, Travel Experience App",CSS Corp Internship
+Shahul,cse,88.5,94.5,6.8,0,KPIT Technologies, PHP,"Sales Forecasting System, Cloud Migration Project",L&T Infotech Internship
+Charan,it,80.2,75.2,7.5,0,Wipro Technologies,bootstrap,"Online Voting System, DevOps Implementation","Infosys Internship,  Java Certification"
+yamini,ece,86.3,80.3,7.1,0,Cognizant, Python,"Sentiment Analysis Model, E-commerce Platform","Infosys Internship,  Java Certification"
+suresh,eee,79,80.4,6.5,0,Tech Mahindra, JavaScript,"Bug Tracking System, UI Redesign for an App",
+ltiman,cse,87,93.5,7.8,0,KPIT Technologies, SQL,"CRM Software, Inventory Management System","Wipro Internship,  CompTIA Security+"
+manu,it,81.7,82.5,6.9,0,Tech Mahindra, Python,"Cloud Migration Project, Data Analysis Tool",Tech Mahindra Internship
+saanu,ece,87.6,80.2,7.4,0,Wipro Technologies, Ruby,"E-commerce Platform, Mobile Task Management App",HCL Technologies Internship
+sharan,eee,79.4,75.2,6.7,0,Tech Mahindra, JavaScript,"Inventory Management System, UI/UX Redesign",L&T Infotech Internship
+abi,cse,84.5,88,7.3,0,Cognizant, Java,"Customer Data Analysis, Database Optimization Tool","Mphasis Internship, Machine Learning Certification"
+keerthi,it,90.3,85.2,6.3,2,Tech Mahindra, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",Mindtree Internship
+jothi,ece,80.2,82,7.1,0,Wipro Technologies, SQL,"Software Testing Framework, Cloud Migration Project",Persistent Systems Internship
+mayuri,eee,86.3,87.4,6.8,0,css corp, PHP,"E-commerce Website Development, Data Analysis Tool",L&T Technology Services Internship
+mohini,cse,79,80.5,7.6,0,Cognizant, JavaScript,"Finance Management App, UI Redesign for Web App",Hexaware Technologies Internship
+karthik,it,87,78.2,6.5,0,Infosys, Java,"Automotive Diagnostics Software, Embedded System for Vehicles",Mindfire Solutions Internship
+yuvaraj,ece,81.7,83.2,7.2,0,Birlasoft, Ruby,"Content Management System, Mobile Task Management App","Cognizant Internship,  Data Science Certification"
+yuva,eee,87.6,84.5,6.2,2,css corp, JavaScript,"Bug Tracking System, Database Optimization Tool",Techjini Internship
+ranjitha,cse,79.4,80.5,7,0,KPIT Technologies, SQL,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship,  CompTIA Cloud+"
+Rahul Sharma,it,84.5,7.4,6.6,0,Wipro Technologies,C,"Website Redesign, UI/UX Redesign for Web App","Quinnox Internship,  PHP Certification"
+Priya Patel,ece,90.3,80.1,7.5,0,Cognizant, Java,"Inventory Management System, Database Optimization Tool",Birlasoft Internship
+Karan Mehta,eee,85.6,7.6,6.3,0,KPIT Technologies, Python,"E-commerce Website Development, Student Database Management",KPIT Technologies Internship
+Pooja Gupta,cse,82.7,89.9,6.7,0,Tech Mahindra,bootstrap,"Inventory Management System, Network Security Tool",Sonata Software Internship
+Ankit Verma,cse,88,77.5,4,1,Infosys, JavaScript,"Food Delivery App, Travel Experience App",Syntel Internship
+Sneha Singh,it,86.5,81,7.4,0,Wipro Technologies, PHP,"Sales Forecasting System, Cloud Migration Project",Coforge Internship
+Rohit Saini,ece,80.5,77.2,6.7,0,Cognizant, Java,"Online Voting System, DevOps Implementation",CSS Corp Internship
+Simran Yadav,eee,89.2,92.3,7.3,0,Wipro Technologies, Python,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+Abhishek Gupta,ece,81.8,73.5,6.3,0,Cognizant, JavaScript,"Bug Tracking System, UI Redesign for an App","Infosys Internship,  Java Certification"
+Priyanka Kapoor,eee,87.3,81.5,7.1,0,Wipro Technologies, SQL,"CRM Software, Inventory Management System","Wipro Internship,  CompTIA Security+"
+Jatin Verma,cse,84.2,97.4,6.8,0,Cognizant, Python,"Cloud Migration Project, Data Analysis Tool","Infosys Internship,  Java Certification"
+Kavita Sharma,it,87.7,82,7.6,0,KPIT Technologies, Ruby,"E-commerce Platform, Mobile Task Management App",
+Alok Yadav,cse,79.5,75,7.4,0,Tech Mahindra, JavaScript,"Inventory Management System, UI/UX Redesign","Wipro Internship,  CompTIA Security+"
+Meenakshi Singh,it,86.2,80.1,6.7,0,Infosys, Java,"Customer Data Analysis, Database Optimization Tool",Tech Mahindra Internship
+Rishabh Kapoor,ece,81.3,78.5,7.3,0,Wipro Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",HCL Technologies Internship
+Aparna Verma,eee,85.6,81.5,6.3,0,Cognizant, SQL,"Software Testing Framework, Cloud Migration Project",L&T Infotech Internship
+Arjun Saini,cse,85.6,76,7.1,0,Wipro Technologies, PHP,"E-commerce Website Development, Data Analysis Tool","Mphasis Internship, Machine Learning Certification"
+Ritu Singh,it,82.7,80.9,6.8,0,KPIT Technologies, JavaScript,"Finance Management App, UI Redesign for Web App",Mindtree Internship
+Sameer Gupta,cse,88,76.8,7.6,0,Tech Mahindra,bootstrap,"Automotive Diagnostics Software, Embedded System for Vehicles",Persistent Systems Internship
+Nisha Yadav,it,86.5,91,6.5,0,KPIT Technologies, JavaScript,"Content Management System, Mobile Task Management App",L&T Technology Services Internship
+Deepak Verma,ece,80.5,77,7.2,0,Wipro Technologies, Java,"Bug Tracking System, Database Optimization Tool",Hexaware Technologies Internship
+Rahul Sharma,cse,86.3,72.5,6.7,1,Cognizant, JavaScript,"Content Management System, Mobile Task Management App",Hexaware Technologies Internship
+Priya Patel,it,79,91.6,7.3,0,Wipro Technologies, SQL,"Bug Tracking System, Database Optimization Tool",Mindfire Solutions Internship
+Karan Mehta,ece,87,80.2,6.3,0,KPIT Technologies, PHP,"Sales Forecasting System, Cloud Migration Project","Cognizant Internship,  Data Science Certification"
+Pooja Gupta,eee,81.7,93,7.1,0,Tech Mahindra, JavaScript,"Website Redesign, UI/UX Redesign for Web App",Techjini Internship
+Ankit Verma,cse,87.6,81.5,6.8,0,KPIT Technologies, Java,"Inventory Management System, Database Optimization Tool","Mphasis Internship,  CompTIA Cloud+"
+Sneha Singh,cse,79.4,83.7,7.6,0,Wipro Technologies,C,"E-commerce Website Development, Student Database Management","Quinnox Internship,  PHP Certification"
+Rohit Saini,it,84.5,76,6.5,0,Cognizant,Html,"Inventory Management System, Network Security Tool",Birlasoft Internship
+Simran Yadav,ece,90.3,87,7.2,0,Tech Mahindra, SQL,"Food Delivery App, Travel Experience App",KPIT Technologies Internship
+Abhishek Gupta,eee,85.6,85,6.2,0,KPIT Technologies, JavaScript,"E-commerce Website Development, Student Database Management",Sonata Software Internship
+Priyanka Kapoor,it,82.7,80,7,0,Tech Mahindra, Java,"Inventory Management System, Network Security Tool",Syntel Internship
+Jatin Verma,it,88,84.2,6.6,0,Wipro Technologies, Python,"Food Delivery App, Travel Experience App",Coforge Internship
+Kavita Sharma,ece,86.5,81.5,7.5,0,Tech Mahindra, SQL,"Sales Forecasting System, Cloud Migration Project",CSS Corp Internship
+Alok Yadav,it,80.5,74.2,6.3,0,Cognizant, JavaScript,"Online Voting System, DevOps Implementation",L&T Infotech Internship
+Meenakshi Singh,cse,89.2,81.6,6.7,0,Tech Mahindra, PHP,"Sentiment Analysis Model, E-commerce Platform","Infosys Internship,  Java Certification"
+Rishabh Kapoor,cse,81.8,92.5,4,0,Wipro Technologies, Java,"Bug Tracking System, UI Redesign for an App","Wipro Internship,  CompTIA Security+"
+Aparna Verma,eee,87.3,80.5,7.4,0,css corp, Python,"CRM Software, Inventory Management System",Tech Mahindra Internship
+Arjun Saini,cse,84.2,75.2,6.8,0,Cognizant, JavaScript,"Cloud Migration Project, Data Analysis Tool",HCL Technologies Internship
+Ritu Singh,it,87.7,80.3,7.5,0,Infosys, SQL,"E-commerce Platform, Mobile Task Management App",L&T Infotech Internship
+Sameer Gupta,cse,79.5,80.4,7.1,0,Birlasoft, Python,"Inventory Management System, UI/UX Redesign","Mphasis Internship, Machine Learning Certification"
+Nisha Yadav,it,86.2,93.5,6.5,0,css corp, Ruby,"Customer Data Analysis, Database Optimization Tool",Mindtree Internship
+Deepak Verma,ece,81.3,82.5,7.8,0,KPIT Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",Persistent Systems Internship
+Kirti Kapoor,eee,85.6,80.2,6.9,0,Wipro Technologies,bootstrap,"Software Testing Framework, Cloud Migration Project",L&T Technology Services Internship
+Arjun Saini,cse,82.7,75.2,7.4,0,Cognizant, JavaScript,"E-commerce Website Development, Data Analysis Tool",Hexaware Technologies Internship
+Ritu Singh,it,75.2,88,6.7,0,KPIT Technologies, SQL,"Finance Management App, UI Redesign for Web App",Mindfire Solutions Internship
+Sameer Gupta,ece,80.3,85.2,7.3,0,Tech Mahindra,C,"Automotive Diagnostics Software, Embedded System for Vehicles","Cognizant Internship,  Data Science Certification"
+Nisha Yadav,cse,80.4,82,6.3,0,Infosys, JavaScript,"Content Management System, Mobile Task Management App",Techjini Internship
+Deepak Verma,it,93.5,87.4,7.1,0,Wipro Technologies, Java,"Bug Tracking System, Database Optimization Tool","Mphasis Internship,  CompTIA Cloud+"
+Kirti Kapoor,ece,82.5,80.5,6.8,0,Cognizant, Ruby,"Sales Forecasting System, Cloud Migration Project","Quinnox Internship,  PHP Certification"
+Rahul Sharma,eee,80.2,78.2,7.6,0,Wipro Technologies, JavaScript,"Website Redesign, UI/UX Redesign for Web App",Birlasoft Internship
+Priya Patel,cse,75.2,83.2,6.5,0,Tech Mahindra, SQL,"Inventory Management System, Database Optimization Tool",KPIT Technologies Internship
+Karan Mehta,it,88,84.5,7.2,0,Wipro Technologies, JavaScript,"E-commerce Website Development, Student Database Management",Sonata Software Internship
+Pooja Gupta,ece,85.2,80.5,6.2,0,css corp, Java,"Inventory Management System, Network Security Tool",Syntel Internship
+Ankit Verma,eee,82,7.4,7,0,Cognizant, Python,"Food Delivery App, Travel Experience App",Coforge Internship
+Sneha Singh,cse,87.4,80.1,6.6,0,Wipro Technologies,Html,"Sales Forecasting System, Cloud Migration Project",CSS Corp Internship
+Rohit Saini,it,80.5,7.6,7.5,0,KPIT Technologies,bootstrap,"Online Voting System, DevOps Implementation",L&T Infotech Internship
+Simran Yadav,ece,78.2,89.9,6.3,3,Tech Mahindra, PHP,"Sentiment Analysis Model, E-commerce Platform","Infosys Internship,  Java Certification"
+Abhishek Gupta,eee,83.2,77.5,6.7,0,KPIT Technologies, Java,"Bug Tracking System, UI Redesign for an App",
+Priyanka Kapoor,cse,84.5,81,4,0,Wipro Technologies, Python,"CRM Software, Inventory Management System","Wipro Internship,  CompTIA Security+"
+Jatin Verma,it,80.5,77.2,7.4,0,Cognizant, JavaScript,"Cloud Migration Project, Data Analysis Tool",Tech Mahindra Internship
+Kavita Sharma,ece,7.4,92.3,8,0,Tech Mahindra, SQL,"E-commerce Platform, Mobile Task Management App",HCL Technologies Internship
+Alok Yadav,eee,80.1,73.5,9,0,KPIT Technologies, Python,"Inventory Management System, UI/UX Redesign",L&T Infotech Internship
+Meenakshi Singh,cse,7.6,81.5,7.4,1,Tech Mahindra, Ruby,"Customer Data Analysis, Database Optimization Tool","Mphasis Internship, Machine Learning Certification"
+Rishabh Kapoor,it,89.9,97.4,6.7,0,Wipro Technologies, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",Mindtree Internship
+Aparna Verma,ece,77.5,82,7.3,0,Tech Mahindra, Java,"Software Testing Framework, Cloud Migration Project",Persistent Systems Internship
+Arjun Saini,eee,81,75,6.3,0,Hexaware Technologies, JavaScript,"E-commerce Website Development, Data Analysis Tool",L&T Technology Services Internship
+Ritu Singh,cse,77.2,80.1,7.1,0,Infosys, SQL,"Finance Management App, UI Redesign for Web App",Hexaware Technologies Internship
+Sameer Gupta,it,92.3,78.5,6.8,0,Wipro Technologies, PHP,"Automotive Diagnostics Software, Embedded System for Vehicles",Mindfire Solutions Internship
+Nisha Yadav,ece,73.5,81.5,7.6,0,Infosys, JavaScript,"Content Management System, Mobile Task Management App","Cognizant Internship,  Data Science Certification"
+Deepak Verma,eee,81.5,76,6.5,0,Hexaware Technologies, Java,"Bug Tracking System, Database Optimization Tool",Techjini Internship
+Kirti Kapoor,cse,97.4,80.9,7.2,0,Cognizant,bootstrap,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship,  CompTIA Cloud+"
+Ram,it,82,76.8,6.2,0,Hexaware Technologies, JavaScript,"Website Redesign, UI/UX Redesign for Web App","Quinnox Internship,  PHP Certification"
+Shahul,ece,75,91,7,2,Birlasoft, SQL,"Inventory Management System, Database Optimization Tool",Birlasoft Internship
+Charan,eee,80.1,77,6.6,0,css corp, JavaScript,"E-commerce Website Development, Student Database Management",KPIT Technologies Internship
+yamini,cse,78.5,92.5,7.5,0,css corp, Java,"Inventory Management System, Network Security Tool",Sonata Software Internship
+suresh,cse,81.5,97.2,6.3,0,L&T Infotech, Python,"Food Delivery App, Travel Experience App",Syntel Internship
+rituram,it,76,94.5,6.7,0,KPIT Technologies, SQL,"Sales Forecasting System, Cloud Migration Project",Coforge Internship
+Ram,ece,80.9,80.2,4,0,Wipro Technologies, JavaScript,"Online Voting System, DevOps Implementation",CSS Corp Internship
+Kiran,eee,76.8,86.3,7.4,2,Cognizant, PHP,"Sentiment Analysis Model, E-commerce Platform",L&T Infotech Internship
+Meenakshi,ece,91,79,6.7,0,KPIT Technologies, Java,"Bug Tracking System, UI Redesign for an App","Infosys Internship,  Java Certification"
+Meera,eee,77,87,7.3,0,Tech Mahindra, Python,"CRM Software, Inventory Management System","Infosys Internship,  Java Certification"
+Rahul,cse,92.5,81.7,6.3,0,Infosys, JavaScript,"Cloud Migration Project, Data Analysis Tool",
+Chandran,it,97.2,87.6,7.1,0,Wipro Technologies, SQL,"E-commerce Platform, Mobile Task Management App","Wipro Internship,  CompTIA Security+"
+raiu,cse,94.5,79.4,6.8,0,Cognizant, Python,"Inventory Management System, UI/UX Redesign",Tech Mahindra Internship
+raja,it,75.2,84.5,7.6,1,Wipro Technologies,C,"Customer Data Analysis, Database Optimization Tool",HCL Technologies Internship
+maran,ece,80.3,90.3,6.5,0,KPIT Technologies,Html,"Location-Based Services App, UI Redesign for Mobile App",L&T Infotech Internship
+Krishna,eee,80.4,85.6,7.2,0,Tech Mahindra, Java,"Software Testing Framework, Cloud Migration Project","Mphasis Internship, Machine Learning Certification"
+Singh,cse,93.5,82.7,6.2,0,KPIT Technologies, JavaScript,"E-commerce Website Development, Data Analysis Tool",Mindtree Internship
+Kohal,it,82.5,88,7,0,Wipro Technologies,bootstrap,"Finance Management App, UI Redesign for Web App",Persistent Systems Internship
+Ramkiran,cse,80.2,86.5,6.6,0,Cognizant, PHP,"Automotive Diagnostics Software, Embedded System for Vehicles",L&T Technology Services Internship
+Chandra,it,75.2,80.5,9.1,0,Tech Mahindra, JavaScript,"Content Management System, Mobile Task Management App",Hexaware Technologies Internship
+sekar,ece,88,89.2,8,0,KPIT Technologies, Java,"Bug Tracking System, Database Optimization Tool",Mindfire Solutions Internship
+manoj,eee,85.2,81.8,7,0,KPIT Technologies, Ruby,"Content Management System, Mobile Task Management App","Cognizant Internship,  Data Science Certification"
+remuyuka,cse,82,87.3,8,0,Wipro Technologies, JavaScript,"Bug Tracking System, Database Optimization Tool",Techjini Internship
+reshu,cse,87.4,84.2,9.4,0,Cognizant, SQL,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship,  CompTIA Cloud+"
+kala,it,80.5,87.7,7.5,0,KPIT Technologies, JavaScript,"Website Redesign, UI/UX Redesign for Web App","Quinnox Internship,  PHP Certification"
+hariharan,ece,78.2,79.5,9.4,0,Tech Mahindra, Java,"Inventory Management System, Database Optimization Tool",Birlasoft Internship
+harish,eee,83.2,86.2,8.6,0,Infosys,bootstrap,"E-commerce Website Development, Student Database Management",KPIT Technologies Internship
+ranjith,it,84.5,81.3,6,0,Wipro Technologies, SQL,"Inventory Management System, Network Security Tool",Sonata Software Internship
+Sam,it,80.5,85.6,5,0,Cognizant, JavaScript,"Food Delivery App, Travel Experience App",Syntel Internship
+samuel,ece,7.4,85.6,9.6,0,Wipro Technologies, PHP,"E-commerce Website Development, Student Database Management",Coforge Internship
+Edwin,it,80.1,82.7,7.2,0,KPIT Technologies, Java,"Inventory Management System, Network Security Tool",CSS Corp Internship
+adhi,cse,7.6,88,6.8,0,Tech Mahindra, Python,"Food Delivery App, Travel Experience App",L&T Infotech Internship
+lakshmi,cse,89.9,86.5,7.5,0,KPIT Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project","Infosys Internship,  Java Certification"
+asvitha,eee,77.5,80.5,7.1,0,Wipro Technologies, SQL,"Online Voting System, DevOps Implementation","Wipro Internship,  CompTIA Security+"
+semel,cse,81,89.2,6.5,0,Cognizant, Python,"Sentiment Analysis Model, E-commerce Platform","Infosys Internship,  Java Certification"
+yogi,it,77.2,81.8,7.8,0,Tech Mahindra, Ruby,"Bug Tracking System, UI Redesign for an App",
+babu chandra,cse,92.3,87.3,6.9,0,KPIT Technologies, JavaScript,"CRM Software, Inventory Management System","Wipro Internship,  CompTIA Security+"
+sekar chandran,it,73.5,84.2,7.4,0,Tech Mahindra,C,"Cloud Migration Project, Data Analysis Tool",Tech Mahindra Internship
+renu,ece,81.5,87.7,6.7,0,Wipro Technologies,Html,"E-commerce Platform, Mobile Task Management App",HCL Technologies Internship
+niru,eee,97.4,79.5,7.3,0,Tech Mahindra, SQL,"Inventory Management System, UI/UX Redesign",L&T Infotech Internship
+sakthi,cse,82,86.2,6.3,0,Cognizant, PHP,"Customer Data Analysis, Database Optimization Tool","Mphasis Internship, Machine Learning Certification"
+abirami,it,75,81.3,7.1,0,Tech Mahindra, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",Mindtree Internship
+mufa,ece,80.1,88.5,6.8,0,Wipro Technologies, Java,"Software Testing Framework, Cloud Migration Project",Persistent Systems Internship
+gopika,cse,78.5,80.2,7.6,0,css corp, JavaScript,"E-commerce Website Development, Data Analysis Tool",L&T Technology Services Internship
+gopi,it,81.5,86.3,6.5,0,Cognizant, Java,"Finance Management App, UI Redesign for Web App",Hexaware Technologies Internship
+hariharan,ece,76,79,7.2,0,Wipro Technologies, JavaScript,"Automotive Diagnostics Software, Embedded System for Vehicles",Hexaware Technologies Internship
+harish,eee,80.9,87,7.2,0,KPIT Technologies, SQL,"Content Management System, Mobile Task Management App",Mindfire Solutions Internship
+ranjith,cse,76.8,81.7,6.8,0,Tech Mahindra, PHP,"Bug Tracking System, Database Optimization Tool","Cognizant Internship,  Data Science Certification"
+Sam,it,91,87.6,7.5,3,KPIT Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project",Techjini Internship
+samuel,cse,77,79.4,7.1,0,Wipro Technologies, Java,"Website Redesign, UI/UX Redesign for Web App","Mphasis Internship,  CompTIA Cloud+"
+Edwin,it,92.5,84.5,6.5,0,Cognizant, Ruby,"Inventory Management System, Database Optimization Tool","Quinnox Internship,  PHP Certification"
+adhi,ece,97.2,90.3,7.8,0,Tech Mahindra, JavaScript,"E-commerce Website Development, Student Database Management",Birlasoft Internship
+lakshmi,eee,94.5,80.2,6.9,0,KPIT Technologies, SQL,"Inventory Management System, Network Security Tool",KPIT Technologies Internship
+asvitha,cse,75.2,86.3,7.4,0,Tech Mahindra,bootstrap,"Food Delivery App, Travel Experience App",Sonata Software Internship
+semel,cse,80.3,79,6.7,1,Wipro Technologies,C,"Sales Forecasting System, Cloud Migration Project",Syntel Internship
+yogi,it,80.4,80.2,7.3,0,Tech Mahindra, Python,"Online Voting System, DevOps Implementation",Coforge Internship
+babu chandra,ece,93.5,75.2,6.3,0,Hexaware Technologies, SQL,"Sentiment Analysis Model, E-commerce Platform",CSS Corp Internship
+sekar chandran,eee,82.5,88,7.1,0,Infosys, JavaScript,"Bug Tracking System, UI Redesign for an App",L&T Infotech Internship
+renu,it,80.2,85.2,6.8,0,Wipro Technologies, PHP,"CRM Software, Inventory Management System","Infosys Internship,  Java Certification"
+niru,it,75.2,82,7.6,0,Infosys, Java,"Cloud Migration Project, Data Analysis Tool","Wipro Internship,  CompTIA Security+"
+sakthi,ece,88,87.4,6.5,0,Hexaware Technologies, Python,"E-commerce Platform, Mobile Task Management App",Tech Mahindra Internship
+abirami,it,85.2,80.5,7.2,0,Cognizant, JavaScript,"Inventory Management System, UI/UX Redesign",HCL Technologies Internship
+mufa,cse,82,78.2,6.2,0,KPIT Technologies, SQL,"Customer Data Analysis, Database Optimization Tool",L&T Infotech Internship
+gopika,cse,87.4,83.2,7,0,Wipro Technologies, Python,"Location-Based Services App, UI Redesign for Mobile App","Mphasis Internship, Machine Learning Certification"
+gopi,eee,80.5,84.5,6.6,2,Cognizant,Html,"Software Testing Framework, Cloud Migration Project",Mindtree Internship
+barath,cse,78.2,80.5,7.5,0,KPIT Technologies, JavaScript,"E-commerce Website Development, Data Analysis Tool",Persistent Systems Internship
+raj,it,83.2,7.4,6.3,0,Tech Mahindra, Java,"Finance Management App, UI Redesign for Web App",L&T Technology Services Internship
+Pooja Gupta,cse,84.5,80.1,6.7,0,Infosys, JavaScript,"Automotive Diagnostics Software, Embedded System for Vehicles",Hexaware Technologies Internship
+Ankit Verma,it,80.5,7.6,4,0,Wipro Technologies, SQL,"Content Management System, Mobile Task Management App",Mindfire Solutions Internship
+Sneha Singh,ece,7.4,89.9,7.4,0,Cognizant,bootstrap,"Bug Tracking System, Database Optimization Tool","Cognizant Internship,  Data Science Certification"
+Rohit Saini,eee,80.1,77.5,6.7,2,Wipro Technologies, JavaScript,"Sales Forecasting System, Cloud Migration Project",Techjini Internship
+Simran Yadav,cse,7.6,81,7.3,0,KPIT Technologies, Java,"Website Redesign, UI/UX Redesign for Web App","Mphasis Internship,  CompTIA Cloud+"
+Abhishek Gupta,it,89.9,77.2,6.3,0,Tech Mahindra, Ruby,"Inventory Management System, Database Optimization Tool","Quinnox Internship,  PHP Certification"
+Priyanka Kapoor,ece,77.5,92.3,7.1,0,KPIT Technologies, JavaScript,"E-commerce Website Development, Student Database Management",Birlasoft Internship
+Jatin Verma,cse,81,73.5,6.8,0,Wipro Technologies, SQL,"Inventory Management System, Network Security Tool",KPIT Technologies Internship
+Kavita Sharma,it,77.2,81.5,7.6,0,Cognizant, JavaScript,"Food Delivery App, Travel Experience App",Sonata Software Internship
+Alok Yadav,ece,92.3,97.4,6.5,1,Tech Mahindra, Java,"Sales Forecasting System, Cloud Migration Project",Syntel Internship
+Meenakshi Singh,eee,73.5,82,7.2,0,KPIT Technologies,C,"Online Voting System, DevOps Implementation",Coforge Internship
+Rishabh Kapoor,cse,81.5,75,6.2,0,Tech Mahindra, SQL,"Sentiment Analysis Model, E-commerce Platform",CSS Corp Internship
+Aparna Verma,it,97.4,80.1,7,0,Wipro Technologies, JavaScript,"Bug Tracking System, UI Redesign for an App",L&T Infotech Internship
+Arjun Saini,ece,82,78.5,6.6,0,Tech Mahindra, PHP,"CRM Software, Inventory Management System","Infosys Internship,  Java Certification"
+Ritu Singh,eee,75,81.5,9.1,0,Cognizant, Java,"Cloud Migration Project, Data Analysis Tool",
+Sameer Gupta,cse,80.1,76,8,0,Tech Mahindra, Python,"E-commerce Platform, Mobile Task Management App","Wipro Internship,  CompTIA Security+"
+Nisha Yadav,it,78.5,80.9,7,0,Wipro Technologies, JavaScript,"Inventory Management System, UI/UX Redesign",Tech Mahindra Internship
+Deepak Verma,ece,81.5,76.8,8,0,css corp, SQL,"Customer Data Analysis, Database Optimization Tool",HCL Technologies Internship
+Kirti Kapoor,eee,76,91,9.4,0,Cognizant, Python,"Location-Based Services App, UI Redesign for Mobile App",L&T Infotech Internship
+Ram,cse,80.9,77,7.5,0,Wipro Technologies, Ruby,"Software Testing Framework, Cloud Migration Project","Mphasis Internship, Machine Learning Certification"
+Shahul,it,76.8,92.5,7.2,0,KPIT Technologies, JavaScript,"E-commerce Website Development, Data Analysis Tool",Mindtree Internship
+Charan,ece,91,97.2,6.8,0,Tech Mahindra, Java,"Finance Management App, UI Redesign for Web App",Persistent Systems Internship
+yamini,eee,77,94.5,7.5,0,KPIT Technologies,bootstrap,"Automotive Diagnostics Software, Embedded System for Vehicles",L&T Technology Services Internship
+suresh,cse,86.3,80.2,7.1,0,Wipro Technologies,Html,"Content Management System, Mobile Task Management App",Hexaware Technologies Internship
+ltiman,it,79,86.3,6.5,0,Cognizant, PHP,"Bug Tracking System, Database Optimization Tool",Mindfire Solutions Internship
+manu,ece,87,79,7.8,0,Tech Mahindra, JavaScript,"Content Management System, Mobile Task Management App","Cognizant Internship,  Data Science Certification"
+saanu,eee,81.7,87,6.9,1,KPIT Technologies, Java,"Bug Tracking System, Database Optimization Tool",Techjini Internship
+sharan,cse,87.6,81.7,7.4,0,Tech Mahindra, Ruby,"Sales Forecasting System, Cloud Migration Project","Mphasis Internship,  CompTIA Cloud+"
+abi,it,79.4,87.6,6.7,0,Wipro Technologies, JavaScript,"Website Redesign, UI/UX Redesign for Web App","Quinnox Internship,  PHP Certification"
+keerthi,ece,84.5,79.4,7.3,0,Tech Mahindra, SQL,"Inventory Management System, Database Optimization Tool",Birlasoft Internship
+jothi,eee,90.3,84.5,6.3,0,Hexaware Technologies, JavaScript,"E-commerce Website Development, Student Database Management",KPIT Technologies Internship
+mayuri,cse,85.6,90.3,7.1,0,Infosys,C,"Inventory Management System, Network Security Tool",Sonata Software Internship
+mohini,it,82.7,85.6,6.8,0,Wipro Technologies, Python,"Food Delivery App, Travel Experience App",Syntel Internship
+karthik,ece,88,82.7,7.6,0,Infosys, SQL,"E-commerce Website Development, Student Database Management",Coforge Internship
+yuvaraj,eee,86.5,88,6.5,0,Hexaware Technologies, JavaScript,"Inventory Management System, Network Security Tool",CSS Corp Internship
+yuva,cse,80.5,86.5,7.2,0,Cognizant, PHP,"Food Delivery App, Travel Experience App",L&T Infotech Internship
+ranjitha,cse,89.2,80.5,6.2,0,Hexaware Technologies, Java,"Sales Forecasting System, Cloud Migration Project","Infosys Internship,  Java Certification"
+rani,it,81.8,89.2,7,0,Birlasoft,C,"Online Voting System, DevOps Implementation","Infosys Internship,  Java Certification"
+hema,ece,87.3,81.8,6.6,0,css corp, JavaScript,"Sentiment Analysis Model, E-commerce Platform",
+hemaraj,eee,84.2,87.3,7.5,0,css corp, SQL,"Bug Tracking System, UI Redesign for an App","Wipro Internship,  CompTIA Security+"
+parvathi,ece,87.7,84.2,6.3,0,L&T Infotech, Python,"CRM Software, Inventory Management System",Tech Mahindra Internship
+aarthi,eee,79.5,87.7,6.7,0,KPIT Technologies, Ruby,"Cloud Migration Project, Data Analysis Tool",HCL Technologies Internship
+aarthka,cse,86.2,79.5,4,0,Wipro Technologies, JavaScript,"E-commerce Platform, Mobile Task Management App",L&T Infotech Internship
+Abhishek Gupta,it,81.3,86.2,7.4,0,Cognizant,bootstrap,"Inventory Management System, UI/UX Redesign","Mphasis Internship, Machine Learning Certification"
+Priyanka Kapoor,cse,85.6,81.3,6.7,0,KPIT Technologies, JavaScript,"Customer Data Analysis, Database Optimization Tool",Mindtree Internship
+Jatin Verma,it,82.7,85.6,7.3,0,Tech Mahindra, SQL,"Location-Based Services App, UI Redesign for Mobile App",Persistent Systems Internship
+Kavita Sharma,ece,75.2,85.6,6.3,0,Infosys, PHP,"Software Testing Framework, Cloud Migration Project",L&T Technology Services Internship
+Alok Yadav,eee,80.3,82.7,7.1,0,Wipro Technologies, JavaScript,"E-commerce Website Development, Data Analysis Tool",Hexaware Technologies Internship
+Meenakshi Singh,cse,80.4,88,6.8,0,Cognizant, Java,"Finance Management App, UI Redesign for Web App",Mindfire Solutions Internship
+Rishabh Kapoor,it,93.5,86.5,7.6,0,Wipro Technologies, Ruby,"Automotive Diagnostics Software, Embedded System for Vehicles","Cognizant Internship,  Data Science Certification"
+Aparna Verma,cse,82.5,80.5,7.4,0,KPIT Technologies,C,"Content Management System, Mobile Task Management App",Techjini Internship
+Arjun Saini,it,80.2,89.2,6.7,0,Tech Mahindra, SQL,"Bug Tracking System, Database Optimization Tool","Mphasis Internship,  CompTIA Cloud+"
+Ritu Singh,ece,75.2,81.8,7.3,0,KPIT Technologies,bootstrap,"Sales Forecasting System, Cloud Migration Project","Quinnox Internship,  PHP Certification"
+Sameer Gupta,ece,88,87.3,6.3,0,Wipro Technologies, Java,"Website Redesign, UI/UX Redesign for Web App",Birlasoft Internship
+Nisha Yadav,eee,85.2,84.2,7.1,0,Cognizant, Python,"Inventory Management System, Database Optimization Tool",KPIT Technologies Internship
+Deepak Verma,it,82,87.7,6.8,0,Tech Mahindra, SQL,"E-commerce Website Development, Student Database Management",Sonata Software Internship
+Kirti Kapoor,it,87.4,79.5,7.6,0,KPIT Technologies, JavaScript,"Inventory Management System, Network Security Tool",Syntel Internship
+Ram,ece,80.5,86.2,6.5,0,Tech Mahindra, PHP,"Food Delivery App, Travel Experience App",Coforge Internship
+Shahul,it,78.2,81.3,7.2,0,Wipro Technologies, Java,"Sales Forecasting System, Cloud Migration Project",CSS Corp Internship
+Charan,cse,83.2,88.5,6.7,0,Tech Mahindra, Python,"Online Voting System, DevOps Implementation",L&T Infotech Internship
+yamini,cse,84.5,80.2,7.3,0,Cognizant, JavaScript,"Sentiment Analysis Model, E-commerce Platform","Infosys Internship,  Java Certification"
+suresh,eee,80.5,86.3,6.3,3,Tech Mahindra, SQL,"Bug Tracking System, UI Redesign for an App","Wipro Internship,  CompTIA Security+"
+ltiman,cse,7.4,79,7.1,0,Wipro Technologies, Python,"CRM Software, Inventory Management System","Infosys Internship,  Java Certification"
+manu,it,80.1,87,6.8,0,css corp, Ruby,"Cloud Migration Project, Data Analysis Tool",
+saanu,cse,7.6,81.7,7.6,0,Cognizant, JavaScript,"E-commerce Platform, Mobile Task Management App","Wipro Internship,  CompTIA Security+"
+sharan,it,89.9,87.6,6.5,0,Wipro Technologies, Java,"Inventory Management System, UI/UX Redesign",Tech Mahindra Internship
+abi,ece,77.5,79.4,7.2,0,Cognizant, JavaScript,"Customer Data Analysis, Database Optimization Tool",HCL Technologies Internship
+keerthi,eee,81,84.5,6.2,1,KPIT Technologies, SQL,"Location-Based Services App, UI Redesign for Mobile App",L&T Infotech Internship
+jothi,cse,77.2,90.3,7,0,Tech Mahindra,C,"Software Testing Framework, Cloud Migration Project","Mphasis Internship, Machine Learning Certification"
+mayuri,it,92.3,80.2,6.6,0,Infosys, JavaScript,"E-commerce Website Development, Data Analysis Tool",Mindtree Internship
+mohini,ece,73.5,86.3,7.5,0,Wipro Technologies, Java,"Finance Management App, UI Redesign for Web App",Persistent Systems Internship
+karthik,cse,81.5,79,6.3,0,Cognizant, JavaScript,"Automotive Diagnostics Software, Embedded System for Vehicles",L&T Technology Services Internship
+yuvaraj,it,97.4,80.2,6.7,0,Wipro Technologies, Java,"Content Management System, Mobile Task Management App",Hexaware Technologies Internship
+yuva,ece,82,75.2,4,0,KPIT Technologies,bootstrap,"Bug Tracking System, Database Optimization Tool",Hexaware Technologies Internship
+ranjitha,eee,75,88,7.4,0,Tech Mahindra, SQL,"Sales Forecasting System, Cloud Migration Project",Mindfire Solutions Internship
+rani,cse,80.1,85.2,6.8,0,KPIT Technologies, PHP,"Website Redesign, UI/UX Redesign for Web App","Cognizant Internship,  Data Science Certification"
+hema,it,78.5,82,7.5,0,Wipro Technologies, JavaScript,"Inventory Management System, Database Optimization Tool",Techjini Internship
+hemaraj,ece,81.5,87.4,7.1,2,Cognizant, Java,"E-commerce Website Development, Student Database Management","Mphasis Internship,  CompTIA Cloud+"
+parvathi,eee,76,80.5,6.5,0,Tech Mahindra, Ruby,"Inventory Management System, Network Security Tool","Quinnox Internship,  PHP Certification"
+aarthi,cse,80.9,78.2,7.8,0,KPIT Technologies, JavaScript,"Food Delivery App, Travel Experience App",Birlasoft Internship
+aarthka,it,76.8,83.2,6.9,0,Tech Mahindra, SQL,"Sales Forecasting System, Cloud Migration Project",KPIT Technologies Internship
+maalavi,ece,91,84.5,7.4,0,Wipro Technologies, JavaScript,"Online Voting System, DevOps Implementation",Sonata Software Internship
+Rahul Sharma,eee,77,80.5,6.7,0,Tech Mahindra, Java,"Sentiment Analysis Model, E-commerce Platform",Syntel Internship
+Priya Patel,cse,92.5,7.4,7.3,2,Cognizant, Python,"Bug Tracking System, UI Redesign for an App",Coforge Internship
+Karan Mehta,it,97.2,80.1,6.3,0,Tech Mahindra, SQL,"CRM Software, Inventory Management System",CSS Corp Internship
+Pooja Gupta,ece,94.5,7.6,7.1,0,Wipro Technologies, JavaScript,"Cloud Migration Project, Data Analysis Tool",L&T Infotech Internship
+Ankit Verma,eee,75.2,89.9,6.8,0,css corp, PHP,"E-commerce Platform, Mobile Task Management App","Infosys Internship,  Java Certification"
+Sneha Singh,cse,80.3,77.5,7.6,0,Cognizant, Java,"Inventory Management System, UI/UX Redesign","Wipro Internship,  CompTIA Security+"
+Rohit Saini,it,80.4,81,6.5,0,Infosys, Python,"Customer Data Analysis, Database Optimization Tool",Tech Mahindra Internship
+Simran Yadav,ece,93.5,77.2,7.2,1,Birlasoft, JavaScript,"Location-Based Services App, UI Redesign for Mobile App",HCL Technologies Internship
+Abhishek Gupta,eee,82.5,92.3,6.2,0,css corp, SQL,"Software Testing Framework, Cloud Migration Project",L&T Infotech Internship
+Priyanka Kapoor,cse,80.2,73.5,7,0,KPIT Technologies,bootstrap,"E-commerce Website Development, Data Analysis Tool","Mphasis Internship, Machine Learning Certification"
+Jatin Verma,it,75.2,81.5,6.6,0,Wipro Technologies, Ruby,"Finance Management App, UI Redesign for Web App",Mindtree Internship
+Kavita Sharma,ece,88,97.4,7.5,0,Cognizant,C,"Automotive Diagnostics Software, Embedded System for Vehicles",Persistent Systems Internship

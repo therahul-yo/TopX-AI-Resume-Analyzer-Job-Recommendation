@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"
+      type="image/x-icon"
+    />
+
+    <title>TopX - Analyze Resumes with AI👾</title>
+
+    <!-- Local CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <a href="/" class="logo">TopX👾-AI Resume Analyzer</a>
+      <div>
+        <button class="btn btn-secondary" onclick="toggleTheme()">
+          <i class="fas fa-moon"></i> Theme
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <p class="flash-{{ category }}">{{ message }}</p>
+      {% endfor %} {% endif %} {% endwith %}
+
+      <div class="auth-content">
+        <h1>Analyze Your Resume with AI</h1>
+        <p>
+          Upload your resume and get instant insights into potential job roles
+          and companies that match your skills.
+        </p>
+        <p>
+          <strong>New Feature:</strong> Identify skill gaps for your suggested
+          roles to improve your employability!
+        </p>
+        <div class="auth-buttons">
+          <button class="btn btn-primary" onclick="showForm('login')">
+            Log in
+          </button>
+          <button class="btn btn-secondary" onclick="showForm('signup')">
+            Sign up
+          </button>
+        </div>
+        <a href="#" class="try-link">Try it without an account</a>
+      </div>
+
+      <!-- Login Form -->
+      <form action="/login" method="post" class="auth-form" id="login-form">
+        <h2><i class="fas fa-sign-in-alt"></i> Log in</h2>
+        <label for="login-email">Email</label>
+        <input
+          type="email"
+          id="login-email"
+          name="user_email"
+          placeholder="Enter your email"
+          required
+        />
+        <label for="login-password">Password</label>
+        <input
+          type="password"
+          id="login-password"
+          name="password"
+          placeholder="Enter your password"
+          required
+        />
+        <div class="auth-buttons">
+          <button type="submit" class="btn btn-primary">Log in</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="hideForm('login')"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+
+      <!-- Signup Form -->
+      <form action="/register" method="post" class="auth-form" id="signup-form">
+        <h2><i class="fas fa-user-plus"></i> Sign up</h2>
+        <label for="signup-name">Name</label>
+        <input
+          type="text"
+          id="signup-name"
+          name="user_name"
+          placeholder="Enter your name"
+          required
+        />
+        <label for="signup-email">Email</label>
+        <input
+          type="email"
+          id="signup-email"
+          name="user_email"
+          placeholder="Enter your email"
+          required
+        />
+        <label for="signup-password">Password</label>
+        <input
+          type="password"
+          id="signup-password"
+          name="password"
+          placeholder="Create a password"
+          required
+        />
+        <div class="auth-buttons">
+          <button type="submit" class="btn btn-primary">Sign up</button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            onclick="hideForm('signup')"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <a href="/terms">Terms of use</a>
+      <a href="/privacy">Privacy policy</a>
+    </footer>
+
+    <script>
+      // Theme Toggle
+      function toggleTheme() {
+        document.body.classList.toggle("light-theme");
+        const themeIcon = document.querySelector(".btn-secondary i");
+        themeIcon.classList.toggle("fa-moon");
+        themeIcon.classList.toggle("fa-sun");
+        localStorage.setItem(
+          "theme",
+          document.body.classList.contains("light-theme") ? "light" : "dark"
+        );
+      }
+
+      // Load saved theme
+      if (localStorage.getItem("theme") === "light") {
+        document.body.classList.add("light-theme");
+        document
+          .querySelector(".btn-secondary i")
+          .classList.replace("fa-moon", "fa-sun");
+      }
+
+      // Form Toggle Functions
+      function showForm(formType) {
+        const loginForm = document.getElementById("login-form");
+        const signupForm = document.getElementById("signup-form");
+        const authContent = document.querySelector(".auth-content");
+
+        if (formType === "login") {
+          loginForm.classList.add("active");
+          loginForm.classList.remove("hidden");
+          signupForm.classList.remove("active");
+          signupForm.classList.add("hidden");
+        } else {
+          signupForm.classList.add("active");
+          signupForm.classList.remove("hidden");
+          loginForm.classList.remove("active");
+          loginForm.classList.add("hidden");
+        }
+        authContent.classList.add("hidden");
+      }
+
+      function hideForm(formType) {
+        const loginForm = document.getElementById("login-form");
+        const signupForm = document.getElementById("signup-form");
+        const authContent = document.querySelector(".auth-content");
+
+        if (formType === "login") {
+          loginForm.classList.remove("active");
+          loginForm.classList.add("hidden");
+        } else {
+          signupForm.classList.remove("active");
+          signupForm.classList.add("hidden");
+        }
+        authContent.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>

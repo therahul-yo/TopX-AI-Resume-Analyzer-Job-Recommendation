@@ -1,0 +1,562 @@
+/* style.css - Updated Dark Theme for AI Resume Analyzer with Flash Message and Skill Gap Styles */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --background: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #a6a6a6;
+  --accent-blue-start: #007bff;
+  --accent-blue-end: #0056b3;
+  --accent-pink: #ff69b4;
+  --button-secondary-bg: #1a1a1a;
+  --button-secondary-border: #333333;
+  --input-bg: #1a1a1a;
+  --input-border: #333333;
+  --progress-bg: #333333;
+  --progress-fill: #ffffff;
+  --font-family: "Poppins", sans-serif;
+  --transition: all 0.3s ease;
+}
+
+/* Light theme overrides */
+body.light-theme {
+  --background: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4d4d4d;
+  --button-secondary-bg: #f0f0f0;
+  --button-secondary-border: #cccccc;
+  --input-bg: #f0f0f0;
+  --input-border: #cccccc;
+  --progress-bg: #cccccc;
+  --progress-fill: #333333;
+  --accent-pink: #ff1493;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  transition: var(--transition);
+}
+
+/* Header */
+header {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 2rem);
+  z-index: 5;
+}
+
+.logo {
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.logo:hover {
+  color: var(--accent-pink);
+}
+
+header div {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Main content */
+main {
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  max-width: 600px;
+  width: 100%;
+  padding-bottom: 4rem; /* Ensure space for footer */
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 2rem 0 1rem;
+}
+
+h2 i {
+  margin-right: 0.5rem;
+  color: var(--accent-pink);
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+/* Flash Messages */
+.flash-success {
+  color: #28a745;
+  background: rgba(40, 167, 69, 0.1);
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.flash-error {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+body.light-theme .flash-success {
+  background: rgba(40, 167, 69, 0.2);
+}
+
+body.light-theme .flash-error {
+  background: rgba(220, 53, 69, 0.2);
+}
+
+/* Progress Message (upload.html) */
+#progress-message {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-top: 0.5rem;
+  transition: var(--transition);
+}
+
+/* Buttons */
+.btn {
+  padding: 0.8rem 2rem;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-block;
+  pointer-events: auto;
+  z-index: 20;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    90deg,
+    var(--accent-blue-start),
+    var(--accent-blue-end)
+  );
+  color: #ffffff;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  background: var(--button-secondary-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--button-secondary-border);
+}
+
+.btn-secondary:hover {
+  background: var(--button-secondary-border);
+  transform: scale(1.05);
+}
+
+.auth-buttons,
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 20;
+}
+
+/* Forms */
+.auth-form,
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 400px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 100;
+  transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+.auth-form.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) translateY(0);
+}
+
+.auth-form.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -50%) translateY(20px);
+}
+
+/* Adjust main content visibility for index.html */
+.auth-content {
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  z-index: 10;
+}
+
+.auth-content.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Form inputs */
+.auth-form label {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.auth-form input {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-primary);
+  font-size: 1rem;
+  margin: 0 auto;
+}
+
+.auth-form input::placeholder {
+  color: var(--text-secondary);
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--accent-pink);
+}
+
+/* Upload input */
+.upload-input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 25px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.upload-input:hover {
+  background: var(--button-secondary-border);
+  color: var(--text-primary);
+}
+
+.upload-input i {
+  margin-right: 0.5rem;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+/* Progress bar for upload (upload.html) */
+.progress-container {
+  display: none;
+  width: 100%;
+  height: 6px;
+  background: var(--progress-bg);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: var(--progress-fill);
+  transition: width 0.3s ease; /* Smoother transition for real-time updates */
+}
+
+.progress-container.active {
+  display: block;
+}
+
+/* Results list (results.html) */
+.results-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.results-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--button-secondary-bg);
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--button-secondary-border);
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  font-weight: 400;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.results-list li:hover {
+  transform: scale(1.02);
+  background: #2a2a2a;
+  color: var(--accent-pink);
+}
+
+body.light-theme .results-list li:hover {
+  background: #e6e6e6;
+  color: var(--accent-pink);
+}
+
+/* Skill gap section styling (results.html) */
+.results-list li div {
+  flex: 1;
+  text-align: right;
+}
+
+.results-list li div p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Match progress bars (results.html) */
+.match-progress {
+  width: 100px;
+  height: 8px;
+  background: var(--progress-bg);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-left: 1rem;
+}
+
+.match-progress-bar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--accent-blue-start),
+    var(--accent-blue-end)
+  );
+  transition: width 1s ease-in-out;
+}
+
+body.light-theme .match-progress {
+  background: var(--progress-bg);
+}
+
+/* Collapsible bio section (results.html) */
+.bio-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--button-secondary-border);
+}
+
+.bio-toggle {
+  background: none;
+  border: none;
+  color: var(--accent-pink);
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+body.light-theme .bio-toggle {
+  color: var(--accent-pink);
+}
+
+.bio-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.bio-content.expanded {
+  max-height: 200px;
+}
+
+/* Try link (index.html) */
+.try-link {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  transition: var(--transition);
+}
+
+.try-link:hover {
+  color: var(--accent-pink);
+}
+
+/* Footer */
+footer {
+  position: fixed;
+  bottom: 1rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 5;
+  width: 100%;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+footer a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+footer a:hover {
+  color: var(--accent-pink);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem;
+  }
+
+  main {
+    padding-bottom: 5rem; /* More space for footer on smaller screens */
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .auth-buttons,
+  .nav-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  header div {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: center;
+    bottom: 0.5rem;
+  }
+
+  .results-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .match-progress {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .bio-content.expanded {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  .btn,
+  .upload-input {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+
+  .auth-form input {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  footer a {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,6 @@
+flask
+flask-socketio
+pdfminer.six
+spacy
+pandas
+nltk

@@ -271,13 +271,34 @@
 
       function downloadPDF() {
         const element = document.getElementById('results-container');
+        
+        // Temporarily set white background for PDF
+        const originalBg = document.body.style.background;
+        document.body.style.background = '#ffffff';
+        element.style.background = '#ffffff';
+        element.style.color = '#000000';
+        
+        // Hide background gradients
+        const bgGradient = document.querySelector('.bg-gradient');
+        if (bgGradient) bgGradient.style.display = 'none';
+        
         html2pdf().set({
           margin: 10,
           filename: 'TopX_Resume_Analysis.pdf',
           image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2 },
+          html2canvas: { 
+            scale: 2,
+            useCORS: true,
+            backgroundColor: '#ffffff'
+          },
           jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        }).from(element).save();
+        }).from(element).save().then(() => {
+          // Restore original styles
+          document.body.style.background = originalBg;
+          element.style.background = '';
+          element.style.color = '';
+          if (bgGradient) bgGradient.style.display = '';
+        });
       }
 
       // Animate cards on load

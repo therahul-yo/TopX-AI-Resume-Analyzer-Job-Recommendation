@@ -3,273 +3,293 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"
-      type="image/x-icon"
-    />
-    <title>Analysis Results - TopX👾</title>
+    <title>Results - TopX</title>
 
-    <!-- Local CSS -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   </head>
   <body>
+    <!-- Background -->
+    <div class="bg-gradient">
+      <div class="bg-glow bg-glow-1"></div>
+      <div class="bg-glow bg-glow-2"></div>
+    </div>
+
     <!-- Header -->
-    <header>
-      <a href="/" class="logo">TopX👾-AI Resume Analyzer</a>
-      <div>
-        <button class="btn btn-secondary" onclick="toggleTheme()">
-          <i class="fas fa-moon"></i> Theme
-        </button>
-        <a href="/" class="btn btn-secondary">
-          <i class="fas fa-sign-out-alt"></i> Logout
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">🚀</div>
+          <span>TopX</span>
         </a>
+        <div class="header-actions">
+          <button class="btn btn-ghost btn-icon" onclick="toggleTheme()">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </button>
+          <a href="/" class="btn btn-secondary">Logout</a>
+        </div>
       </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="results-content">
-      <h1>Resume Analysis Results</h1>
-      <p>Here are the AI-generated insights based on your resume.</p>
-
-      <!-- Marks -->
-      <h2><i class="fas fa-graduation-cap"></i> Academic Performance</h2>
-      <p>{{ marks }}</p>
-
-      <!-- Potential Companies -->
-      <h2><i class="fas fa-building"></i> Potential Companies</h2>
-      {% if companies %}
-      <ul class="results-list">
-        {% for company in companies %}
-        <li>
-          <span>{{ company }}</span>
-          <div class="match-progress">
-            <div
-              class="match-progress-bar"
-              style="width: {{ (70 + loop.index0 * 5) % 100 }}%;"
-            ></div>
+    <!-- Main -->
+    <main class="main-content">
+      <div class="container" id="results-container">
+        <section class="results-section">
+          <div class="results-header">
+            <h1 class="results-title">Your <span class="text-gradient">Results</span></h1>
+            <p class="results-subtitle">AI-powered analysis of your resume</p>
           </div>
-        </li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <p>No specific companies identified from the resume.</p>
-      {% endif %}
 
-      <!-- Suggested Job Roles -->
-      <h2><i class="fas fa-briefcase"></i> Suggested Job Roles</h2>
-      {% if job %}
-      <ul class="results-list">
-        {% for role in job %} {% if role != 'Unknown Role' %}
-        <li>
-          <span>{{ role }}</span>
-          <div class="match-progress">
-            <div
-              class="match-progress-bar"
-              style="width: {{ (60 + loop.index0 * 10) % 100 }}%;"
-            ></div>
+          <!-- Score -->
+          <div class="score-card">
+            <div class="score-gauge">
+              <svg class="score-circle" viewBox="0 0 180 180">
+                <defs>
+                  <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#ff4d4d"/>
+                    <stop offset="100%" style="stop-color:#f7931e"/>
+                  </linearGradient>
+                </defs>
+                <circle class="score-circle-bg" cx="90" cy="90" r="80"/>
+                <circle class="score-circle-progress" id="score-progress" cx="90" cy="90" r="80"/>
+              </svg>
+              <div class="score-value">
+                <div class="score-number" id="score-number">0</div>
+                <div class="score-label">Score</div>
+              </div>
+            </div>
+            <div class="score-rating" id="score-rating">
+              <i class="fas fa-star"></i>
+              <span id="rating-text">Calculating...</span>
+            </div>
           </div>
-        </li>
-        {% endif %} {% endfor %}
-      </ul>
-      {% if not job|select("ne", "Unknown Role")|list %}
-      <p>No specific job roles identified from the resume.</p>
-      {% endif %} {% else %}
-      <p>No specific job roles identified from the resume.</p>
-      {% endif %}
 
-      <!-- Skill Gap Analysis -->
-      <h2><i class="fas fa-exclamation-circle"></i> Skill Gap Analysis</h2>
-      {% if skill_gaps %}
-      <ul class="results-list">
-        {% for role, gaps in skill_gaps.items() %}
-        <li>
-          <span>{{ role }}</span>
-          <div>
-            {% if gaps %}
-            <p>Missing Skills: {{ gaps | join(', ') }}</p>
-            {% else %}
-            <p>No skill gaps identified for this role.</p>
-            {% endif %}
+          <!-- Grid -->
+          <div class="results-grid">
+            <!-- Skills -->
+            <div class="result-card">
+              <div class="result-card-header">
+                <div class="result-card-icon"><i class="fas fa-code"></i></div>
+                <h3 class="result-card-title">Skills Found</h3>
+              </div>
+              <div class="skills-list">
+                {% if skills %}
+                  {% for skill in skills %}
+                    <span class="skill-bubble">{{ skill }}</span>
+                  {% endfor %}
+                {% else %}
+                  <p class="text-muted">No skills detected</p>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Companies -->
+            <div class="result-card">
+              <div class="result-card-header">
+                <div class="result-card-icon"><i class="fas fa-building"></i></div>
+                <h3 class="result-card-title">Top Companies</h3>
+              </div>
+              <div class="match-list">
+                {% if companies %}
+                  {% for company in companies %}
+                    <div class="match-item">
+                      <div class="match-icon"><i class="fas fa-briefcase"></i></div>
+                      <div class="match-info">
+                        <div class="match-name">{{ company }}</div>
+                        <div class="match-detail">Great fit for your profile</div>
+                      </div>
+                      <div class="match-score">{{ 95 - loop.index0 * 8 }}%</div>
+                    </div>
+                  {% endfor %}
+                {% else %}
+                  <p class="text-muted">No matches found</p>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Roles -->
+            <div class="result-card">
+              <div class="result-card-header">
+                <div class="result-card-icon"><i class="fas fa-user-tie"></i></div>
+                <h3 class="result-card-title">Recommended Roles</h3>
+              </div>
+              <div class="match-list">
+                {% if job %}
+                  {% set shown = [] %}
+                  {% for role in job %}
+                    {% if role != 'Unknown Role' and role not in shown %}
+                      {% set _ = shown.append(role) %}
+                      <div class="match-item">
+                        <div class="match-icon"><i class="fas fa-laptop-code"></i></div>
+                        <div class="match-info">
+                          <div class="match-name">{{ role.split(',')[0] }}</div>
+                          <div class="match-detail">Matches your skills</div>
+                        </div>
+                        <div class="match-score">{{ 92 - loop.index0 * 7 }}%</div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                  {% if not shown %}
+                    <p class="text-muted">Add more skills for role recommendations</p>
+                  {% endif %}
+                {% else %}
+                  <p class="text-muted">No roles identified</p>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Skill Gaps -->
+            <div class="result-card">
+              <div class="result-card-header">
+                <div class="result-card-icon" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <h3 class="result-card-title">Skills to Learn</h3>
+              </div>
+              <div class="gap-list">
+                {% if skill_gaps %}
+                  {% for role, gaps in skill_gaps.items() %}
+                    {% if gaps %}
+                      <div class="gap-item">
+                        <div class="gap-role">{{ role.split(',')[0] }}</div>
+                        <div class="gap-skills">
+                          {% for skill in gaps %}
+                            <span class="gap-skill">{{ skill }}</span>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                {% else %}
+                  <p class="text-muted">No skill gaps detected!</p>
+                {% endif %}
+              </div>
+            </div>
           </div>
-        </li>
-        {% endfor %}
-      </ul>
-      {% else %}
-      <p>No skill gaps identified.</p>
-      {% endif %}
 
-      <!-- Bio Section -->
-      <div class="bio-section">
-        <button class="bio-toggle" onclick="toggleBio()">
-          <i class="fas fa-info-circle"></i> Understanding Your Results
-        </button>
-        <div class="bio-content" id="bio-content">
-          <p>
-            These suggestions are generated by our advanced AI based on your
-            resume's content. The match percentages indicate how well your
-            skills and experience align with each company or role. The skill gap
-            analysis highlights areas to improve for your target roles. Explore
-            these opportunities to align with your career goals.
-          </p>
-        </div>
-      </div>
+          <!-- Academic -->
+          <div class="result-card mt-lg" style="text-align: center;">
+            <div class="result-card-header" style="justify-content: center;">
+              <div class="result-card-icon" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3 class="result-card-title">Academic Info</h3>
+            </div>
+            <p class="text-secondary">{{ marks }}</p>
+          </div>
 
-      <div class="nav-buttons">
-        <button class="btn btn-primary" onclick="downloadResults()">
-          Download Results
-        </button>
-        <a href="/back" class="btn btn-secondary">Upload New</a>
-        <button class="btn btn-secondary">More</button>
+          <!-- Actions -->
+          <div class="results-actions">
+            <button class="btn btn-primary btn-lg" onclick="downloadPDF()">
+              <i class="fas fa-download"></i> Download PDF
+            </button>
+            <a href="/back" class="btn btn-secondary btn-lg">
+              <i class="fas fa-redo"></i> Analyze Another
+            </a>
+          </div>
+        </section>
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer>
-      <a href="/terms">Terms of use</a>
-      <a href="/privacy">Privacy policy</a>
+    <footer class="footer">
+      <span class="footer-text">© 2024 TopX</span>
     </footer>
 
     <script>
-            // Pass companies and job data from Flask to JavaScript
-            const companies = {{ companies|tojson }};
-            const job = {{ job|tojson }};
-
-            // Theme Toggle
-            function toggleTheme() {
-              document.body.classList.toggle('light-theme');
-              const themeIcon = document.querySelector('.btn-secondary i');
-              themeIcon.classList.toggle('fa-moon');
-              themeIcon.classList.toggle('fa-sun');
-              localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
-            }
-
-            if (localStorage.getItem('theme') === 'light') {
-              document.body.classList.add('light-theme');
-              document.querySelector('.btn-secondary i').classList.replace('fa-moon', 'fa-sun');
-            }
-
-            // Toggle Bio Section
-            function toggleBio() {
-              const bioContent = document.getElementById('bio-content');
-              bioContent.classList.toggle('expanded');
-            }
-
-            // Download Results as PDF
-            function downloadResults() {
-              const downloadButton = document.querySelector('.btn-primary');
-              downloadButton.style.opacity = '0.7';
-              downloadButton.disabled = true;
-              downloadButton.textContent = 'Downloading...';
-
-              try {
-                console.log('Starting download process...');
-                console.log('Companies:', companies);
-                console.log('Job roles:', job);
-
-                // Generate LaTeX content
-                const latexContent = `
-      \\documentclass[a4paper,12pt]{article}
-      \\usepackage[utf8]{inputenc}
-      \\usepackage[T1]{fontenc}
-      \\usepackage{lmodern}
-      \\usepackage{geometry}
-      \\geometry{margin=1in}
-      \\usepackage{xcolor}
-      \\usepackage{enumitem}
-      \\usepackage{titlesec}
-      \\usepackage{hyperref}
-      \\definecolor{titleblue}{RGB}{0,123,255}
-      \\definecolor{accentpink}{RGB}{255,105,180}
-
-      % Title formatting
-      \\titleformat{\\section}{\\Large\\bfseries\\color{titleblue}}{\\thesection}{1em}{}
-      \\titleformat{\\subsection}{\\large\\bfseries\\color{titleblue}}{\\thesubsection}{1em}{}
-
-      \\begin{document}
-
-      \\begin{center}
-        {\\LARGE \\textbf{AI Resume Analyzer Results}}\\\\
-        \\vspace{0.5cm}
-        {\\small Generated on May 23, 2025 at 03:53 PM IST}
-      \\end{center}
-
-      \\vspace{1cm}
-
-      \\section*{Potential Companies}
-      ${
-        companies && companies.length > 0
-          ? companies.map((company, index) => `\\textbf{${company}} \\hfill Match: ${(70 + index * 5) % 100}\\%`).join('\\\\\n')
-          : 'No specific companies identified from the resume.'
+      function toggleTheme() {
+        document.body.classList.toggle('light-theme');
+        const icon = document.getElementById('theme-icon');
+        icon.classList.toggle('fa-moon');
+        icon.classList.toggle('fa-sun');
+        localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
       }
 
-      \\vspace{0.5cm}
-
-      \\section*{Suggested Job Roles}
-      ${
-        job && job.length > 0
-          ? job
-              .filter(role => role !== 'Unknown Role')
-              .map((role, index) => `\\textbf{${role}} \\hfill Match: ${(60 + index * 10) % 100}\\%`)
-              .join('\\\\\n')
-          : 'No specific job roles identified from the resume.'
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-theme');
+        document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
       }
 
-      \\vspace{0.5cm}
+      document.addEventListener('DOMContentLoaded', function() {
+        const skillsCount = document.querySelectorAll('.skill-bubble').length;
+        const matchesCount = document.querySelectorAll('.match-item').length;
+        
+        const baseScore = 55;
+        const skillBonus = Math.min(skillsCount * 4, 25);
+        const matchBonus = Math.min(matchesCount * 3, 15);
+        const finalScore = Math.min(baseScore + skillBonus + matchBonus, 98);
+        
+        animateScore(finalScore);
+      });
 
-      \\section*{Understanding Your Results}
-      These suggestions are generated by our advanced AI based on your resume's content. The match percentages indicate how well your skills and experience align with each company or role. Explore these opportunities to align with your career goals.
-
-      \\end{document}
-                `;
-
-                console.log('LaTeX content generated:', latexContent);
-
-                // Create a Blob and trigger download
-                const blob = new Blob([latexContent], { type: 'application/x-latex' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'resume_analysis_results.tex';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-
-                console.log('Download triggered successfully');
-
-                // Provide instructions for manual compilation
-                alert(
-                  'A LaTeX file (resume_analysis_results.tex) has been downloaded. If it does not automatically convert to a PDF, you can compile it to a PDF using a LaTeX editor like Overleaf (https://www.overleaf.com/) or by running the following command in a terminal with LaTeX installed: latexmk -pdf resume_analysis_results.tex'
-                );
-
-                // Reset button state
-                downloadButton.style.opacity = '1';
-                downloadButton.disabled = false;
-                downloadButton.textContent = 'Download Results';
-              } catch (error) {
-                console.error('Error during download:', error);
-                downloadButton.style.opacity = '1';
-                downloadButton.disabled = false;
-                downloadButton.textContent = 'Download Results';
-                alert('Failed to download results. Please try again or check the console for errors.');
-              }
+      function animateScore(target) {
+        const scoreNumber = document.getElementById('score-number');
+        const scoreProgress = document.getElementById('score-progress');
+        const ratingText = document.getElementById('rating-text');
+        const scoreRating = document.getElementById('score-rating');
+        
+        const circumference = 2 * Math.PI * 80;
+        let current = 0;
+        const duration = 1500;
+        const start = performance.now();
+        
+        function update(timestamp) {
+          const elapsed = timestamp - start;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          current = Math.round(progress * target);
+          scoreNumber.textContent = current;
+          
+          const offset = circumference - (current / 100) * circumference;
+          scoreProgress.style.strokeDashoffset = offset;
+          
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            if (target >= 75) {
+              ratingText.textContent = 'Excellent!';
+              scoreRating.style.borderColor = 'rgba(34, 197, 94, 0.3)';
+              scoreRating.style.background = 'rgba(34, 197, 94, 0.1)';
+              scoreRating.style.color = '#22c55e';
+            } else if (target >= 60) {
+              ratingText.textContent = 'Good';
+              scoreRating.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+              scoreRating.style.background = 'rgba(59, 130, 246, 0.1)';
+              scoreRating.style.color = '#3b82f6';
+            } else {
+              ratingText.textContent = 'Needs Work';
+              scoreRating.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+              scoreRating.style.background = 'rgba(245, 158, 11, 0.1)';
+              scoreRating.style.color = '#f59e0b';
             }
+          }
+        }
+        
+        requestAnimationFrame(update);
+      }
+
+      function downloadPDF() {
+        const element = document.getElementById('results-container');
+        html2pdf().set({
+          margin: 10,
+          filename: 'TopX_Resume_Analysis.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        }).from(element).save();
+      }
+
+      // Animate cards on load
+      document.querySelectorAll('.result-card, .score-card').forEach((card, i) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+          card.style.transition = 'all 0.5s ease';
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, i * 100);
+      });
     </script>
   </body>
 </html>

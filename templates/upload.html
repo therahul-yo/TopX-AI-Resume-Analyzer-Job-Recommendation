@@ -3,153 +3,229 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"
-      type="image/x-icon"
-    />
-    <title>Upload Resume - TopX👾</title>
+    <title>Upload Resume - TopX</title>
 
-    <!-- Local CSS -->
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-
-    <!-- Socket.IO -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
   </head>
   <body>
+    <!-- Background -->
+    <div class="bg-gradient">
+      <div class="bg-glow bg-glow-1"></div>
+      <div class="bg-glow bg-glow-2"></div>
+    </div>
+
     <!-- Header -->
-    <header>
-      <a href="/" class="logo">TopX👾-AI Resume Analyzer</a>
-      <div>
-        <button class="btn btn-secondary" onclick="toggleTheme()">
-          <i class="fas fa-moon"></i> Theme
-        </button>
-        <a href="/" class="btn btn-secondary">
-          <i class="fas fa-sign-out-alt"></i> Logout
+    <header class="header">
+      <div class="header-inner">
+        <a href="/" class="logo">
+          <div class="logo-icon">🚀</div>
+          <span>TopX</span>
         </a>
+        <div class="header-actions">
+          <span class="text-secondary" style="font-size: 14px;">
+            <i class="fas fa-user"></i> {{ name }}
+          </span>
+          <button class="btn btn-ghost btn-icon" onclick="toggleTheme()">
+            <i class="fas fa-moon" id="theme-icon"></i>
+          </button>
+          <a href="/" class="btn btn-secondary">Logout</a>
+        </div>
       </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-      <!-- Flash Messages -->
-      {% with messages = get_flashed_messages(with_categories=true) %} {% if
-      messages %} {% for category, message in messages %}
-      <p class="flash-{{ category }}">{{ message }}</p>
-      {% endfor %} {% endif %} {% endwith %}
+    <!-- Main -->
+    <main class="main-content">
+      <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="flash-message flash-{{ category }}">
+                <i class="fas {% if category == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}"></i>
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
 
-      <h1>Welcome, {{ name }}</h1>
-      <p>Email: {{ email }}</p>
-      <h2><i class="fas fa-upload"></i> Upload Your Resume</h2>
-      <p>Upload your resume in PDF format to get AI-driven insights.</p>
+        <section class="upload-section">
+          <div class="upload-header">
+            <h1 class="upload-title">Upload <span class="text-gradient">Resume</span></h1>
+            <p class="upload-subtitle">Drop your PDF and let AI do the magic</p>
+          </div>
 
-      <form
-        action="/upload"
-        method="post"
-        enctype="multipart/form-data"
-        class="upload-form"
-        id="upload-form"
-      >
-        <label for="resume-file" class="upload-input">
-          <i class="fas fa-file-pdf"></i> Choose a PDF file
-        </label>
-        <input
-          type="file"
-          id="resume-file"
-          name="resume_file"
-          accept="application/pdf"
-          required
-        />
-        <div class="progress-container" id="progress-container">
-          <div class="progress-bar" id="progress-bar"></div>
-        </div>
-        <p id="progress-message">Waiting to start...</p>
-        <div class="nav-buttons">
-          <button type="submit" class="btn btn-primary" id="analyze-btn">
-            Analyze Resume
-          </button>
-          <a href="/" class="btn btn-secondary">Cancel</a>
-        </div>
-      </form>
+          <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
+            <div class="upload-zone" id="upload-zone" onclick="document.getElementById('resume-file').click()">
+              <div class="upload-zone-icon">
+                <i class="fas fa-cloud-upload-alt"></i>
+              </div>
+              <h3 class="upload-zone-title">Drag & drop your resume</h3>
+              <p class="upload-zone-desc">or click to browse • PDF only</p>
+            </div>
+            
+            <input type="file" id="resume-file" name="resume_file" accept="application/pdf" class="upload-file-input" required />
+
+            <div class="selected-file" id="selected-file">
+              <div class="selected-file-icon"><i class="fas fa-file-pdf"></i></div>
+              <div class="selected-file-info">
+                <div class="selected-file-name" id="file-name">resume.pdf</div>
+                <div class="selected-file-size" id="file-size">0 KB</div>
+              </div>
+              <button type="button" class="btn btn-ghost" onclick="clearFile()">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+
+            <div class="progress-section" id="progress-section">
+              <div class="progress-steps">
+                <div class="progress-step" id="step-upload"><span class="progress-step-dot"></span>Upload</div>
+                <div class="progress-step" id="step-extract"><span class="progress-step-dot"></span>Extract</div>
+                <div class="progress-step" id="step-analyze"><span class="progress-step-dot"></span>Analyze</div>
+                <div class="progress-step" id="step-complete"><span class="progress-step-dot"></span>Done</div>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+              </div>
+              <p class="progress-message" id="progress-message">Starting...</p>
+            </div>
+
+            <div class="hero-actions mt-xl">
+              <button type="submit" class="btn btn-primary btn-lg" id="analyze-btn">
+                <i class="fas fa-magic"></i> Analyze
+              </button>
+              <a href="/" class="btn btn-secondary btn-lg">Cancel</a>
+            </div>
+          </form>
+
+          <div class="tips-card">
+            <h4 style="font-size: 14px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+              <i class="fas fa-lightbulb text-gradient"></i> Tips
+            </h4>
+            <div class="tips-list">
+              <div class="tip-item"><span class="tip-icon"><i class="fas fa-check"></i></span>PDF format only</div>
+              <div class="tip-item"><span class="tip-icon"><i class="fas fa-check"></i></span>Include all skills</div>
+              <div class="tip-item"><span class="tip-icon"><i class="fas fa-check"></i></span>List projects & certifications</div>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
-    <!-- Footer -->
-    <footer>
-      <a href="/terms">Terms of use</a>
-      <a href="/privacy">Privacy policy</a>
+    <footer class="footer">
+      <span class="footer-text">© 2024 TopX</span>
     </footer>
 
     <script>
-      // Theme Toggle
       function toggleTheme() {
-        document.body.classList.toggle("light-theme");
-        const themeIcon = document.querySelector(".btn-secondary i");
-        themeIcon.classList.toggle("fa-moon");
-        themeIcon.classList.toggle("fa-sun");
-        localStorage.setItem(
-          "theme",
-          document.body.classList.contains("light-theme") ? "light" : "dark"
-        );
+        document.body.classList.toggle('light-theme');
+        const icon = document.getElementById('theme-icon');
+        icon.classList.toggle('fa-moon');
+        icon.classList.toggle('fa-sun');
+        localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
       }
 
-      if (localStorage.getItem("theme") === "light") {
-        document.body.classList.add("light-theme");
-        document
-          .querySelector(".btn-secondary i")
-          .classList.replace("fa-moon", "fa-sun");
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-theme');
+        document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
       }
 
-      // Update file input label
-      document
-        .getElementById("resume-file")
-        .addEventListener("change", function () {
-          const fileName = this.files[0]?.name || "Choose a PDF file";
-          document.querySelector(".upload-input").textContent = fileName;
-        });
+      const uploadZone = document.getElementById('upload-zone');
+      const fileInput = document.getElementById('resume-file');
+      const selectedFile = document.getElementById('selected-file');
+      const fileName = document.getElementById('file-name');
+      const fileSize = document.getElementById('file-size');
+      const uploadForm = document.getElementById('upload-form');
+      const analyzeBtn = document.getElementById('analyze-btn');
+      const progressSection = document.getElementById('progress-section');
+      const progressBar = document.getElementById('progress-bar');
+      const progressMessage = document.getElementById('progress-message');
 
-      // Socket.IO for real-time progress updates
+      ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(e => {
+        uploadZone.addEventListener(e, ev => { ev.preventDefault(); ev.stopPropagation(); }, false);
+      });
+
+      ['dragenter', 'dragover'].forEach(e => {
+        uploadZone.addEventListener(e, () => uploadZone.classList.add('drag-over'), false);
+      });
+
+      ['dragleave', 'drop'].forEach(e => {
+        uploadZone.addEventListener(e, () => uploadZone.classList.remove('drag-over'), false);
+      });
+
+      uploadZone.addEventListener('drop', (e) => {
+        const files = e.dataTransfer.files;
+        if (files.length > 0) handleFile(files[0]);
+      });
+
+      fileInput.addEventListener('change', () => {
+        if (fileInput.files.length > 0) handleFile(fileInput.files[0]);
+      });
+
+      function handleFile(file) {
+        if (file.type !== 'application/pdf') {
+          alert('Please upload a PDF file.');
+          return;
+        }
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(file);
+        fileInput.files = dataTransfer.files;
+        fileName.textContent = file.name;
+        fileSize.textContent = formatFileSize(file.size);
+        selectedFile.classList.add('show');
+        uploadZone.style.display = 'none';
+      }
+
+      function clearFile() {
+        fileInput.value = '';
+        selectedFile.classList.remove('show');
+        uploadZone.style.display = 'block';
+      }
+
+      function formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+      }
+
       const socket = io();
-      const progressContainer = document.getElementById("progress-container");
-      const progressBar = document.getElementById("progress-bar");
-      const progressMessage = document.getElementById("progress-message");
-      const analyzeBtn = document.getElementById("analyze-btn");
-
-      socket.on("progress", function (data) {
-        progressContainer.classList.add("active");
-        progressBar.style.width = data.progress + "%";
+      socket.on('progress', function(data) {
+        progressSection.classList.add('show');
+        progressBar.style.width = data.progress + '%';
         progressMessage.textContent = data.message;
-
-        if (data.progress === 100 || data.message.startsWith("Error")) {
+        updateSteps(data.progress);
+        if (data.progress === 100 || data.message.startsWith('Error')) {
           analyzeBtn.disabled = false;
-          analyzeBtn.style.opacity = "1";
-          analyzeBtn.textContent = "Analyze Resume";
+          analyzeBtn.innerHTML = '<i class="fas fa-magic"></i> Analyze';
         }
       });
 
-      document
-        .getElementById("upload-form")
-        .addEventListener("submit", function () {
-          analyzeBtn.disabled = true;
-          analyzeBtn.style.opacity = "0.7";
-          analyzeBtn.textContent = "Processing...";
-          progressBar.style.width = "0%";
-          progressMessage.textContent = "Starting...";
+      function updateSteps(progress) {
+        const steps = ['step-upload', 'step-extract', 'step-analyze', 'step-complete'];
+        steps.forEach((step, i) => {
+          const el = document.getElementById(step);
+          el.classList.remove('active', 'completed');
+          const threshold = (i + 1) * 25;
+          if (progress >= threshold) el.classList.add('completed');
+          else if (progress >= threshold - 25) el.classList.add('active');
         });
+      }
+
+      uploadForm.addEventListener('submit', function(e) {
+        if (!fileInput.files.length) {
+          e.preventDefault();
+          alert('Please select a PDF file.');
+          return;
+        }
+        analyzeBtn.disabled = true;
+        analyzeBtn.innerHTML = '<span class="spinner"></span> Analyzing...';
+        progressSection.classList.add('show');
+        progressBar.style.width = '5%';
+        progressMessage.textContent = 'Starting...';
+      });
     </script>
   </body>
 </html>

@@ -87,4 +87,4 @@ MIT License - feel free to use and modify.
 
 ---
 
-Built with ❤️ using Flask and scikit-learn
+Built with ❤️ by **Rahul T**

@@ -6,6 +6,7 @@ from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 import io
 import re
+import os
 import sqlite3
 import logging
 import time
@@ -304,4 +305,5 @@ def upload():
     return render_template('upload.html', name=session.get('user_name'), email=session.get('user_email'))
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=5001, debug=True)
+    port = int(os.environ.get('PORT', 5001))
+    socketio.run(app, host='0.0.0.0', port=port, debug=False)

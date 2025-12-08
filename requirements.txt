@@ -4,3 +4,5 @@ pdfminer.six
 pandas
 scikit-learn
 numpy
+gunicorn
+eventlet

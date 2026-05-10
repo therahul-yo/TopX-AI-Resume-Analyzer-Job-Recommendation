@@ -1,157 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Upload Resume – TopX</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-  <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Resume — TopX</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
   <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 </head>
 <body>
 
-<div class="bg-layer">
-  <div class="bg-orb bg-orb-1"></div>
-  <div class="bg-orb bg-orb-2"></div>
-</div>
-
-<header class="header">
-  <div class="header-inner">
+<nav class="nav">
+  <div class="nav-inner">
     <a href="/" class="logo">
-      <div class="logo-mark">⚡</div>
+      <div class="logo-mark">TX</div>
       TopX
     </a>
-    <nav class="header-nav">
-      <div class="user-chip">
-        <i class="fas fa-user" style="font-size:11px;color:var(--v3);"></i>
+    <div class="nav-right">
+      <div class="user-tag">
+        <i class="fas fa-user" style="font-size:9px;color:var(--cyan);"></i>
         {{ name }}
       </div>
       <button class="btn btn-ghost btn-icon" onclick="toggleTheme()">
         <i class="fas fa-moon" id="theme-icon"></i>
       </button>
       <a href="/logout" class="btn btn-outline">Sign Out</a>
-    </nav>
-  </div>
-</header>
-
-<main class="main-content">
-  <div class="container">
-
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          <div class="flash flash-{{ category }}">
-            <i class="fas {% if category == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}"></i>
-            {{ message }}
-          </div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
-
-    <div class="upload-wrapper">
-      <div class="page-header">
-        <h1 class="page-title">Upload <span class="text-gradient">Resume</span></h1>
-        <p class="page-sub">Drop your PDF and let the AI do the work</p>
-      </div>
-
-      <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
-
-        <div class="drop-zone" id="drop-zone">
-          <div class="dz-icon"><i class="fas fa-cloud-upload-alt"></i></div>
-          <h3 class="dz-title">Drag &amp; drop your resume</h3>
-          <p class="dz-sub">or click to browse &nbsp;·&nbsp; PDF only &nbsp;·&nbsp; Max 5 MB</p>
-        </div>
-
-        <input type="file" id="resume-file" name="resume_file" accept="application/pdf" class="file-input" required />
-
-        <div class="file-preview" id="file-preview">
-          <div class="file-preview-icon"><i class="fas fa-file-pdf"></i></div>
-          <div class="file-preview-meta">
-            <div class="file-preview-name" id="file-name">resume.pdf</div>
-            <div class="file-preview-size" id="file-size">0 KB</div>
-          </div>
-          <button type="button" class="btn btn-ghost btn-icon" onclick="clearFile()">
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-
-        <div class="progress-area" id="progress-area">
-          <div class="progress-steps">
-            <span class="pstep" id="ps-upload"><span class="pstep-dot"></span>Upload</span>
-            <span class="pstep" id="ps-extract"><span class="pstep-dot"></span>Extract</span>
-            <span class="pstep" id="ps-analyze"><span class="pstep-dot"></span>Analyze</span>
-            <span class="pstep" id="ps-done"><span class="pstep-dot"></span>Done</span>
-          </div>
-          <div class="progress-track">
-            <div class="progress-fill" id="progress-fill"></div>
-          </div>
-          <p class="progress-msg" id="progress-msg">Starting...</p>
-        </div>
-
-        <div class="upload-actions">
-          <button type="submit" class="btn btn-primary btn-lg" id="analyze-btn">
-            <i class="fas fa-bolt" id="btn-icon"></i>
-            <span id="btn-text">&nbsp;Analyze Resume</span>
-          </button>
-          <a href="/" class="btn btn-outline btn-lg">Cancel</a>
-        </div>
-
-      </form>
-
-      <div class="hints-card">
-        <p class="hints-title">
-          <i class="fas fa-lightbulb" style="color:var(--v3);"></i>
-          Tips for better results
-        </p>
-        <div class="hints-list">
-          <div class="hint-item">
-            <span class="hint-check"><i class="fas fa-check"></i></span>
-            Include a dedicated Skills section with technology names
-          </div>
-          <div class="hint-item">
-            <span class="hint-check"><i class="fas fa-check"></i></span>
-            List your projects with technologies used
-          </div>
-          <div class="hint-item">
-            <span class="hint-check"><i class="fas fa-check"></i></span>
-            Add your CGPA / GPA and any certifications
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
+</nav>
+
+<main>
+<div class="wrap">
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash flash-{{ category }}">
+          <i class="fas {% if category == 'success' %}fa-check{% else %}fa-exclamation{% endif %}"></i>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <div class="upload-wrap">
+
+    <div class="page-head anim-1">
+      <div class="eyebrow">Resume Analysis</div>
+      <h1 class="page-h">Upload <span class="hl">Resume</span></h1>
+      <p class="page-sub">Drop your PDF and let the AI extract your career story</p>
+    </div>
+
+    <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
+
+      <div class="drop-zone anim-2" id="drop-zone">
+        <div class="dz-icon"><i class="fas fa-file-upload"></i></div>
+        <h3 class="dz-title">Drag &amp; drop your resume</h3>
+        <p class="dz-sub">click to browse &nbsp;·&nbsp; PDF only &nbsp;·&nbsp; max 5 MB</p>
+      </div>
+
+      <input type="file" id="resume-file" name="resume_file" accept="application/pdf" class="file-input" required/>
+
+      <div class="file-card" id="file-card">
+        <div class="file-pdf-icon"><i class="fas fa-file-pdf"></i></div>
+        <div class="file-meta">
+          <div class="file-name" id="file-name-txt">document.pdf</div>
+          <div class="file-size" id="file-size-txt">0 KB</div>
+        </div>
+        <button type="button" class="btn btn-ghost btn-icon" onclick="clearFile()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="prog-area" id="prog-area">
+        <div class="prog-steps">
+          <span class="ps" id="ps-1"><span class="ps-dot"></span>UPLOAD</span>
+          <span class="ps" id="ps-2"><span class="ps-dot"></span>EXTRACT</span>
+          <span class="ps" id="ps-3"><span class="ps-dot"></span>ANALYZE</span>
+          <span class="ps" id="ps-4"><span class="ps-dot"></span>DONE</span>
+        </div>
+        <div class="prog-track">
+          <div class="prog-fill" id="prog-fill"></div>
+        </div>
+        <p class="prog-msg" id="prog-msg">Initializing...</p>
+      </div>
+
+      <div class="upload-actions anim-3">
+        <button type="submit" class="btn btn-primary btn-lg" id="analyze-btn">
+          <i class="fas fa-bolt" id="btn-icon"></i>
+          <span id="btn-txt">&nbsp;Analyze Resume</span>
+        </button>
+        <a href="/" class="btn btn-outline btn-lg">Cancel</a>
+      </div>
+
+    </form>
+
+    <div class="hints anim-4">
+      <p class="hints-h">// TIPS FOR BETTER RESULTS</p>
+      <div class="hints-list">
+        <div class="hint">
+          <span class="hint-tick"><i class="fas fa-check"></i></span>
+          Include a dedicated Skills section with explicit technology names
+        </div>
+        <div class="hint">
+          <span class="hint-tick"><i class="fas fa-check"></i></span>
+          List projects with the technologies you used to build them
+        </div>
+        <div class="hint">
+          <span class="hint-tick"><i class="fas fa-check"></i></span>
+          Add your CGPA / GPA and any certifications you hold
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
 </main>
 
-<footer class="footer">
-  <span class="footer-text">© 2025 TopX &nbsp;·&nbsp; Made by Rahul</span>
+<footer>
+  <span class="footer-txt">© 2025 TopX &nbsp;·&nbsp; Made by Rahul</span>
 </footer>
 
 <script>
   function toggleTheme() {
-    document.body.classList.toggle('light-theme');
+    document.body.classList.toggle('light');
     const ic = document.getElementById('theme-icon');
     ic.classList.toggle('fa-moon');
     ic.classList.toggle('fa-sun');
-    localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
   }
   if (localStorage.getItem('theme') === 'light') {
-    document.body.classList.add('light-theme');
+    document.body.classList.add('light');
     document.getElementById('theme-icon').classList.replace('fa-moon','fa-sun');
   }
 
   const dropZone    = document.getElementById('drop-zone');
   const fileInput   = document.getElementById('resume-file');
-  const filePreview = document.getElementById('file-preview');
-  const fileName    = document.getElementById('file-name');
-  const fileSize    = document.getElementById('file-size');
+  const fileCard    = document.getElementById('file-card');
+  const fileNameTxt = document.getElementById('file-name-txt');
+  const fileSizeTxt = document.getElementById('file-size-txt');
   const analyzeBtn  = document.getElementById('analyze-btn');
   const btnIcon     = document.getElementById('btn-icon');
-  const btnText     = document.getElementById('btn-text');
-  const progressArea = document.getElementById('progress-area');
-  const progressFill = document.getElementById('progress-fill');
-  const progressMsg  = document.getElementById('progress-msg');
+  const btnTxt      = document.getElementById('btn-txt');
+  const progArea    = document.getElementById('prog-area');
+  const progFill    = document.getElementById('prog-fill');
+  const progMsg     = document.getElementById('prog-msg');
 
   dropZone.addEventListener('click', () => fileInput.click());
 
@@ -164,7 +158,6 @@
   ['dragleave','drop'].forEach(ev =>
     dropZone.addEventListener(ev, () => dropZone.classList.remove('drag-over'))
   );
-
   dropZone.addEventListener('drop', e => {
     if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
   });
@@ -172,67 +165,67 @@
     if (fileInput.files.length) handleFile(fileInput.files[0]);
   });
 
-  function handleFile(file) {
-    if (file.type !== 'application/pdf') { alert('Please upload a PDF file.'); return; }
-    if (file.size > 5 * 1024 * 1024)    { alert('File must be under 5 MB.');    return; }
+  function handleFile(f) {
+    if (f.type !== 'application/pdf') { alert('PDF files only.'); return; }
+    if (f.size > 5 * 1024 * 1024)    { alert('File must be under 5 MB.'); return; }
     const dt = new DataTransfer();
-    dt.items.add(file);
+    dt.items.add(f);
     fileInput.files = dt.files;
-    fileName.textContent = file.name;
-    fileSize.textContent = fmtSize(file.size);
-    filePreview.classList.add('show');
+    fileNameTxt.textContent = f.name;
+    fileSizeTxt.textContent = fmtSize(f.size);
+    fileCard.classList.add('show');
     dropZone.style.display = 'none';
   }
 
   function clearFile() {
     fileInput.value = '';
-    filePreview.classList.remove('show');
+    fileCard.classList.remove('show');
     dropZone.style.display = 'block';
   }
 
   function fmtSize(b) {
     if (!b) return '0 B';
-    const units = ['B','KB','MB'];
+    const u = ['B','KB','MB'];
     const i = Math.floor(Math.log(b) / Math.log(1024));
-    return (b / Math.pow(1024, i)).toFixed(1) + ' ' + units[i];
+    return (b / Math.pow(1024, i)).toFixed(1) + ' ' + u[i];
   }
 
-  function setBtnAnalyzing() {
+  function setBusy() {
     analyzeBtn.disabled = true;
     btnIcon.className = 'spinner';
-    btnText.textContent = ' Analyzing...';
+    btnTxt.textContent = ' Analyzing...';
   }
 
-  function setBtnReady() {
+  function setReady() {
     analyzeBtn.disabled = false;
     btnIcon.className = 'fas fa-bolt';
-    btnText.textContent = ' Analyze Resume';
+    btnTxt.textContent = ' Analyze Resume';
   }
 
   const socket = io();
-  socket.on('progress', data => {
-    progressArea.classList.add('show');
-    progressFill.style.width = data.progress + '%';
-    progressMsg.textContent = data.message;
-    updateSteps(data.progress);
-    if (data.progress === 100 || data.message.startsWith('Error')) setBtnReady();
+  socket.on('progress', d => {
+    progArea.classList.add('show');
+    progFill.style.width = d.progress + '%';
+    progMsg.textContent = d.message;
+    updateSteps(d.progress);
+    if (d.progress === 100 || (d.message && d.message.startsWith('Error'))) setReady();
   });
 
   function updateSteps(p) {
-    [['ps-upload',25],['ps-extract',50],['ps-analyze',75],['ps-done',100]].forEach(([id, thr]) => {
+    [['ps-1',25],['ps-2',50],['ps-3',75],['ps-4',100]].forEach(([id, thr]) => {
       const el = document.getElementById(id);
       el.classList.remove('active','completed');
-      if (p >= thr)        el.classList.add('completed');
-      else if (p >= thr-25) el.classList.add('active');
+      if (p >= thr)       el.classList.add('completed');
+      else if (p >= thr - 25) el.classList.add('active');
     });
   }
 
-  document.getElementById('upload-form').addEventListener('submit', function(e) {
-    if (!fileInput.files.length) { e.preventDefault(); alert('Please select a PDF file.'); return; }
-    setBtnAnalyzing();
-    progressArea.classList.add('show');
-    progressFill.style.width = '5%';
-    progressMsg.textContent = 'Starting...';
+  document.getElementById('upload-form').addEventListener('submit', e => {
+    if (!fileInput.files.length) { e.preventDefault(); alert('Please select a PDF file first.'); return; }
+    setBusy();
+    progArea.classList.add('show');
+    progFill.style.width = '5%';
+    progMsg.textContent = 'Starting...';
   });
 </script>
 </body>

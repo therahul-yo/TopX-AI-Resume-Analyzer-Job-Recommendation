@@ -1,239 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="TopX – AI-powered resume analyzer. Get instant skill insights, company matches, and a personalized career roadmap." />
-  <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png" />
-  <title>TopX – AI Resume Analyzer</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="TopX — AI-powered resume analyzer. Skill extraction, company matching, career roadmap."/>
+  <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"/>
+  <title>TopX — AI Resume Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
 
-<div class="bg-layer">
-  <div class="bg-orb bg-orb-1"></div>
-  <div class="bg-orb bg-orb-2"></div>
-</div>
-
-<!-- Header -->
-<header class="header">
-  <div class="header-inner">
+<nav class="nav">
+  <div class="nav-inner">
     <a href="/" class="logo">
-      <div class="logo-mark">⚡</div>
+      <div class="logo-mark">TX</div>
       TopX
     </a>
-    <nav class="header-nav">
+    <div class="nav-right">
+      <span class="nav-dot"><span class="live-dot"></span>LIVE</span>
       <button class="btn btn-ghost btn-icon" onclick="toggleTheme()" title="Toggle theme">
         <i class="fas fa-moon" id="theme-icon"></i>
       </button>
       <button class="btn btn-outline" onclick="openModal('login')">Sign In</button>
-      <button class="btn btn-primary" onclick="openModal('signup')">Get Started</button>
-    </nav>
+      <button class="btn btn-primary" onclick="openModal('signup')">Get Started →</button>
+    </div>
   </div>
-</header>
+</nav>
 
-<!-- Main -->
-<main class="main-content">
-  <div class="container">
+<main>
+<div class="wrap">
 
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          <div class="flash flash-{{ category }}">
-            <i class="fas {% if category == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}"></i>
-            {{ message }}
-          </div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash flash-{{ category }}">
+          <i class="fas {% if category == 'success' %}fa-check{% else %}fa-exclamation{% endif %}"></i>
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
 
-    <!-- Hero -->
-    <section class="hero">
-      <div class="badge">
-        <span class="badge-dot"></span>
-        AI-Powered &nbsp;·&nbsp; Free Analysis
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="h-live"></span>
+        AI-POWERED &nbsp;·&nbsp; REAL-TIME ANALYSIS &nbsp;·&nbsp; FREE
       </div>
 
-      <h1 class="hero-title">
-        Your Resume,<br><em>Analyzed by AI.</em>
+      <h1 class="hero-h anim-1">
+        Unlock Your<br><em>Career Potential</em>
       </h1>
 
-      <p class="hero-sub">
-        Upload your PDF resume and get instant insights — skills extraction, company match predictions, and a personalized career growth roadmap.
+      <p class="hero-p anim-2">
+        Upload your PDF resume and receive instant AI analysis — skill extraction,
+        company match predictions, and a personalized career growth roadmap.
       </p>
 
-      <div class="hero-actions">
+      <div class="hero-btns anim-3">
         <button class="btn btn-primary btn-lg" onclick="openModal('signup')">
-          <i class="fas fa-bolt"></i>&nbsp; Analyze My Resume
+          <i class="fas fa-arrow-right"></i> Analyze Resume
         </button>
-        <button class="btn btn-outline btn-lg" onclick="openModal('login')">
-          Sign In
-        </button>
+        <button class="btn btn-outline btn-lg" onclick="openModal('login')">Sign In</button>
       </div>
+    </div>
 
-      <div class="stats-row">
-        <div class="stat">
-          <span class="stat-num">2,500+</span>
-          <span class="stat-label">Resumes Analyzed</span>
+    <div class="hero-right anim-4">
+      <div class="preview-card">
+        <div class="pc-head">
+          <span class="pc-label">SAMPLE ANALYSIS</span>
+          <span class="pc-score-badge" id="pc-score">0</span>
         </div>
-        <div class="stat-sep"></div>
-        <div class="stat">
-          <span class="stat-num">10</span>
-          <span class="stat-label">Companies Matched</span>
+        <div class="pc-score-bar">
+          <div class="pc-fill" id="pc-fill"></div>
         </div>
-        <div class="stat-sep"></div>
-        <div class="stat">
-          <span class="stat-num">30+</span>
-          <span class="stat-label">Career Roles</span>
+        <div class="pc-companies">
+          <div class="pc-row">
+            <span class="pc-row-name">TCS</span>
+            <div class="pc-row-bar"><div class="pc-row-fill" data-w="85"></div></div>
+            <span class="pc-row-pct">85%</span>
+          </div>
+          <div class="pc-row">
+            <span class="pc-row-name">Infosys</span>
+            <div class="pc-row-bar"><div class="pc-row-fill" data-w="76"></div></div>
+            <span class="pc-row-pct">76%</span>
+          </div>
+          <div class="pc-row">
+            <span class="pc-row-name">Wipro</span>
+            <div class="pc-row-bar"><div class="pc-row-fill" data-w="68"></div></div>
+            <span class="pc-row-pct">68%</span>
+          </div>
+          <div class="pc-row">
+            <span class="pc-row-name">Cognizant</span>
+            <div class="pc-row-bar"><div class="pc-row-fill" data-w="61"></div></div>
+            <span class="pc-row-pct">61%</span>
+          </div>
         </div>
-        <div class="stat-sep"></div>
-        <div class="stat">
-          <span class="stat-num">60+</span>
-          <span class="stat-label">Skills Detected</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- How it works -->
-    <section class="section">
-      <p class="section-label">How It Works</p>
-      <h2 class="section-title">Three steps to your dream career</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-num">01</div>
-          <h3 class="step-title">Upload Resume</h3>
-          <p class="step-desc">Drag &amp; drop your PDF resume into our secure analyzer.</p>
-        </div>
-        <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
-        <div class="step">
-          <div class="step-num">02</div>
-          <h3 class="step-title">AI Extraction</h3>
-          <p class="step-desc">Our ML model extracts 60+ skills and academic data.</p>
-        </div>
-        <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
-        <div class="step">
-          <div class="step-num">03</div>
-          <h3 class="step-title">Get Results</h3>
-          <p class="step-desc">Receive your score, top companies, roles &amp; skill gaps.</p>
+        <div class="pc-chips">
+          <span class="pc-chip">Python</span>
+          <span class="pc-chip">React</span>
+          <span class="pc-chip">SQL</span>
+          <span class="pc-chip">AWS</span>
+          <span class="pc-chip">+8</span>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Features -->
-    <section class="section">
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-brain"></i></div>
-          <h3 class="feature-title">Smart Skill Extraction</h3>
-          <p class="feature-desc">Detects 60+ technical skills with alias matching — React.js, sklearn, k8s and more.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-building"></i></div>
-          <h3 class="feature-title">Company Matching</h3>
-          <p class="feature-desc">ML-powered predictions for TCS, Infosys, Wipro, Cognizant and 6 more top companies.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-          <h3 class="feature-title">Resume Score</h3>
-          <p class="feature-desc">A real score from 0–100 based on your skills, education, certifications and projects.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon"><i class="fas fa-map-signs"></i></div>
-          <h3 class="feature-title">Skill Gap Roadmap</h3>
-          <p class="feature-desc">Discover exactly which skills to learn next for your top matched job roles.</p>
-        </div>
-      </div>
-    </section>
-
+  <!-- ── Stats ── -->
+  <div class="stats anim-5">
+    <div class="stat">
+      <span class="stat-n" data-target="2500">0</span>
+      <span class="stat-l">Resumes Analyzed</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n" data-target="10">0</span>
+      <span class="stat-l">Companies Matched</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n" data-target="30">0</span>
+      <span class="stat-l">Career Roles</span>
+    </div>
+    <div class="stat">
+      <span class="stat-n" data-target="60">0</span>
+      <span class="stat-l">Skills Detected</span>
+    </div>
   </div>
+
+  <hr class="rule"/>
+
+  <!-- ── How It Works ── -->
+  <section class="steps-section">
+    <div class="eyebrow">How It Works</div>
+    <h2 style="font-family:var(--font-d);font-size:clamp(22px,3.5vw,34px);font-weight:700;letter-spacing:-0.02em;margin-bottom:0;">
+      Three steps to your dream career
+    </h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <h3 class="step-title">Upload Resume</h3>
+        <p class="step-desc">Drag and drop your PDF resume into our secure analyzer. Max 5 MB, instant processing.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <h3 class="step-title">AI Extraction</h3>
+        <p class="step-desc">Our ML model extracts 60+ skills, CGPA, education, certifications, and project signals.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <h3 class="step-title">Get Results</h3>
+        <p class="step-desc">Receive your score, company match predictions with confidence bars, and a skill gap roadmap.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule"/>
+
+  <!-- ── Features ── -->
+  <section class="features-section">
+    <div class="eyebrow">Features</div>
+    <div class="features">
+      <div class="feat">
+        <div class="feat-icon"><i class="fas fa-brain"></i></div>
+        <h3 class="feat-title">Smart Skill Extraction</h3>
+        <p class="feat-desc">Detects 60+ skills including aliases — React.js, sklearn, k8s, Node.js all recognized.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon"><i class="fas fa-chart-bar"></i></div>
+        <h3 class="feat-title">ML Company Matching</h3>
+        <p class="feat-desc">RandomForest model predicts fit scores for TCS, Infosys, Wipro, Cognizant and 6 more.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon"><i class="fas fa-star-half-alt"></i></div>
+        <h3 class="feat-title">Real Resume Score</h3>
+        <p class="feat-desc">Scored 0–100 based on skill depth, education, certifications, and project signals.</p>
+      </div>
+      <div class="feat">
+        <div class="feat-icon"><i class="fas fa-road"></i></div>
+        <h3 class="feat-title">Skill Gap Roadmap</h3>
+        <p class="feat-desc">See exactly which skills to learn next, grouped by your top matched job roles.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
 </main>
 
-<footer class="footer">
-  <span class="footer-text">© 2025 TopX &nbsp;·&nbsp; Made by Rahul</span>
+<footer>
+  <span class="footer-txt">© 2025 TopX &nbsp;·&nbsp; Made by Rahul &nbsp;·&nbsp; Free forever</span>
 </footer>
 
 <!-- Login Modal -->
-<div class="modal-overlay" id="login-modal">
-  <div class="modal-box">
+<div class="overlay" id="login-modal">
+  <div class="modal">
     <button class="modal-close" onclick="closeModal('login')"><i class="fas fa-times"></i></button>
+    <div class="modal-tag">// SIGN IN</div>
     <h2 class="modal-title">Welcome back</h2>
-    <p class="modal-sub">Sign in to analyze your resume</p>
     <form action="/login" method="post">
-      <div class="form-group">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-input" name="user_email" placeholder="you@example.com" required />
+      <div class="field">
+        <label class="field-label">Email</label>
+        <input class="field-input" type="email" name="user_email" placeholder="you@example.com" required/>
       </div>
-      <div class="form-group">
-        <label class="form-label">Password</label>
-        <input type="password" class="form-input" name="password" placeholder="••••••••" required />
+      <div class="field">
+        <label class="field-label">Password</label>
+        <input class="field-input" type="password" name="password" placeholder="••••••••" required/>
       </div>
-      <div class="form-submit">
-        <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+      <div class="field-submit">
+        <button type="submit" class="btn btn-primary btn-lg">Sign In →</button>
       </div>
-      <p class="form-footer">No account? <a href="#" onclick="switchModal('login','signup')">Create one</a></p>
+      <p class="modal-footer">No account? <a href="#" onclick="switchModal('login','signup')">Create one free</a></p>
     </form>
   </div>
 </div>
 
 <!-- Signup Modal -->
-<div class="modal-overlay" id="signup-modal">
-  <div class="modal-box">
+<div class="overlay" id="signup-modal">
+  <div class="modal">
     <button class="modal-close" onclick="closeModal('signup')"><i class="fas fa-times"></i></button>
-    <h2 class="modal-title">Create account</h2>
-    <p class="modal-sub">Free forever. No credit card needed.</p>
+    <div class="modal-tag">// CREATE ACCOUNT</div>
+    <h2 class="modal-title">Get started free</h2>
     <form action="/register" method="post">
-      <div class="form-group">
-        <label class="form-label">Full Name</label>
-        <input type="text" class="form-input" name="user_name" placeholder="Jane Doe" required />
+      <div class="field">
+        <label class="field-label">Full Name</label>
+        <input class="field-input" type="text" name="user_name" placeholder="Jane Doe" required/>
       </div>
-      <div class="form-group">
-        <label class="form-label">Email</label>
-        <input type="email" class="form-input" name="user_email" placeholder="you@example.com" required />
+      <div class="field">
+        <label class="field-label">Email</label>
+        <input class="field-input" type="email" name="user_email" placeholder="you@example.com" required/>
       </div>
-      <div class="form-group">
-        <label class="form-label">Password <span style="color:var(--t3);font-size:11px;">(min 6 chars)</span></label>
-        <input type="password" class="form-input" name="password" placeholder="••••••••" minlength="6" required />
+      <div class="field">
+        <label class="field-label">Password <span style="color:var(--t3);font-size:10px;">(min 6 chars)</span></label>
+        <input class="field-input" type="password" name="password" placeholder="••••••••" minlength="6" required/>
       </div>
-      <div class="form-submit">
-        <button type="submit" class="btn btn-primary btn-lg">Get Started Free</button>
+      <div class="field-submit">
+        <button type="submit" class="btn btn-primary btn-lg">Create Account →</button>
       </div>
-      <p class="form-footer">Already have an account? <a href="#" onclick="switchModal('signup','login')">Sign in</a></p>
+      <p class="modal-footer">Have an account? <a href="#" onclick="switchModal('signup','login')">Sign in</a></p>
     </form>
   </div>
 </div>
 
 <script>
+  /* theme */
   function toggleTheme() {
-    document.body.classList.toggle('light-theme');
+    document.body.classList.toggle('light');
     const ic = document.getElementById('theme-icon');
     ic.classList.toggle('fa-moon');
     ic.classList.toggle('fa-sun');
-    localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
   }
   if (localStorage.getItem('theme') === 'light') {
-    document.body.classList.add('light-theme');
+    document.body.classList.add('light');
     document.getElementById('theme-icon').classList.replace('fa-moon','fa-sun');
   }
 
+  /* modals */
   function openModal(id) {
-    document.getElementById(id + '-modal').classList.add('active');
+    document.getElementById(id + '-modal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
   function closeModal(id) {
-    document.getElementById(id + '-modal').classList.remove('active');
+    document.getElementById(id + '-modal').classList.remove('open');
     document.body.style.overflow = '';
   }
-  function switchModal(from, to) {
-    closeModal(from);
-    setTimeout(() => openModal(to), 180);
-  }
+  function switchModal(from, to) { closeModal(from); setTimeout(() => openModal(to), 180); }
 
-  document.querySelectorAll('.modal-overlay').forEach(m => {
-    m.addEventListener('click', e => { if (e.target === m) { m.classList.remove('active'); document.body.style.overflow = ''; } });
+  document.querySelectorAll('.overlay').forEach(o => {
+    o.addEventListener('click', e => { if (e.target === o) { o.classList.remove('open'); document.body.style.overflow = ''; } });
   });
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => { m.classList.remove('active'); document.body.style.overflow = ''; });
+    if (e.key === 'Escape') document.querySelectorAll('.overlay.open').forEach(o => { o.classList.remove('open'); document.body.style.overflow = ''; });
+  });
+
+  /* counter animation */
+  function animateCounters() {
+    document.querySelectorAll('.stat-n[data-target]').forEach(el => {
+      const target = +el.getAttribute('data-target');
+      const suffix = target >= 100 ? '+' : (target === 10 ? '' : '+');
+      let cur = 0;
+      const step = target / 60;
+      const interval = setInterval(() => {
+        cur = Math.min(cur + step, target);
+        el.textContent = Math.floor(cur) + suffix;
+        if (cur >= target) clearInterval(interval);
+      }, 20);
+    });
+  }
+
+  /* preview card animations */
+  function animatePreview() {
+    let score = 0;
+    const scoreEl = document.getElementById('pc-score');
+    const fillEl  = document.getElementById('pc-fill');
+    const iv = setInterval(() => {
+      score = Math.min(score + 2, 87);
+      scoreEl.textContent = score;
+      if (score >= 87) clearInterval(iv);
+    }, 18);
+    setTimeout(() => { if (fillEl) fillEl.style.width = '87%'; }, 200);
+    document.querySelectorAll('.pc-row-fill').forEach(b => {
+      const w = b.getAttribute('data-w');
+      setTimeout(() => { b.style.width = w + '%'; }, 400);
+    });
+  }
+
+  window.addEventListener('load', () => {
+    animateCounters();
+    animatePreview();
   });
 </script>
 </body>

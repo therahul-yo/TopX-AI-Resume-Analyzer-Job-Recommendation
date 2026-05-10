@@ -1524,3 +1524,298 @@ body.light {
   --line-2:    rgba(20,17,14,0.22);
   --line-3:    rgba(20,17,14,0.45);
 }
+
+/* ════════════════════════════════════════════════════════════════
+   PROFESSIONAL RESULT EXTENSIONS
+   Added: Score Breakdown, Quick Stats Strip, Insights,
+          Skill Categories, Role Bars, Cert List
+   ════════════════════════════════════════════════════════════════ */
+
+/* Score breakdown */
+.bd-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 70px;
+  gap: 16px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+}
+.bd-row:last-child { border-bottom: none; }
+
+.bd-l {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--cream-2);
+  text-transform: uppercase;
+}
+
+.bd-bar {
+  height: 2px;
+  background: var(--line);
+  position: relative;
+}
+
+.bd-fill {
+  height: 100%;
+  background: var(--ember);
+  width: 0%;
+  transition: width 1.4s var(--ease-out);
+}
+
+.bd-v {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--cream);
+  text-align: right;
+  font-weight: 500;
+}
+.bd-v em {
+  font-style: normal;
+  color: var(--cream-3);
+  font-size: 0.85em;
+}
+
+/* Quick stats strip */
+.qs-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 0 0 16px;
+}
+
+.qs-cell {
+  padding: 28px 20px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.qs-cell:last-child { border-right: none; }
+
+.qs-l {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--cream-3);
+  text-transform: uppercase;
+}
+
+.qs-n {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--cream);
+  letter-spacing: -0.025em;
+}
+
+.qs-n em {
+  font-style: normal;
+  color: var(--cream-3);
+  font-size: 0.4em;
+  margin-left: 4px;
+}
+
+@media (max-width: 900px) {
+  .qs-strip { grid-template-columns: repeat(3, 1fr); }
+  .qs-cell:nth-child(3) { border-right: none; }
+  .qs-cell:nth-child(1),
+  .qs-cell:nth-child(2),
+  .qs-cell:nth-child(3) { border-bottom: 1px solid var(--line); }
+}
+
+@media (max-width: 600px) {
+  .qs-strip { grid-template-columns: repeat(2, 1fr); }
+  .qs-cell:nth-child(2) { border-right: none; }
+  .qs-cell:nth-child(odd) { border-right: 1px solid var(--line); }
+  .qs-cell { border-bottom: 1px solid var(--line); }
+  .qs-cell:nth-last-child(-n+1) { border-bottom: none; }
+  .qs-n { font-size: 36px; }
+}
+
+/* Insights */
+.insight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.insight {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+.insight:first-child { border-top: 1px solid var(--line); }
+
+.insight-tag {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  color: var(--cream-3);
+  text-transform: uppercase;
+  align-self: flex-start;
+  padding-top: 6px;
+}
+
+.insight-strength .insight-tag { color: var(--lime); }
+.insight-tip      .insight-tag { color: var(--ember); }
+.insight-note     .insight-tag { color: var(--cream-2); }
+
+.insight-h {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 22px;
+  color: var(--cream);
+  letter-spacing: -0.015em;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.insight-p {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--cream-2);
+  line-height: 1.65;
+}
+
+@media (max-width: 700px) {
+  .insight { grid-template-columns: 1fr; gap: 8px; }
+  .insight-tag { padding-top: 0; }
+}
+
+/* Skill categories */
+.cat-block {
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px dashed var(--line);
+}
+.cat-block:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+
+.cat-h {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.cat-l {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--cream-3);
+  text-transform: uppercase;
+}
+
+.cat-c {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--ember);
+  line-height: 1;
+}
+
+.cat-h::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* Roles table v2 with TF-IDF bars */
+.role-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-row-v2 {
+  display: grid;
+  grid-template-columns: 50px 1fr 2fr 60px;
+  gap: 20px;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding 200ms var(--ease-out);
+}
+.role-row-v2:first-child { border-top: 1px solid var(--line); }
+.role-row-v2:hover { padding-left: 12px; }
+.role-row-v2:hover .role-rank { color: var(--ember); }
+
+.role-row-v2 .role-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.role-bar {
+  height: 2px;
+  background: var(--line);
+  width: 100%;
+  position: relative;
+}
+
+.role-bar-fill {
+  height: 100%;
+  background: var(--cream);
+  width: 0%;
+  transition: width 1.4s var(--ease-out);
+}
+
+.role-pct {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--cream-2);
+  text-align: right;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 700px) {
+  .role-row-v2 { grid-template-columns: 36px 1fr 50px; }
+  .role-row-v2 .role-bar { display: none; }
+}
+
+/* Certifications list */
+.cert-list { display: flex; flex-direction: column; }
+
+.cert-row {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 24px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.cert-row:first-child { border-top: 1px solid var(--line); }
+
+.cert-rank {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 18px;
+  color: var(--cream-3);
+}
+
+.cert-name {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--cream);
+  letter-spacing: -0.01em;
+}
+
+/* Score figure responsive override (since right column now richer) */
+@media (max-width: 900px) {
+  .bd-row { grid-template-columns: 90px 1fr 60px; gap: 12px; }
+}

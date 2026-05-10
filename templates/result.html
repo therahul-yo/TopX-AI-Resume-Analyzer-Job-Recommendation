@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Results — TopX</title>
+  <title>Career Report — TopX</title>
   <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"/>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
@@ -13,25 +13,27 @@
 <div class="ticker">
   <div class="ticker-track">
     <div class="ticker-row">
-      <span><i class="tick-star">✦</i> N° 03 — RESULTS</span>
+      <span><i class="tick-star">✦</i> N° 03 — CAREER REPORT</span>
       <span><i class="tick-star">✦</i> ANALYSIS COMPLETE</span>
-      <span><i class="tick-star">✦</i> {{ skills | length }} SKILLS DETECTED</span>
+      <span><i class="tick-star">✦</i> {{ skills | length }} SKILLS</span>
       <span><i class="tick-star">✦</i> {{ companies | length }} COMPANY MATCHES</span>
-      <span><i class="tick-star">✦</i> {{ job | length }} ROLES MATCHED</span>
+      <span><i class="tick-star">✦</i> {{ roles | length }} ROLES</span>
+      {% if experience_years %}<span><i class="tick-star">✦</i> {{ experience_years }} YRS EXP</span>{% endif %}
+      {% if certifications %}<span><i class="tick-star">✦</i> {{ certifications | length }} CERTIFICATIONS</span>{% endif %}
     </div>
     <div class="ticker-row" aria-hidden="true">
-      <span><i class="tick-star">✦</i> N° 03 — RESULTS</span>
+      <span><i class="tick-star">✦</i> N° 03 — CAREER REPORT</span>
       <span><i class="tick-star">✦</i> ANALYSIS COMPLETE</span>
-      <span><i class="tick-star">✦</i> {{ skills | length }} SKILLS DETECTED</span>
+      <span><i class="tick-star">✦</i> {{ skills | length }} SKILLS</span>
       <span><i class="tick-star">✦</i> {{ companies | length }} COMPANY MATCHES</span>
-      <span><i class="tick-star">✦</i> {{ job | length }} ROLES MATCHED</span>
+      <span><i class="tick-star">✦</i> {{ roles | length }} ROLES</span>
     </div>
   </div>
 </div>
 
 <header class="topbar">
   <a href="/" class="brand"><em>TopX</em><b>— CAREER INTEL</b></a>
-  <div class="tb-meta">N° 03 · RESULTS &amp; ANALYSIS · {% if name %}{{ name|upper }}{% endif %}</div>
+  <div class="tb-meta">N° 03 · CAREER REPORT · {% if name %}{{ name|upper }}{% endif %}</div>
   <div class="tb-actions">
     <button class="tb-link" onclick="toggleTheme()" id="theme-btn">DARK</button>
     <a class="tb-link" href="/logout">SIGN OUT</a>
@@ -46,7 +48,7 @@
 
     <!-- Masthead -->
     <div class="res-mast">
-      <span class="res-mast-tag">// ANALYSIS COMPLETE</span>
+      <span class="res-mast-tag">// REPORT N° 03 · ANALYSIS COMPLETE</span>
       <h1 class="res-mast-h">
         {% if name %}{{ name }}'s <span class="it">Career Report.</span>{% else %}Your <span class="it">Career Report.</span>{% endif %}
       </h1>
@@ -56,7 +58,7 @@
       </div>
     </div>
 
-    <!-- Score Figure -->
+    <!-- ─── Score Figure with Breakdown ─── -->
     <div class="score-fig">
       <div class="score-fig-l">
         <span class="score-cap">— RESUME SCORE</span>
@@ -65,46 +67,103 @@
       </div>
 
       <div class="score-fig-r">
-        <div class="qstat">
-          <span class="qstat-l">Skills Detected</span>
-          <span class="qstat-n">{{ skills | length }}</span>
-        </div>
-        <div class="qstat">
-          <span class="qstat-l">Roles Matched</span>
-          <span class="qstat-n">{{ job | length }}</span>
-        </div>
-        <div class="qstat">
-          <span class="qstat-l">Skill Gaps Found</span>
-          <span class="qstat-n">{{ skill_gaps | length }}</span>
-        </div>
+        <span class="score-cap" style="margin-bottom:8px;display:block;">— SCORE BREAKDOWN</span>
+        {% for label, value in breakdown.items() %}
+          {% set max_v = {'Skills':28,'Experience':22,'Projects':18,'Certifications':14,'Education':10,'Summary':8}[label] %}
+          <div class="bd-row">
+            <span class="bd-l">{{ label }}</span>
+            <div class="bd-bar"><div class="bd-fill" data-target="{{ (value / max_v * 100) | round | int }}"></div></div>
+            <span class="bd-v">{{ value }}<em>/{{ max_v }}</em></span>
+          </div>
+        {% endfor %}
       </div>
     </div>
 
-    <!-- I. Skills Detected -->
+    <!-- Quick Stats Strip -->
+    <div class="qs-strip">
+      <div class="qs-cell">
+        <span class="qs-l">— SKILLS</span>
+        <span class="qs-n">{{ skills | length }}</span>
+      </div>
+      <div class="qs-cell">
+        <span class="qs-l">— EXPERIENCE</span>
+        <span class="qs-n">{{ experience_years if experience_years else '—' }}{% if experience_years %}<em style="font-size:0.4em;">yrs</em>{% endif %}</span>
+      </div>
+      <div class="qs-cell">
+        <span class="qs-l">— PROJECTS</span>
+        <span class="qs-n">{{ project_count if project_count else '—' }}</span>
+      </div>
+      <div class="qs-cell">
+        <span class="qs-l">— CERTIFICATIONS</span>
+        <span class="qs-n">{{ certifications | length }}</span>
+      </div>
+      <div class="qs-cell">
+        <span class="qs-l">— ROLES MATCHED</span>
+        <span class="qs-n">{{ roles | length }}</span>
+      </div>
+    </div>
+
+    <!-- ─── I. Insights ─── -->
+    {% if insights %}
     <div class="data-block">
       <div class="data-block-h">
         <div class="data-block-num">I.</div>
         <div class="data-block-cap">— SECTION 01</div>
+        <h3 class="data-block-h-title">Key <span class="it">insights.</span></h3>
+      </div>
+      <div class="data-block-c">
+        <div class="insight-list">
+          {% for ins in insights %}
+            <div class="insight insight-{{ ins.type }}">
+              <span class="insight-tag">
+                {% if ins.type == 'strength' %}◆ STRENGTH
+                {% elif ins.type == 'tip' %}▲ ACTION
+                {% else %}● NOTE{% endif %}
+              </span>
+              <div class="insight-body">
+                <h4 class="insight-h"><em>{{ ins.title }}</em></h4>
+                <p class="insight-p">{{ ins.body }}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ─── II. Skills (Categorized) ─── -->
+    <div class="data-block">
+      <div class="data-block-h">
+        <div class="data-block-num">II.</div>
+        <div class="data-block-cap">— SECTION 02</div>
         <h3 class="data-block-h-title">Skills <span class="it">detected.</span></h3>
       </div>
       <div class="data-block-c">
-        {% if skills %}
-          <div class="tag-list">
-            {% for skill in skills %}
-              <span class="tag">{{ skill }}</span>
-            {% endfor %}
-          </div>
+        {% if skill_categories %}
+          {% for category, sks in skill_categories.items() %}
+            <div class="cat-block">
+              <div class="cat-h">
+                <span class="cat-l">{{ category }}</span>
+                <span class="cat-c">{{ sks | length }}</span>
+              </div>
+              <div class="tag-list">
+                {% for s in sks %}
+                  <span class="tag">{{ s }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
         {% else %}
           <p class="empty">No skills detected. Add a Skills section to your resume.</p>
         {% endif %}
       </div>
     </div>
 
-    <!-- II. Companies -->
+    <!-- ─── III. Companies ─── -->
     <div class="data-block">
       <div class="data-block-h">
-        <div class="data-block-num">II.</div>
-        <div class="data-block-cap">— SECTION 02</div>
+        <div class="data-block-num">III.</div>
+        <div class="data-block-cap">— SECTION 03</div>
         <h3 class="data-block-h-title">Company <span class="it">matches.</span></h3>
       </div>
       <div class="data-block-c">
@@ -127,20 +186,24 @@
       </div>
     </div>
 
-    <!-- III. Roles -->
+    <!-- ─── IV. Recommended Roles (with TF-IDF match scores) ─── -->
     <div class="data-block">
       <div class="data-block-h">
-        <div class="data-block-num">III.</div>
-        <div class="data-block-cap">— SECTION 03</div>
+        <div class="data-block-num">IV.</div>
+        <div class="data-block-cap">— SECTION 04</div>
         <h3 class="data-block-h-title">Recommended <span class="it">roles.</span></h3>
       </div>
       <div class="data-block-c">
-        {% if job %}
-          <div class="role-list">
-            {% for role in job %}
-              <div class="role-item">
+        {% if roles %}
+          <div class="role-table">
+            {% for r in roles %}
+              <div class="role-row-v2">
                 <span class="role-rank">{{ '%02d' | format(loop.index) }}</span>
-                <span class="role-name"><em>{{ role }}</em></span>
+                <span class="role-name"><em>{{ r.name }}</em></span>
+                <div class="role-bar">
+                  <div class="role-bar-fill" data-target="{{ r.score }}"></div>
+                </div>
+                <span class="role-pct">{{ r.score }}%</span>
               </div>
             {% endfor %}
           </div>
@@ -150,11 +213,11 @@
       </div>
     </div>
 
-    <!-- IV. Skill Gaps -->
+    <!-- ─── V. Skill Gaps ─── -->
     <div class="data-block">
       <div class="data-block-h">
-        <div class="data-block-num">IV.</div>
-        <div class="data-block-cap">— SECTION 04</div>
+        <div class="data-block-num">V.</div>
+        <div class="data-block-cap">— SECTION 05</div>
         <h3 class="data-block-h-title">Skills to <span class="it">learn.</span></h3>
       </div>
       <div class="data-block-c">
@@ -177,8 +240,29 @@
       </div>
     </div>
 
-    {% if marks %}
-    <!-- V. Academic -->
+    <!-- ─── VI. Certifications ─── -->
+    {% if certifications %}
+    <div class="data-block">
+      <div class="data-block-h">
+        <div class="data-block-num">VI.</div>
+        <div class="data-block-cap">— SECTION 06</div>
+        <h3 class="data-block-h-title">Certifications <span class="it">detected.</span></h3>
+      </div>
+      <div class="data-block-c">
+        <div class="cert-list">
+          {% for c in certifications %}
+            <div class="cert-row">
+              <span class="cert-rank">{{ '%02d' | format(loop.index) }}</span>
+              <span class="cert-name"><em>{{ c }}</em></span>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ─── VII. Academic ─── -->
+    {% if marks and marks != 'Not detected' %}
     <div class="acad">
       <span class="acad-cap">— ACADEMIC INFO</span>
       <span class="acad-val"><em>{{ marks }}</em></span>
@@ -234,7 +318,7 @@
     const numEl    = document.getElementById('score-n');
     const ratingEm = document.getElementById('score-rating-em');
     let cur = 0;
-    const dur = 1900;
+    const dur = 2000;
     const t0  = performance.now();
 
     function tick(ts) {
@@ -244,8 +328,9 @@
       numEl.textContent = cur;
       if (prog < 1) { requestAnimationFrame(tick); return; }
 
-      if (target >= 80)      ratingEm.textContent = 'Excellent.';
-      else if (target >= 65) ratingEm.textContent = 'Good.';
+      if (target >= 85)      ratingEm.textContent = 'Outstanding.';
+      else if (target >= 70) ratingEm.textContent = 'Strong.';
+      else if (target >= 55) ratingEm.textContent = 'Good — room to grow.';
       else                    ratingEm.textContent = 'Needs work.';
     }
     requestAnimationFrame(tick);
@@ -256,12 +341,12 @@
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const t = entry.target.getAttribute('data-target');
-          entry.target.style.width = t + '%';
+          entry.target.style.width = Math.max(t, 4) + '%';
           obs.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.3 });
-    document.querySelectorAll('.co-bar-fill[data-target]').forEach(el => obs.observe(el));
+    }, { threshold: 0.25 });
+    document.querySelectorAll('[data-target]').forEach(el => obs.observe(el));
   }
 
   function downloadPDF() {

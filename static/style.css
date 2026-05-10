@@ -1819,3 +1819,306 @@ body.light {
 @media (max-width: 900px) {
   .bd-row { grid-template-columns: 90px 1fr 60px; gap: 12px; }
 }
+
+/* ════════════════════════════════════════════════════════════════
+   PRINT-ONLY ELEMENTS (hidden on screen, shown when printing)
+   ════════════════════════════════════════════════════════════════ */
+.print-only { display: none; }
+
+/* ════════════════════════════════════════════════════════════════
+   PRINT STYLESHEET — Editorial PDF Report
+   Triggered when user clicks "Download PDF Report" → window.print()
+   ════════════════════════════════════════════════════════════════ */
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 15mm 20mm 15mm;
+  }
+
+  /* ── Reset ── */
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #1a1410 !important;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+
+  body::before, body::after { display: none !important; }
+
+  /* ── Hide live UI ── */
+  .ticker, .topbar, .res-mast-actions, .res-actions-end,
+  .colophon, .btn-large, .btn-link, .btn-sm, .btn-sm-out,
+  .tb-link, .tb-cta { display: none !important; }
+
+  /* ── Show print-only ── */
+  .print-only { display: block; }
+
+  /* ── Container ── */
+  main { padding: 0 !important; }
+  .spread { padding: 0 !important; max-width: none !important; }
+  .results-spread { padding: 0 !important; border: none !important; }
+
+  /* ════════════════════════════════════════════════════════════════
+     Print-Only Cover Page
+     ════════════════════════════════════════════════════════════════ */
+  .print-cover {
+    page-break-after: always;
+    break-after: page;
+    min-height: 247mm;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    color: #1a1410;
+  }
+
+  .print-cover-meta {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8.5pt;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #6e695f;
+    padding-bottom: 16px;
+  }
+
+  .print-cover-rule {
+    height: 1px;
+    background: #1a1410;
+    margin: 0 0 24px;
+  }
+
+  .print-cover-title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 88pt;
+    font-weight: 400;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    color: #1a1410;
+    margin: 80pt 0 60pt;
+  }
+  .print-cover-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: #c84a18;
+  }
+
+  .print-cover-name,
+  .print-cover-score {
+    display: flex;
+    flex-direction: column;
+    gap: 6pt;
+    margin: 22pt 0;
+  }
+
+  .print-cover-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #6e695f;
+  }
+
+  .print-cover-val {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 28pt;
+    color: #1a1410;
+    letter-spacing: -0.015em;
+  }
+
+  .print-cover-score-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 300;
+    font-size: 88pt;
+    color: #c84a18;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+  }
+  .print-cover-score-num em {
+    font-style: italic;
+    font-weight: 300;
+    color: #6e695f;
+    font-size: 0.4em;
+  }
+
+  .print-cover-summary {
+    margin-top: auto;
+    padding-top: 30pt;
+    border-top: 1px solid #1a1410;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16pt;
+  }
+  .print-cover-summary > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4pt;
+    border-right: 1px solid #c9c2b5;
+    padding-right: 16pt;
+  }
+  .print-cover-summary > div:last-child { border-right: none; }
+
+  .print-cover-num {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 36pt;
+    color: #1a1410;
+    line-height: 1;
+  }
+  .print-cover-num em {
+    font-style: normal;
+    color: #6e695f;
+    font-size: 0.36em;
+    margin-left: 3pt;
+  }
+
+  .print-cover-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18pt;
+    padding-top: 12pt;
+    border-top: 1px solid #c9c2b5;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6e695f;
+  }
+
+  /* ════════════════════════════════════════════════════════════════
+     Body Pages — Reset color tokens for print
+     ════════════════════════════════════════════════════════════════ */
+  .res-mast {
+    page-break-after: avoid;
+    border-color: #1a1410 !important;
+    margin-top: 0;
+    margin-bottom: 24pt;
+    padding-bottom: 14pt;
+  }
+
+  .res-mast-tag { color: #c84a18 !important; }
+  .res-mast-h { color: #1a1410 !important; font-size: 32pt !important; }
+  .res-mast-h .it { color: #c84a18 !important; }
+
+  /* Score figure */
+  .score-fig {
+    page-break-inside: avoid;
+    border-color: #c9c2b5 !important;
+    padding: 24pt 0 !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 32pt !important;
+  }
+
+  .score-cap { color: #6e695f !important; }
+  .score-num { color: #c84a18 !important; font-size: 90pt !important; }
+  .score-num em { color: #6e695f !important; }
+  .score-rating, .score-rating em { color: #1a1410 !important; }
+
+  /* Breakdown */
+  .bd-row { border-color: #e0dccf !important; }
+  .bd-l { color: #1a1410 !important; }
+  .bd-bar { background: #e0dccf !important; }
+  .bd-fill { background: #c84a18 !important; }
+  .bd-v { color: #1a1410 !important; }
+  .bd-v em { color: #6e695f !important; }
+
+  /* Quick stats strip */
+  .qs-strip {
+    border-color: #1a1410 !important;
+    page-break-inside: avoid;
+    margin-bottom: 28pt;
+  }
+  .qs-cell { border-color: #c9c2b5 !important; padding: 16pt 12pt !important; }
+  .qs-l { color: #6e695f !important; }
+  .qs-n { color: #1a1410 !important; font-size: 32pt !important; }
+  .qs-n em { color: #6e695f !important; }
+
+  /* Data blocks */
+  .data-block {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    border-color: #c9c2b5 !important;
+    padding: 24pt 0 !important;
+    grid-template-columns: 160pt 1fr !important;
+    gap: 32pt !important;
+  }
+  .data-block-h { position: static !important; }
+  .data-block-num { color: #c84a18 !important; font-size: 32pt !important; }
+  .data-block-cap { color: #6e695f !important; }
+  .data-block-h-title { color: #1a1410 !important; font-size: 18pt !important; }
+  .data-block-h-title .it { color: #c84a18 !important; }
+
+  /* Insights */
+  .insight {
+    border-color: #c9c2b5 !important;
+    page-break-inside: avoid;
+    padding: 14pt 0 !important;
+  }
+  .insight-tag { color: #6e695f !important; }
+  .insight-strength .insight-tag { color: #6b8e23 !important; }
+  .insight-tip      .insight-tag { color: #c84a18 !important; }
+  .insight-h { color: #1a1410 !important; font-size: 14pt !important; }
+  .insight-p { color: #1a1410 !important; }
+
+  /* Categories & Tags */
+  .cat-block { border-color: #c9c2b5 !important; }
+  .cat-l { color: #6e695f !important; }
+  .cat-c { color: #c84a18 !important; }
+  .cat-h::after { background: #c9c2b5 !important; }
+  .tag {
+    background: #fff !important;
+    border-color: #c9c2b5 !important;
+    color: #1a1410 !important;
+    padding: 3pt 9pt !important;
+    font-size: 8.5pt !important;
+  }
+
+  /* Companies & Roles tables */
+  .co-row, .role-row-v2, .cert-row, .role-item {
+    border-color: #c9c2b5 !important;
+    page-break-inside: avoid;
+    padding: 10pt 0 !important;
+  }
+  .co-rank, .role-rank, .cert-rank { color: #6e695f !important; }
+  .co-name, .role-name, .cert-name { color: #1a1410 !important; }
+  .role-name { font-size: 14pt !important; }
+  .co-bar, .role-bar { background: #e0dccf !important; height: 2pt !important; }
+  .co-bar-fill { background: #c84a18 !important; }
+  .role-bar-fill { background: #1a1410 !important; }
+  .co-pct { color: #c84a18 !important; }
+  .role-pct { color: #1a1410 !important; }
+
+  /* Skill gaps */
+  .gap-block { border-color: #c9c2b5 !important; page-break-inside: avoid; }
+  .gap-role-h { color: #6e695f !important; }
+  .gap-role-h::after { background: #c9c2b5 !important; }
+  .gap-tag {
+    background: #faeae3 !important;
+    border-color: #e8b8a0 !important;
+    color: #c84a18 !important;
+    padding: 3pt 9pt !important;
+    font-size: 8.5pt !important;
+  }
+
+  /* Academic */
+  .acad { border-color: #c9c2b5 !important; padding: 16pt 0 !important; }
+  .acad-cap { color: #6e695f !important; }
+  .acad-val, .acad-val em { color: #1a1410 !important; }
+
+  /* Section breaks for major content groups */
+  .data-block + .data-block { page-break-before: auto; }
+
+  /* Empty-state notes */
+  .empty { color: #6e695f !important; }
+}

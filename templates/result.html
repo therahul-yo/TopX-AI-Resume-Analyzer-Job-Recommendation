@@ -6,7 +6,6 @@
   <title>Career Report — TopX</title>
   <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"/>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -43,6 +42,40 @@
 <main>
 <div class="spread">
 <div id="results-container">
+
+  <!-- ─── Print-Only Cover (visible only when printing) ─── -->
+  <div class="print-only print-cover">
+    <div class="print-cover-meta">
+      <span>VOL 1 · N° 03</span>
+      <span>CAREER REPORT</span>
+      <span id="print-date"></span>
+    </div>
+    <div class="print-cover-rule"></div>
+    <h1 class="print-cover-title">
+      Career<br/>
+      <em>Report.</em>
+    </h1>
+    <div class="print-cover-rule"></div>
+    <div class="print-cover-name">
+      <span class="print-cover-tag">— PREPARED FOR</span>
+      <span class="print-cover-val">{% if name %}{{ name }}{% else %}Anonymous Candidate{% endif %}</span>
+    </div>
+    <div class="print-cover-score">
+      <span class="print-cover-tag">— OVERALL SCORE</span>
+      <span class="print-cover-score-num">{{ score | default(0) }}<em>/100</em></span>
+    </div>
+    <div class="print-cover-summary">
+      <div><span class="print-cover-tag">SKILLS</span><span class="print-cover-num">{{ skills | length }}</span></div>
+      <div><span class="print-cover-tag">EXPERIENCE</span><span class="print-cover-num">{{ experience_years if experience_years else '—' }}{% if experience_years %}<em>yrs</em>{% endif %}</span></div>
+      <div><span class="print-cover-tag">PROJECTS</span><span class="print-cover-num">{{ project_count if project_count else '—' }}</span></div>
+      <div><span class="print-cover-tag">CERTIFICATIONS</span><span class="print-cover-num">{{ certifications | length }}</span></div>
+      <div><span class="print-cover-tag">ROLES MATCHED</span><span class="print-cover-num">{{ roles | length }}</span></div>
+    </div>
+    <div class="print-cover-footer">
+      <span>TopX · Career Intelligence</span>
+      <span>topx-ai-resume-analyzer.onrender.com</span>
+    </div>
+  </div>
 
   <section class="results-spread">
 
@@ -349,28 +382,30 @@
     document.querySelectorAll('[data-target]').forEach(el => obs.observe(el));
   }
 
-  function downloadPDF() {
-    const el     = document.getElementById('results-container');
-    const ticker = document.querySelector('.ticker');
-    const header = document.querySelector('.topbar');
-    if (ticker) ticker.style.display = 'none';
-    if (header) header.style.display = 'none';
-    document.body.style.background = '#F5F0E8';
-    el.style.color = '#0a0908';
-
-    html2pdf().set({
-      margin: 14,
-      filename: 'TopX_Career_Report.pdf',
-      image: { type: 'jpeg', quality: 0.97 },
-      html2canvas: { scale: 2, useCORS: true, backgroundColor: '#F5F0E8' },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    }).from(el).save().then(() => {
-      document.body.style.background = '';
-      el.style.color = '';
-      if (ticker) ticker.style.display = '';
-      if (header) header.style.display = '';
+  /* ── Print to PDF (native, no flicker) ── */
+  function printReport() {
+    // Force all animated bars to their final width before printing
+    document.querySelectorAll('[data-target]').forEach(el => {
+      el.style.width = el.getAttribute('data-target') + '%';
     });
+    // Set print date
+    const dateEl = document.getElementById('print-date');
+    if (dateEl) {
+      const d = new Date();
+      const months = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+      dateEl.textContent = `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`;
+    }
+    // Update document title for default PDF filename
+    const original = document.title;
+    document.title = 'TopX_Career_Report';
+    setTimeout(() => {
+      window.print();
+      setTimeout(() => { document.title = original; }, 200);
+    }, 60);
   }
+
+  // Backwards-compat alias for any old onclick references
+  const downloadPDF = printReport;
 </script>
 </body>
 </html>

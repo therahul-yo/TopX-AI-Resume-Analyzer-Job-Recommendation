@@ -3,258 +3,269 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="TopX — AI-powered resume analyzer. Skill extraction, company matching, career roadmap."/>
+  <title>TopX — Career Intelligence</title>
+  <meta name="description" content="TopX. AI-powered career intelligence. Upload your resume, receive instant analysis."/>
   <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"/>
-  <title>TopX — AI Resume Analyzer</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="logo">
-      <div class="logo-mark">TX</div>
-      TopX
-    </a>
-    <div class="nav-right">
-      <span class="nav-dot"><span class="live-dot"></span>LIVE</span>
-      <button class="btn btn-ghost btn-icon" onclick="toggleTheme()" title="Toggle theme">
-        <i class="fas fa-moon" id="theme-icon"></i>
-      </button>
-      <button class="btn btn-outline" onclick="openModal('login')">Sign In</button>
-      <button class="btn btn-primary" onclick="openModal('signup')">Get Started →</button>
+<!-- ─── Marquee Ticker ─── -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-row">
+      <span><i class="tick-star">✦</i> ESTABLISHED 2025</span>
+      <span><i class="tick-star">✦</i> AI-POWERED RESUME ANALYSIS</span>
+      <span><i class="tick-star">✦</i> 2,500+ RESUMES ANALYZED</span>
+      <span><i class="tick-star">✦</i> 10 COMPANIES MATCHED</span>
+      <span><i class="tick-star">✦</i> 30+ CAREER ROLES</span>
+      <span><i class="tick-star">✦</i> 60+ SKILLS DETECTED</span>
+      <span><i class="tick-star">✦</i> FREE FOREVER</span>
+    </div>
+    <div class="ticker-row" aria-hidden="true">
+      <span><i class="tick-star">✦</i> ESTABLISHED 2025</span>
+      <span><i class="tick-star">✦</i> AI-POWERED RESUME ANALYSIS</span>
+      <span><i class="tick-star">✦</i> 2,500+ RESUMES ANALYZED</span>
+      <span><i class="tick-star">✦</i> 10 COMPANIES MATCHED</span>
+      <span><i class="tick-star">✦</i> 30+ CAREER ROLES</span>
+      <span><i class="tick-star">✦</i> 60+ SKILLS DETECTED</span>
+      <span><i class="tick-star">✦</i> FREE FOREVER</span>
     </div>
   </div>
-</nav>
+</div>
+
+<!-- ─── Top Bar ─── -->
+<header class="topbar">
+  <a href="/" class="brand"><em>TopX</em><b>— CAREER INTEL</b></a>
+  <div class="tb-meta">VOL 1 · ISSUE 01 · A QUARTERLY OF CAREER INTELLIGENCE</div>
+  <div class="tb-actions">
+    <button class="tb-link" onclick="toggleTheme()" id="theme-btn">DARK</button>
+    <button class="tb-link" onclick="openModal('login')">SIGN IN</button>
+    <button class="tb-cta" onclick="openModal('signup')">Begin →</button>
+  </div>
+</header>
 
 <main>
-<div class="wrap">
+
+<div class="spread">
 
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       {% for category, message in messages %}
-        <div class="flash flash-{{ category }}">
-          <i class="fas {% if category == 'success' %}fa-check{% else %}fa-exclamation{% endif %}"></i>
-          {{ message }}
-        </div>
+        <div class="flash flash-{{ category }}">// {{ message }}</div>
       {% endfor %}
     {% endif %}
   {% endwith %}
 
-  <!-- ── Hero ── -->
+  <!-- ─── Hero ─── -->
   <section class="hero">
-    <div class="hero-left">
-      <div class="hero-eyebrow">
-        <span class="h-live"></span>
-        AI-POWERED &nbsp;·&nbsp; REAL-TIME ANALYSIS &nbsp;·&nbsp; FREE
-      </div>
+    <div class="hero-meta">
+      <div class="hero-meta-line">VOL 1 · N° 01 · MMXXV</div>
+      <div>EDITION / DECEMBER 2025</div>
+    </div>
 
-      <h1 class="hero-h anim-1">
-        Unlock Your<br><em>Career Potential</em>
-      </h1>
+    <h1 class="hero-h">
+      <span class="mask">Career</span><br/>
+      <span class="mask" style="animation-delay:0.15s;"><span class="it">Intelligence,</span></span><br/>
+      <span class="mask" style="animation-delay:0.30s;">for a New <span class="underline">Era</span>.</span>
+    </h1>
 
-      <p class="hero-p anim-2">
-        Upload your PDF resume and receive instant AI analysis — skill extraction,
-        company match predictions, and a personalized career growth roadmap.
+    <div class="hero-bottom">
+      <p class="hero-body in-3">
+        Upload your <strong>PDF resume</strong>. In seconds, our trained AI extracts
+        your skills, predicts the companies most likely to hire you, and prescribes
+        a precise career roadmap — gaps, strengths, next steps.
+        <br/><br/>
+        No fluff. No fees. Just signal.
       </p>
 
-      <div class="hero-btns anim-3">
-        <button class="btn btn-primary btn-lg" onclick="openModal('signup')">
-          <i class="fas fa-arrow-right"></i> Analyze Resume
+      <div class="hero-cta in-4">
+        <div style="display:flex;gap:0;flex-wrap:wrap;align-items:center;">
+          <button class="btn-large" onclick="openModal('signup')">
+            <span>Begin Analysis</span>
+            <span class="arrow">→</span>
+          </button>
+          <button class="btn-link" onclick="openModal('login')">Sign In</button>
+        </div>
+        <div class="scroll-hint">Scroll · Continue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Process / How it works ─── -->
+  <section class="section">
+    <div class="section-h">
+      <span class="section-num">I.</span>
+      <h2 class="section-title">The <span class="it">Process,</span><br/>distilled.</h2>
+      <span class="section-meta">§ 01 — METHOD</span>
+    </div>
+
+    <div class="process">
+      <div class="process-step">
+        <div class="process-step-n">— Step One</div>
+        <h3 class="process-step-h">Upload</h3>
+        <p class="process-step-p">Drop your PDF resume into our analyzer. Up to 5&nbsp;MB. Encrypted in transit.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-n">— Step Two</div>
+        <h3 class="process-step-h">Extract</h3>
+        <p class="process-step-p">Our trained model surfaces 60+ skills, your CGPA, education, and project signal.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-n">— Step Three</div>
+        <h3 class="process-step-h">Receive</h3>
+        <p class="process-step-p">Get your score, ranked company predictions, role matches, and skill-gap roadmap.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Features Table ─── -->
+  <section class="section">
+    <div class="section-h">
+      <span class="section-num">II.</span>
+      <h2 class="section-title">Built for <span class="it">precision.</span></h2>
+      <span class="section-meta">§ 02 — CAPABILITIES</span>
+    </div>
+
+    <div class="feat-list">
+      <div class="feat-row">
+        <span class="feat-num">01</span>
+        <h3 class="feat-h">Smart skill <span class="it">extraction.</span></h3>
+        <p class="feat-p">Detects 60+ technical skills with intelligent alias matching. React.js, sklearn, k8s, Node.js — all recognized as one.</p>
+      </div>
+      <div class="feat-row">
+        <span class="feat-num">02</span>
+        <h3 class="feat-h">ML company <span class="it">matching.</span></h3>
+        <p class="feat-p">A trained RandomForest model predicts which companies are most likely to hire you, with calibrated confidence scores.</p>
+      </div>
+      <div class="feat-row">
+        <span class="feat-num">03</span>
+        <h3 class="feat-h">Real <span class="it">resume score.</span></h3>
+        <p class="feat-p">Scored 0 to 100 based on your skill depth, education, certifications, and project signals — never inflated, always honest.</p>
+      </div>
+      <div class="feat-row">
+        <span class="feat-num">04</span>
+        <h3 class="feat-h">Skill gap <span class="it">roadmap.</span></h3>
+        <p class="feat-p">See exactly which skills to learn next, grouped by your top matched job roles. A precise, actionable plan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Stats Figure ─── -->
+  <section class="section" style="padding:80px 0;">
+    <div class="section-h">
+      <span class="section-num">III.</span>
+      <h2 class="section-title">By the <span class="it">numbers.</span></h2>
+      <span class="section-meta">§ 03 — FIGURES</span>
+    </div>
+
+    <div class="fig">
+      <div class="fig-cell">
+        <span class="fig-n" data-target="2500">0</span>
+        <span class="fig-l">Resumes Analyzed</span>
+      </div>
+      <div class="fig-cell">
+        <span class="fig-n" data-target="10">0</span>
+        <span class="fig-l">Companies Matched</span>
+      </div>
+      <div class="fig-cell">
+        <span class="fig-n" data-target="30">0</span>
+        <span class="fig-l">Career Roles</span>
+      </div>
+      <div class="fig-cell">
+        <span class="fig-n" data-target="60">0</span>
+        <span class="fig-l">Skills Detected</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Colophon / Footer ─── -->
+  <section class="colophon">
+    <div class="colophon-l">
+      <h4>Begin your analysis.</h4>
+      <p>Upload a PDF · Free forever · No credit card</p>
+      <div style="margin-top:24px;">
+        <button class="btn-large" onclick="openModal('signup')">
+          <span>Get Started</span>
+          <span class="arrow">→</span>
         </button>
-        <button class="btn btn-outline btn-lg" onclick="openModal('login')">Sign In</button>
       </div>
     </div>
-
-    <div class="hero-right anim-4">
-      <div class="preview-card">
-        <div class="pc-head">
-          <span class="pc-label">SAMPLE ANALYSIS</span>
-          <span class="pc-score-badge" id="pc-score">0</span>
-        </div>
-        <div class="pc-score-bar">
-          <div class="pc-fill" id="pc-fill"></div>
-        </div>
-        <div class="pc-companies">
-          <div class="pc-row">
-            <span class="pc-row-name">TCS</span>
-            <div class="pc-row-bar"><div class="pc-row-fill" data-w="85"></div></div>
-            <span class="pc-row-pct">85%</span>
-          </div>
-          <div class="pc-row">
-            <span class="pc-row-name">Infosys</span>
-            <div class="pc-row-bar"><div class="pc-row-fill" data-w="76"></div></div>
-            <span class="pc-row-pct">76%</span>
-          </div>
-          <div class="pc-row">
-            <span class="pc-row-name">Wipro</span>
-            <div class="pc-row-bar"><div class="pc-row-fill" data-w="68"></div></div>
-            <span class="pc-row-pct">68%</span>
-          </div>
-          <div class="pc-row">
-            <span class="pc-row-name">Cognizant</span>
-            <div class="pc-row-bar"><div class="pc-row-fill" data-w="61"></div></div>
-            <span class="pc-row-pct">61%</span>
-          </div>
-        </div>
-        <div class="pc-chips">
-          <span class="pc-chip">Python</span>
-          <span class="pc-chip">React</span>
-          <span class="pc-chip">SQL</span>
-          <span class="pc-chip">AWS</span>
-          <span class="pc-chip">+8</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Stats ── -->
-  <div class="stats anim-5">
-    <div class="stat">
-      <span class="stat-n" data-target="2500">0</span>
-      <span class="stat-l">Resumes Analyzed</span>
-    </div>
-    <div class="stat">
-      <span class="stat-n" data-target="10">0</span>
-      <span class="stat-l">Companies Matched</span>
-    </div>
-    <div class="stat">
-      <span class="stat-n" data-target="30">0</span>
-      <span class="stat-l">Career Roles</span>
-    </div>
-    <div class="stat">
-      <span class="stat-n" data-target="60">0</span>
-      <span class="stat-l">Skills Detected</span>
-    </div>
-  </div>
-
-  <hr class="rule"/>
-
-  <!-- ── How It Works ── -->
-  <section class="steps-section">
-    <div class="eyebrow">How It Works</div>
-    <h2 style="font-family:var(--font-d);font-size:clamp(22px,3.5vw,34px);font-weight:700;letter-spacing:-0.02em;margin-bottom:0;">
-      Three steps to your dream career
-    </h2>
-
-    <div class="steps">
-      <div class="step">
-        <div class="step-n">01</div>
-        <h3 class="step-title">Upload Resume</h3>
-        <p class="step-desc">Drag and drop your PDF resume into our secure analyzer. Max 5 MB, instant processing.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">02</div>
-        <h3 class="step-title">AI Extraction</h3>
-        <p class="step-desc">Our ML model extracts 60+ skills, CGPA, education, certifications, and project signals.</p>
-      </div>
-      <div class="step">
-        <div class="step-n">03</div>
-        <h3 class="step-title">Get Results</h3>
-        <p class="step-desc">Receive your score, company match predictions with confidence bars, and a skill gap roadmap.</p>
-      </div>
-    </div>
-  </section>
-
-  <hr class="rule"/>
-
-  <!-- ── Features ── -->
-  <section class="features-section">
-    <div class="eyebrow">Features</div>
-    <div class="features">
-      <div class="feat">
-        <div class="feat-icon"><i class="fas fa-brain"></i></div>
-        <h3 class="feat-title">Smart Skill Extraction</h3>
-        <p class="feat-desc">Detects 60+ skills including aliases — React.js, sklearn, k8s, Node.js all recognized.</p>
-      </div>
-      <div class="feat">
-        <div class="feat-icon"><i class="fas fa-chart-bar"></i></div>
-        <h3 class="feat-title">ML Company Matching</h3>
-        <p class="feat-desc">RandomForest model predicts fit scores for TCS, Infosys, Wipro, Cognizant and 6 more.</p>
-      </div>
-      <div class="feat">
-        <div class="feat-icon"><i class="fas fa-star-half-alt"></i></div>
-        <h3 class="feat-title">Real Resume Score</h3>
-        <p class="feat-desc">Scored 0–100 based on skill depth, education, certifications, and project signals.</p>
-      </div>
-      <div class="feat">
-        <div class="feat-icon"><i class="fas fa-road"></i></div>
-        <h3 class="feat-title">Skill Gap Roadmap</h3>
-        <p class="feat-desc">See exactly which skills to learn next, grouped by your top matched job roles.</p>
-      </div>
+    <div class="colophon-r">
+      <span>SET IN FRAUNCES &amp; IBM PLEX MONO</span>
+      <span>BUILT BY RAHUL · MMXXV</span>
+      <span>© 2025 TOPX</span>
+      <span>ALL RIGHTS RESERVED</span>
     </div>
   </section>
 
 </div>
 </main>
 
-<footer>
-  <span class="footer-txt">© 2025 TopX &nbsp;·&nbsp; Made by Rahul &nbsp;·&nbsp; Free forever</span>
-</footer>
-
-<!-- Login Modal -->
+<!-- ─── Sign In Modal ─── -->
 <div class="overlay" id="login-modal">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal('login')"><i class="fas fa-times"></i></button>
-    <div class="modal-tag">// SIGN IN</div>
-    <h2 class="modal-title">Welcome back</h2>
+    <button class="modal-x" onclick="closeModal('login')">×</button>
+    <div class="modal-cap">// SIGN IN — N° 01</div>
+    <h2 class="modal-h">Welcome back.</h2>
     <form action="/login" method="post">
-      <div class="field">
-        <label class="field-label">Email</label>
-        <input class="field-input" type="email" name="user_email" placeholder="you@example.com" required/>
+      <div class="fld">
+        <label class="fld-l">Email</label>
+        <input class="fld-i" type="email" name="user_email" placeholder="you@example.com" required/>
       </div>
-      <div class="field">
-        <label class="field-label">Password</label>
-        <input class="field-input" type="password" name="password" placeholder="••••••••" required/>
+      <div class="fld">
+        <label class="fld-l">Password</label>
+        <input class="fld-i" type="password" name="password" placeholder="••••••••" required/>
       </div>
-      <div class="field-submit">
-        <button type="submit" class="btn btn-primary btn-lg">Sign In →</button>
-      </div>
-      <p class="modal-footer">No account? <a href="#" onclick="switchModal('login','signup')">Create one free</a></p>
+      <button type="submit" class="modal-submit">
+        <span>Sign In</span>
+        <span class="arrow">→</span>
+      </button>
+      <p class="modal-foot">No account? <a href="#" onclick="switchModal('login','signup')">Create one</a></p>
     </form>
   </div>
 </div>
 
-<!-- Signup Modal -->
+<!-- ─── Sign Up Modal ─── -->
 <div class="overlay" id="signup-modal">
   <div class="modal">
-    <button class="modal-close" onclick="closeModal('signup')"><i class="fas fa-times"></i></button>
-    <div class="modal-tag">// CREATE ACCOUNT</div>
-    <h2 class="modal-title">Get started free</h2>
+    <button class="modal-x" onclick="closeModal('signup')">×</button>
+    <div class="modal-cap">// CREATE ACCOUNT — N° 02</div>
+    <h2 class="modal-h">Get started.</h2>
     <form action="/register" method="post">
-      <div class="field">
-        <label class="field-label">Full Name</label>
-        <input class="field-input" type="text" name="user_name" placeholder="Jane Doe" required/>
+      <div class="fld">
+        <label class="fld-l">Full Name</label>
+        <input class="fld-i" type="text" name="user_name" placeholder="Jane Doe" required/>
       </div>
-      <div class="field">
-        <label class="field-label">Email</label>
-        <input class="field-input" type="email" name="user_email" placeholder="you@example.com" required/>
+      <div class="fld">
+        <label class="fld-l">Email</label>
+        <input class="fld-i" type="email" name="user_email" placeholder="you@example.com" required/>
       </div>
-      <div class="field">
-        <label class="field-label">Password <span style="color:var(--t3);font-size:10px;">(min 6 chars)</span></label>
-        <input class="field-input" type="password" name="password" placeholder="••••••••" minlength="6" required/>
+      <div class="fld">
+        <label class="fld-l">Password (Min. 6 Chars)</label>
+        <input class="fld-i" type="password" name="password" placeholder="••••••••" minlength="6" required/>
       </div>
-      <div class="field-submit">
-        <button type="submit" class="btn btn-primary btn-lg">Create Account →</button>
-      </div>
-      <p class="modal-footer">Have an account? <a href="#" onclick="switchModal('signup','login')">Sign in</a></p>
+      <button type="submit" class="modal-submit">
+        <span>Create Account</span>
+        <span class="arrow">→</span>
+      </button>
+      <p class="modal-foot">Have an account? <a href="#" onclick="switchModal('signup','login')">Sign in</a></p>
     </form>
   </div>
 </div>
 
 <script>
   /* theme */
+  const themeBtn = document.getElementById('theme-btn');
   function toggleTheme() {
     document.body.classList.toggle('light');
-    const ic = document.getElementById('theme-icon');
-    ic.classList.toggle('fa-moon');
-    ic.classList.toggle('fa-sun');
-    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    const isLight = document.body.classList.contains('light');
+    themeBtn.textContent = isLight ? 'LIGHT' : 'DARK';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
   }
   if (localStorage.getItem('theme') === 'light') {
     document.body.classList.add('light');
-    document.getElementById('theme-icon').classList.replace('fa-moon','fa-sun');
+    themeBtn.textContent = 'LIGHT';
   }
 
   /* modals */
@@ -266,7 +277,7 @@
     document.getElementById(id + '-modal').classList.remove('open');
     document.body.style.overflow = '';
   }
-  function switchModal(from, to) { closeModal(from); setTimeout(() => openModal(to), 180); }
+  function switchModal(from, to) { closeModal(from); setTimeout(() => openModal(to), 220); }
 
   document.querySelectorAll('.overlay').forEach(o => {
     o.addEventListener('click', e => { if (e.target === o) { o.classList.remove('open'); document.body.style.overflow = ''; } });
@@ -275,41 +286,48 @@
     if (e.key === 'Escape') document.querySelectorAll('.overlay.open').forEach(o => { o.classList.remove('open'); document.body.style.overflow = ''; });
   });
 
-  /* counter animation */
+  /* counters */
   function animateCounters() {
-    document.querySelectorAll('.stat-n[data-target]').forEach(el => {
+    document.querySelectorAll('.fig-n[data-target]').forEach(el => {
       const target = +el.getAttribute('data-target');
       const suffix = target >= 100 ? '+' : (target === 10 ? '' : '+');
       let cur = 0;
-      const step = target / 60;
-      const interval = setInterval(() => {
+      const step = target / 80;
+      const iv = setInterval(() => {
         cur = Math.min(cur + step, target);
         el.textContent = Math.floor(cur) + suffix;
-        if (cur >= target) clearInterval(interval);
-      }, 20);
+        if (cur >= target) clearInterval(iv);
+      }, 22);
     });
   }
 
-  /* preview card animations */
-  function animatePreview() {
-    let score = 0;
-    const scoreEl = document.getElementById('pc-score');
-    const fillEl  = document.getElementById('pc-fill');
-    const iv = setInterval(() => {
-      score = Math.min(score + 2, 87);
-      scoreEl.textContent = score;
-      if (score >= 87) clearInterval(iv);
-    }, 18);
-    setTimeout(() => { if (fillEl) fillEl.style.width = '87%'; }, 200);
-    document.querySelectorAll('.pc-row-fill').forEach(b => {
-      const w = b.getAttribute('data-w');
-      setTimeout(() => { b.style.width = w + '%'; }, 400);
+  /* trigger counter animation when section is in viewport */
+  const figObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        figObserver.disconnect();
+      }
     });
-  }
+  }, { threshold: 0.4 });
 
-  window.addEventListener('load', () => {
-    animateCounters();
-    animatePreview();
+  const figEl = document.querySelector('.fig');
+  if (figEl) figObserver.observe(figEl);
+
+  /* feat-row scroll reveal */
+  const rowObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animation = 'rise 0.7s var(--ease-out) both';
+        rowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.feat-row, .process-step').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.animationDelay = (i * 0.08) + 's';
+    rowObserver.observe(el);
   });
 </script>
 </body>

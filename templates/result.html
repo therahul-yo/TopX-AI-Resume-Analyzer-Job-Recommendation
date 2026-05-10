@@ -4,225 +4,223 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Results — TopX</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
   <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="logo">
-      <div class="logo-mark">TX</div>
-      TopX
-    </a>
-    <div class="nav-right">
-      <button class="btn btn-ghost btn-icon" onclick="toggleTheme()">
-        <i class="fas fa-moon" id="theme-icon"></i>
-      </button>
-      <a href="/logout" class="btn btn-outline">Sign Out</a>
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-row">
+      <span><i class="tick-star">✦</i> N° 03 — RESULTS</span>
+      <span><i class="tick-star">✦</i> ANALYSIS COMPLETE</span>
+      <span><i class="tick-star">✦</i> {{ skills | length }} SKILLS DETECTED</span>
+      <span><i class="tick-star">✦</i> {{ companies | length }} COMPANY MATCHES</span>
+      <span><i class="tick-star">✦</i> {{ job | length }} ROLES MATCHED</span>
+    </div>
+    <div class="ticker-row" aria-hidden="true">
+      <span><i class="tick-star">✦</i> N° 03 — RESULTS</span>
+      <span><i class="tick-star">✦</i> ANALYSIS COMPLETE</span>
+      <span><i class="tick-star">✦</i> {{ skills | length }} SKILLS DETECTED</span>
+      <span><i class="tick-star">✦</i> {{ companies | length }} COMPANY MATCHES</span>
+      <span><i class="tick-star">✦</i> {{ job | length }} ROLES MATCHED</span>
     </div>
   </div>
-</nav>
+</div>
+
+<header class="topbar">
+  <a href="/" class="brand"><em>TopX</em><b>— CAREER INTEL</b></a>
+  <div class="tb-meta">N° 03 · RESULTS &amp; ANALYSIS · {% if name %}{{ name|upper }}{% endif %}</div>
+  <div class="tb-actions">
+    <button class="tb-link" onclick="toggleTheme()" id="theme-btn">DARK</button>
+    <a class="tb-link" href="/logout">SIGN OUT</a>
+  </div>
+</header>
 
 <main>
-<div class="wrap">
-<div class="res-wrap" id="results-container">
+<div class="spread">
+<div id="results-container">
 
-  <div class="res-head anim-1">
-    <div>
-      <div class="res-tag">// ANALYSIS COMPLETE</div>
-      <h1 class="res-h">
-        {% if name %}{{ name }}'s <span style="color:var(--cyan);">Results</span>{% else %}Your <span style="color:var(--cyan);">Results</span>{% endif %}
+  <section class="results-spread">
+
+    <!-- Masthead -->
+    <div class="res-mast">
+      <span class="res-mast-tag">// ANALYSIS COMPLETE</span>
+      <h1 class="res-mast-h">
+        {% if name %}{{ name }}'s <span class="it">Career Report.</span>{% else %}Your <span class="it">Career Report.</span>{% endif %}
       </h1>
-    </div>
-    <div style="display:flex;gap:10px;flex-wrap:wrap;">
-      <button class="btn btn-amber" onclick="downloadPDF()">
-        <i class="fas fa-download"></i> Export PDF
-      </button>
-      <a href="/back" class="btn btn-outline">
-        <i class="fas fa-redo"></i> New Analysis
-      </a>
-    </div>
-  </div>
-
-  <!-- Score + Quick Stats -->
-  <div class="score-row anim-2">
-    <div class="score-ring">
-      <svg class="score-svg" viewBox="0 0 150 150">
-        <defs>
-          <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#FCD34D"/>
-            <stop offset="100%" stop-color="#22D3EE"/>
-          </linearGradient>
-        </defs>
-        <circle class="ring-bg" cx="75" cy="75" r="65"/>
-        <circle class="ring-arc" id="ring-arc" cx="75" cy="75" r="65"/>
-      </svg>
-      <div class="ring-center">
-        <span class="ring-num" id="ring-num">0</span>
-        <span class="ring-lbl">SCORE</span>
+      <div class="res-mast-actions">
+        <button class="btn-sm" onclick="downloadPDF()">↓ Export PDF</button>
+        <a href="/back" class="btn-sm-out">↻ New Analysis</a>
       </div>
     </div>
 
-    <div>
-      <div class="qstats">
-        <div class="qs">
-          <div class="qs-n">{{ skills | length }}</div>
-          <div class="qs-l">Skills Found</div>
+    <!-- Score Figure -->
+    <div class="score-fig">
+      <div class="score-fig-l">
+        <span class="score-cap">— RESUME SCORE</span>
+        <div class="score-num"><span id="score-n">0</span><em>/100</em></div>
+        <div class="score-rating"><em id="score-rating-em">Calculating...</em></div>
+      </div>
+
+      <div class="score-fig-r">
+        <div class="qstat">
+          <span class="qstat-l">Skills Detected</span>
+          <span class="qstat-n">{{ skills | length }}</span>
         </div>
-        <div class="qs">
-          <div class="qs-n">{{ job | length }}</div>
-          <div class="qs-l">Roles Matched</div>
+        <div class="qstat">
+          <span class="qstat-l">Roles Matched</span>
+          <span class="qstat-n">{{ job | length }}</span>
         </div>
-        <div class="qs">
-          <div class="qs-n">{{ skill_gaps | length }}</div>
-          <div class="qs-l">Skill Gaps</div>
+        <div class="qstat">
+          <span class="qstat-l">Skill Gaps Found</span>
+          <span class="qstat-n">{{ skill_gaps | length }}</span>
         </div>
       </div>
-      <div style="text-align:center;margin-top:14px;">
-        <span class="rating-badge" id="rating-badge">
-          <i class="fas fa-circle-notch fa-spin" style="font-size:10px;"></i>
-          Calculating...
-        </span>
-      </div>
     </div>
-  </div>
 
-  <!-- Results Grid -->
-  <div class="res-grid">
-
-    <!-- Skills -->
-    <div class="card anim-3">
-      <div class="card-head">
-        <div class="card-ico"><i class="fas fa-code"></i></div>
-        <span class="card-title">SKILLS FOUND</span>
+    <!-- I. Skills Detected -->
+    <div class="data-block">
+      <div class="data-block-h">
+        <div class="data-block-num">I.</div>
+        <div class="data-block-cap">— SECTION 01</div>
+        <h3 class="data-block-h-title">Skills <span class="it">detected.</span></h3>
       </div>
-      <div class="skill-cloud">
+      <div class="data-block-c">
         {% if skills %}
-          {% for skill in skills %}
-            <span class="skill-tag">{{ skill }}</span>
-          {% endfor %}
+          <div class="tag-list">
+            {% for skill in skills %}
+              <span class="tag">{{ skill }}</span>
+            {% endfor %}
+          </div>
         {% else %}
-          <p class="txt-muted">No skills detected — add a Skills section to your resume.</p>
+          <p class="empty">No skills detected. Add a Skills section to your resume.</p>
         {% endif %}
       </div>
     </div>
 
-    <!-- Companies -->
-    <div class="card anim-4">
-      <div class="card-head">
-        <div class="card-ico a"><i class="fas fa-building"></i></div>
-        <span class="card-title">COMPANY MATCHES</span>
+    <!-- II. Companies -->
+    <div class="data-block">
+      <div class="data-block-h">
+        <div class="data-block-num">II.</div>
+        <div class="data-block-cap">— SECTION 02</div>
+        <h3 class="data-block-h-title">Company <span class="it">matches.</span></h3>
       </div>
-      <div class="co-list">
+      <div class="data-block-c">
         {% if companies %}
-          {% for co in companies %}
-            <div class="co-item">
-              <div class="co-meta">
-                <span class="co-dot"></span>
+          <div class="co-table">
+            {% for co in companies %}
+              <div class="co-row">
+                <span class="co-rank">{{ '%02d' | format(loop.index) }}</span>
                 <span class="co-name">{{ co.name }}</span>
+                <div class="co-bar">
+                  <div class="co-bar-fill" data-target="{{ co.score }}"></div>
+                </div>
                 <span class="co-pct">{{ co.score }}%</span>
               </div>
-              <div class="co-bar">
-                <div class="co-fill" data-target="{{ co.score }}"></div>
-              </div>
-            </div>
-          {% endfor %}
+            {% endfor %}
+          </div>
         {% else %}
-          <p class="txt-muted">No matches — add more technical skills.</p>
+          <p class="empty">No matches found. Try adding more technical skills.</p>
         {% endif %}
       </div>
     </div>
 
-    <!-- Roles -->
-    <div class="card anim-5">
-      <div class="card-head">
-        <div class="card-ico e"><i class="fas fa-user-tie"></i></div>
-        <span class="card-title">RECOMMENDED ROLES</span>
+    <!-- III. Roles -->
+    <div class="data-block">
+      <div class="data-block-h">
+        <div class="data-block-num">III.</div>
+        <div class="data-block-cap">— SECTION 03</div>
+        <h3 class="data-block-h-title">Recommended <span class="it">roles.</span></h3>
       </div>
-      <div class="role-list">
+      <div class="data-block-c">
         {% if job %}
-          {% for role in job %}
-            <div class="role-row">
-              <span class="role-bar"></span>
-              <span class="role-name">{{ role }}</span>
-            </div>
-          {% endfor %}
+          <div class="role-list">
+            {% for role in job %}
+              <div class="role-item">
+                <span class="role-rank">{{ '%02d' | format(loop.index) }}</span>
+                <span class="role-name"><em>{{ role }}</em></span>
+              </div>
+            {% endfor %}
+          </div>
         {% else %}
-          <p class="txt-muted">Add more skills to unlock role recommendations.</p>
+          <p class="empty">Add more skills to unlock role recommendations.</p>
         {% endif %}
       </div>
     </div>
 
-    <!-- Skill Gaps -->
-    <div class="card anim-6">
-      <div class="card-head">
-        <div class="card-ico r"><i class="fas fa-road"></i></div>
-        <span class="card-title">SKILLS TO LEARN</span>
+    <!-- IV. Skill Gaps -->
+    <div class="data-block">
+      <div class="data-block-h">
+        <div class="data-block-num">IV.</div>
+        <div class="data-block-cap">— SECTION 04</div>
+        <h3 class="data-block-h-title">Skills to <span class="it">learn.</span></h3>
       </div>
-      <div class="gap-list">
+      <div class="data-block-c">
         {% if skill_gaps %}
           {% for role, gaps in skill_gaps.items() %}
             {% if gaps %}
-              <div class="gap-item">
-                <div class="gap-role">{{ role }}</div>
-                <div class="gap-chips">
+              <div class="gap-block">
+                <div class="gap-role-h">{{ role }}</div>
+                <div class="gap-tags">
                   {% for g in gaps %}
-                    <span class="gap-chip">{{ g }}</span>
+                    <span class="gap-tag">{{ g }}</span>
                   {% endfor %}
                 </div>
               </div>
             {% endif %}
           {% endfor %}
         {% else %}
-          <p class="txt-muted">No major gaps detected — strong profile!</p>
+          <p class="empty">No major gaps detected — strong profile.</p>
         {% endif %}
       </div>
     </div>
 
-  </div>
-
-  <!-- Academic -->
-  {% if marks %}
-  <div class="acad-card anim-3">
-    <div class="acad-ico"><i class="fas fa-graduation-cap"></i></div>
-    <div>
-      <div class="acad-lbl">Academic Info</div>
-      <div class="acad-val">{{ marks }}</div>
+    {% if marks %}
+    <!-- V. Academic -->
+    <div class="acad">
+      <span class="acad-cap">— ACADEMIC INFO</span>
+      <span class="acad-val"><em>{{ marks }}</em></span>
     </div>
-  </div>
-  {% endif %}
+    {% endif %}
 
-  <div class="res-actions">
-    <button class="btn btn-amber btn-lg" onclick="downloadPDF()">
-      <i class="fas fa-download"></i>&nbsp; Download PDF Report
-    </button>
-    <a href="/back" class="btn btn-outline btn-lg">
-      <i class="fas fa-redo"></i>&nbsp; Analyze Another Resume
-    </a>
-  </div>
+    <div class="res-actions-end">
+      <button class="btn-large" onclick="downloadPDF()">
+        <span>Download PDF Report</span>
+        <span class="arrow">↓</span>
+      </button>
+      <a href="/back" class="btn-link">↻ Analyze Another Resume</a>
+    </div>
+
+  </section>
+
+  <section class="colophon">
+    <div class="colophon-l">
+      <h4>Built for precision.</h4>
+      <p>Set in Fraunces &amp; IBM Plex Mono</p>
+    </div>
+    <div class="colophon-r">
+      <span>BUILT BY RAHUL · MMXXV</span>
+      <span>© 2025 TOPX</span>
+    </div>
+  </section>
 
 </div>
 </div>
 </main>
 
-<footer>
-  <span class="footer-txt">© 2025 TopX &nbsp;·&nbsp; Made by Rahul</span>
-</footer>
-
 <script>
+  const themeBtn = document.getElementById('theme-btn');
   function toggleTheme() {
     document.body.classList.toggle('light');
-    const ic = document.getElementById('theme-icon');
-    ic.classList.toggle('fa-moon');
-    ic.classList.toggle('fa-sun');
-    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    const isLight = document.body.classList.contains('light');
+    themeBtn.textContent = isLight ? 'LIGHT' : 'DARK';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
   }
   if (localStorage.getItem('theme') === 'light') {
     document.body.classList.add('light');
-    document.getElementById('theme-icon').classList.replace('fa-moon','fa-sun');
+    themeBtn.textContent = 'LIGHT';
   }
 
   const SCORE = {{ score | default(0) }};
@@ -230,78 +228,61 @@
   document.addEventListener('DOMContentLoaded', () => {
     animateScore(SCORE);
     animateBars();
-    staggerCards();
   });
 
   function animateScore(target) {
-    const numEl   = document.getElementById('ring-num');
-    const arcEl   = document.getElementById('ring-arc');
-    const badge   = document.getElementById('rating-badge');
-    const circ    = 2 * Math.PI * 65;
-    arcEl.style.strokeDasharray  = circ;
-    arcEl.style.strokeDashoffset = circ;
-
+    const numEl    = document.getElementById('score-n');
+    const ratingEm = document.getElementById('score-rating-em');
     let cur = 0;
-    const dur = 1800;
+    const dur = 1900;
     const t0  = performance.now();
 
     function tick(ts) {
       const prog = Math.min((ts - t0) / dur, 1);
-      const ease = 1 - Math.pow(1 - prog, 3);
+      const ease = 1 - Math.pow(1 - prog, 4);
       cur = Math.round(ease * target);
       numEl.textContent = cur;
-      arcEl.style.strokeDashoffset = circ - (cur / 100) * circ;
       if (prog < 1) { requestAnimationFrame(tick); return; }
 
-      if (target >= 80) {
-        badge.style.cssText = 'background:rgba(52,211,153,0.12);border-color:rgba(52,211,153,0.3);color:#34D399;';
-        badge.textContent = '★ Excellent';
-      } else if (target >= 65) {
-        badge.style.cssText = 'background:rgba(34,211,238,0.10);border-color:rgba(34,211,238,0.28);color:#22D3EE;';
-        badge.textContent = '◆ Good';
-      } else {
-        badge.style.cssText = 'background:rgba(252,211,77,0.10);border-color:rgba(252,211,77,0.28);color:#FCD34D;';
-        badge.textContent = '▲ Needs Work';
-      }
+      if (target >= 80)      ratingEm.textContent = 'Excellent.';
+      else if (target >= 65) ratingEm.textContent = 'Good.';
+      else                    ratingEm.textContent = 'Needs work.';
     }
     requestAnimationFrame(tick);
   }
 
   function animateBars() {
-    document.querySelectorAll('.co-fill[data-target]').forEach(el => {
-      const t = el.getAttribute('data-target');
-      setTimeout(() => { el.style.width = t + '%'; }, 400);
-    });
-  }
-
-  function staggerCards() {
-    document.querySelectorAll('.card, .score-row, .acad-card').forEach((el, i) => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(14px)';
-      setTimeout(() => {
-        el.style.transition = 'opacity 0.42s ease, transform 0.42s ease';
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
-      }, 100 + i * 80);
-    });
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const t = entry.target.getAttribute('data-target');
+          entry.target.style.width = t + '%';
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.co-bar-fill[data-target]').forEach(el => obs.observe(el));
   }
 
   function downloadPDF() {
     const el     = document.getElementById('results-container');
-    const header = document.querySelector('.nav');
+    const ticker = document.querySelector('.ticker');
+    const header = document.querySelector('.topbar');
+    if (ticker) ticker.style.display = 'none';
     if (header) header.style.display = 'none';
-    document.body.style.background = '#ffffff';
-    el.style.color = '#0a0a0a';
+    document.body.style.background = '#F5F0E8';
+    el.style.color = '#0a0908';
 
     html2pdf().set({
-      margin: 12,
-      filename: 'TopX_Resume_Analysis.pdf',
+      margin: 14,
+      filename: 'TopX_Career_Report.pdf',
       image: { type: 'jpeg', quality: 0.97 },
-      html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+      html2canvas: { scale: 2, useCORS: true, backgroundColor: '#F5F0E8' },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     }).from(el).save().then(() => {
       document.body.style.background = '';
       el.style.color = '';
+      if (ticker) ticker.style.display = '';
       if (header) header.style.display = '';
     });
   }

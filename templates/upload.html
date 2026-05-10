@@ -3,162 +3,184 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Upload Resume — TopX</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  <title>Upload — TopX</title>
   <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
   <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 </head>
 <body>
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a href="/" class="logo">
-      <div class="logo-mark">TX</div>
-      TopX
-    </a>
-    <div class="nav-right">
-      <div class="user-tag">
-        <i class="fas fa-user" style="font-size:9px;color:var(--cyan);"></i>
-        {{ name }}
-      </div>
-      <button class="btn btn-ghost btn-icon" onclick="toggleTheme()">
-        <i class="fas fa-moon" id="theme-icon"></i>
-      </button>
-      <a href="/logout" class="btn btn-outline">Sign Out</a>
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-row">
+      <span><i class="tick-star">✦</i> N° 02 — UPLOAD</span>
+      <span><i class="tick-star">✦</i> PDF ONLY · MAX 5 MB</span>
+      <span><i class="tick-star">✦</i> SECURE · ENCRYPTED IN TRANSIT</span>
+      <span><i class="tick-star">✦</i> TRAINED ON 60+ SKILLS</span>
+      <span><i class="tick-star">✦</i> RESULTS IN UNDER 10 SECONDS</span>
+    </div>
+    <div class="ticker-row" aria-hidden="true">
+      <span><i class="tick-star">✦</i> N° 02 — UPLOAD</span>
+      <span><i class="tick-star">✦</i> PDF ONLY · MAX 5 MB</span>
+      <span><i class="tick-star">✦</i> SECURE · ENCRYPTED IN TRANSIT</span>
+      <span><i class="tick-star">✦</i> TRAINED ON 60+ SKILLS</span>
+      <span><i class="tick-star">✦</i> RESULTS IN UNDER 10 SECONDS</span>
     </div>
   </div>
-</nav>
+</div>
+
+<header class="topbar">
+  <a href="/" class="brand"><em>TopX</em><b>— CAREER INTEL</b></a>
+  <div class="tb-meta">N° 02 · UPLOAD &amp; ANALYSIS · LOGGED IN AS {{ name|upper }}</div>
+  <div class="tb-actions">
+    <button class="tb-link" onclick="toggleTheme()" id="theme-btn">DARK</button>
+    <a class="tb-link" href="/logout">SIGN OUT</a>
+  </div>
+</header>
 
 <main>
-<div class="wrap">
+<div class="spread">
 
   {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
       {% for category, message in messages %}
-        <div class="flash flash-{{ category }}">
-          <i class="fas {% if category == 'success' %}fa-check{% else %}fa-exclamation{% endif %}"></i>
-          {{ message }}
-        </div>
+        <div class="flash flash-{{ category }}">// {{ message }}</div>
       {% endfor %}
     {% endif %}
   {% endwith %}
 
-  <div class="upload-wrap">
+  <section class="upload-spread">
 
-    <div class="page-head anim-1">
-      <div class="eyebrow">Resume Analysis</div>
-      <h1 class="page-h">Upload <span class="hl">Resume</span></h1>
-      <p class="page-sub">Drop your PDF and let the AI extract your career story</p>
-    </div>
+    <!-- Left column -->
+    <div class="upload-l">
+      <div class="upload-l-meta">SECTION II / UPLOAD</div>
 
-    <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
+      <h1 class="upload-l-h">
+        Drop your<br/>
+        <span class="it">resume here.</span>
+      </h1>
 
-      <div class="drop-zone anim-2" id="drop-zone">
-        <div class="dz-icon"><i class="fas fa-file-upload"></i></div>
-        <h3 class="dz-title">Drag &amp; drop your resume</h3>
-        <p class="dz-sub">click to browse &nbsp;·&nbsp; PDF only &nbsp;·&nbsp; max 5 MB</p>
-      </div>
+      <p class="upload-l-p">
+        We'll extract every skill, certification, and project signal — then match
+        you against ten top companies and thirty career roles. It takes less than
+        ten seconds.
+      </p>
 
-      <input type="file" id="resume-file" name="resume_file" accept="application/pdf" class="file-input" required/>
-
-      <div class="file-card" id="file-card">
-        <div class="file-pdf-icon"><i class="fas fa-file-pdf"></i></div>
-        <div class="file-meta">
-          <div class="file-name" id="file-name-txt">document.pdf</div>
-          <div class="file-size" id="file-size-txt">0 KB</div>
+      <div class="upload-tips">
+        <h3 class="upload-tips-h">— Notes for best results</h3>
+        <div class="tip">
+          <span class="tip-n">i.</span>
+          <span>Include a dedicated <em>Skills</em> section with explicit technology names.</span>
         </div>
-        <button type="button" class="btn btn-ghost btn-icon" onclick="clearFile()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-
-      <div class="prog-area" id="prog-area">
-        <div class="prog-steps">
-          <span class="ps" id="ps-1"><span class="ps-dot"></span>UPLOAD</span>
-          <span class="ps" id="ps-2"><span class="ps-dot"></span>EXTRACT</span>
-          <span class="ps" id="ps-3"><span class="ps-dot"></span>ANALYZE</span>
-          <span class="ps" id="ps-4"><span class="ps-dot"></span>DONE</span>
+        <div class="tip">
+          <span class="tip-n">ii.</span>
+          <span>List your projects with the technologies you used to build them.</span>
         </div>
-        <div class="prog-track">
-          <div class="prog-fill" id="prog-fill"></div>
-        </div>
-        <p class="prog-msg" id="prog-msg">Initializing...</p>
-      </div>
-
-      <div class="upload-actions anim-3">
-        <button type="submit" class="btn btn-primary btn-lg" id="analyze-btn">
-          <i class="fas fa-bolt" id="btn-icon"></i>
-          <span id="btn-txt">&nbsp;Analyze Resume</span>
-        </button>
-        <a href="/" class="btn btn-outline btn-lg">Cancel</a>
-      </div>
-
-    </form>
-
-    <div class="hints anim-4">
-      <p class="hints-h">// TIPS FOR BETTER RESULTS</p>
-      <div class="hints-list">
-        <div class="hint">
-          <span class="hint-tick"><i class="fas fa-check"></i></span>
-          Include a dedicated Skills section with explicit technology names
-        </div>
-        <div class="hint">
-          <span class="hint-tick"><i class="fas fa-check"></i></span>
-          List projects with the technologies you used to build them
-        </div>
-        <div class="hint">
-          <span class="hint-tick"><i class="fas fa-check"></i></span>
-          Add your CGPA / GPA and any certifications you hold
+        <div class="tip">
+          <span class="tip-n">iii.</span>
+          <span>Add your CGPA / GPA and any certifications you currently hold.</span>
         </div>
       </div>
     </div>
 
-  </div>
+    <!-- Right column - upload form -->
+    <div class="upload-r">
+      <form action="/upload" method="post" enctype="multipart/form-data" id="upload-form">
+
+        <div class="drop in-1" id="drop">
+          <span class="drop-glyph">↓</span>
+          <h2 class="drop-h">Drag &amp; drop, or click.</h2>
+          <p class="drop-meta">PDF · UP TO 5 MB</p>
+        </div>
+
+        <input type="file" id="resume-file" name="resume_file" accept="application/pdf" class="file-input" required/>
+
+        <div class="file-card" id="file-card">
+          <span class="file-mark">¶</span>
+          <div class="file-info">
+            <div class="file-n" id="file-n">document.pdf</div>
+            <div class="file-s" id="file-s">— READY TO ANALYZE</div>
+          </div>
+          <button type="button" class="file-x" onclick="clearFile()">×</button>
+        </div>
+
+        <div class="prog" id="prog">
+          <div class="prog-steps">
+            <span class="prog-step" id="ps-1">Upload</span>
+            <span class="prog-step" id="ps-2">Extract</span>
+            <span class="prog-step" id="ps-3">Analyze</span>
+            <span class="prog-step" id="ps-4">Done</span>
+          </div>
+          <div class="prog-bar">
+            <div class="prog-fill" id="prog-fill"></div>
+          </div>
+          <p class="prog-msg" id="prog-msg">— STARTING</p>
+        </div>
+
+        <div class="upload-actions in-2">
+          <button type="submit" class="btn-large" id="analyze-btn">
+            <span id="btn-txt">Begin Analysis</span>
+            <span class="arrow" id="btn-arrow">→</span>
+          </button>
+          <a href="/" class="btn-link">Cancel</a>
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+
+  <section class="colophon">
+    <div class="colophon-l">
+      <h4>Set in Fraunces.</h4>
+      <p>Mono details · IBM Plex Mono</p>
+    </div>
+    <div class="colophon-r">
+      <span>BUILT BY RAHUL · MMXXV</span>
+      <span>© 2025 TOPX</span>
+    </div>
+  </section>
+
 </div>
 </main>
 
-<footer>
-  <span class="footer-txt">© 2025 TopX &nbsp;·&nbsp; Made by Rahul</span>
-</footer>
-
 <script>
+  const themeBtn = document.getElementById('theme-btn');
   function toggleTheme() {
     document.body.classList.toggle('light');
-    const ic = document.getElementById('theme-icon');
-    ic.classList.toggle('fa-moon');
-    ic.classList.toggle('fa-sun');
-    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+    const isLight = document.body.classList.contains('light');
+    themeBtn.textContent = isLight ? 'LIGHT' : 'DARK';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
   }
   if (localStorage.getItem('theme') === 'light') {
     document.body.classList.add('light');
-    document.getElementById('theme-icon').classList.replace('fa-moon','fa-sun');
+    themeBtn.textContent = 'LIGHT';
   }
 
-  const dropZone    = document.getElementById('drop-zone');
-  const fileInput   = document.getElementById('resume-file');
-  const fileCard    = document.getElementById('file-card');
-  const fileNameTxt = document.getElementById('file-name-txt');
-  const fileSizeTxt = document.getElementById('file-size-txt');
-  const analyzeBtn  = document.getElementById('analyze-btn');
-  const btnIcon     = document.getElementById('btn-icon');
-  const btnTxt      = document.getElementById('btn-txt');
-  const progArea    = document.getElementById('prog-area');
-  const progFill    = document.getElementById('prog-fill');
-  const progMsg     = document.getElementById('prog-msg');
+  const drop      = document.getElementById('drop');
+  const fileInput = document.getElementById('resume-file');
+  const fileCard  = document.getElementById('file-card');
+  const fileN     = document.getElementById('file-n');
+  const fileS     = document.getElementById('file-s');
+  const analyzeBtn= document.getElementById('analyze-btn');
+  const btnTxt    = document.getElementById('btn-txt');
+  const btnArrow  = document.getElementById('btn-arrow');
+  const prog      = document.getElementById('prog');
+  const progFill  = document.getElementById('prog-fill');
+  const progMsg   = document.getElementById('prog-msg');
 
-  dropZone.addEventListener('click', () => fileInput.click());
+  drop.addEventListener('click', () => fileInput.click());
 
   ['dragenter','dragover','dragleave','drop'].forEach(ev =>
-    dropZone.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); })
+    drop.addEventListener(ev, e => { e.preventDefault(); e.stopPropagation(); })
   );
   ['dragenter','dragover'].forEach(ev =>
-    dropZone.addEventListener(ev, () => dropZone.classList.add('drag-over'))
+    drop.addEventListener(ev, () => drop.classList.add('drag-over'))
   );
   ['dragleave','drop'].forEach(ev =>
-    dropZone.addEventListener(ev, () => dropZone.classList.remove('drag-over'))
+    drop.addEventListener(ev, () => drop.classList.remove('drag-over'))
   );
-  dropZone.addEventListener('drop', e => {
+  drop.addEventListener('drop', e => {
     if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
   });
   fileInput.addEventListener('change', () => {
@@ -171,16 +193,16 @@
     const dt = new DataTransfer();
     dt.items.add(f);
     fileInput.files = dt.files;
-    fileNameTxt.textContent = f.name;
-    fileSizeTxt.textContent = fmtSize(f.size);
+    fileN.textContent = f.name;
+    fileS.textContent = '— ' + fmtSize(f.size).toUpperCase() + ' · READY TO ANALYZE';
     fileCard.classList.add('show');
-    dropZone.style.display = 'none';
+    drop.style.display = 'none';
   }
 
   function clearFile() {
     fileInput.value = '';
     fileCard.classList.remove('show');
-    dropZone.style.display = 'block';
+    drop.style.display = 'block';
   }
 
   function fmtSize(b) {
@@ -192,21 +214,20 @@
 
   function setBusy() {
     analyzeBtn.disabled = true;
-    btnIcon.className = 'spinner';
-    btnTxt.textContent = ' Analyzing...';
+    btnTxt.textContent = 'Analyzing';
+    btnArrow.textContent = '...';
   }
-
   function setReady() {
     analyzeBtn.disabled = false;
-    btnIcon.className = 'fas fa-bolt';
-    btnTxt.textContent = ' Analyze Resume';
+    btnTxt.textContent = 'Begin Analysis';
+    btnArrow.textContent = '→';
   }
 
   const socket = io();
   socket.on('progress', d => {
-    progArea.classList.add('show');
+    prog.classList.add('show');
     progFill.style.width = d.progress + '%';
-    progMsg.textContent = d.message;
+    progMsg.textContent = '— ' + (d.message || '').toUpperCase();
     updateSteps(d.progress);
     if (d.progress === 100 || (d.message && d.message.startsWith('Error'))) setReady();
   });
@@ -215,17 +236,17 @@
     [['ps-1',25],['ps-2',50],['ps-3',75],['ps-4',100]].forEach(([id, thr]) => {
       const el = document.getElementById(id);
       el.classList.remove('active','completed');
-      if (p >= thr)       el.classList.add('completed');
-      else if (p >= thr - 25) el.classList.add('active');
+      if (p >= thr)         el.classList.add('completed');
+      else if (p >= thr-25) el.classList.add('active');
     });
   }
 
   document.getElementById('upload-form').addEventListener('submit', e => {
     if (!fileInput.files.length) { e.preventDefault(); alert('Please select a PDF file first.'); return; }
     setBusy();
-    progArea.classList.add('show');
+    prog.classList.add('show');
     progFill.style.width = '5%';
-    progMsg.textContent = 'Starting...';
+    progMsg.textContent = '— STARTING';
   });
 </script>
 </body>

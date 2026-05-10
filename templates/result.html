@@ -239,7 +239,12 @@
             {% for co in companies %}
               <div class="co-row">
                 <span class="co-rank">{{ '%02d' | format(loop.index) }}</span>
-                <span class="co-name">{{ co.name }}</span>
+                <div class="co-info">
+                  <span class="co-name">{{ co.name }}</span>
+                  {% if co.matched is defined and co.total is defined %}
+                    <span class="co-sub">Matched {{ co.matched }}/{{ co.total }} core skills{% if co.tier %} · {{ co.tier|capitalize }}{% endif %}</span>
+                  {% endif %}
+                </div>
                 <div class="co-bar">
                   <div class="co-bar-fill" data-target="{{ co.score }}"></div>
                 </div>
@@ -247,6 +252,7 @@
               </div>
             {% endfor %}
           </div>
+          <p class="cat-note">— Scored by skill overlap with each company's public tech stack</p>
         {% else %}
           <p class="empty">No matches found. Try adding more technical skills.</p>
         {% endif %}

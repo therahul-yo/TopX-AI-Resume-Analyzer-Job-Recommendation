@@ -21,7 +21,7 @@ import logging
 import time
 
 from main import (
-    predict, suggest_roles, analyze_skill_gaps,
+    predict, predict_companies, suggest_roles, analyze_skill_gaps,
     calculate_score_breakdown, generate_insights,
     categorize_skills, normalize_aliases, role_match_scores,
     predict_categories,
@@ -492,15 +492,10 @@ def upload():
 
             socketio.emit('progress', {'progress': 78, 'message': 'Classifying job category...'})
             categories = predict_categories(txt)
+            top_category = categories[0]['name'] if categories else None
 
-            socketio.emit('progress', {'progress': 82, 'message': 'Predicting companies...'})
-            mark_value = get_cgpa_value(marks)
-            dominant = next(
-                (s.lower() for s in all_skills if s.lower() in SKILL_PRIORITY),
-                all_skills[0].lower() if all_skills else 'python'
-            )
-            skill_encoded = SKILL_ENCODING.get(dominant, 0)
-            companies = predict(mark_value, skill_encoded, len(all_skills))
+            socketio.emit('progress', {'progress': 82, 'message': 'Matching companies...'})
+            companies = predict_companies(all_skills, exp_years, top_category, top_k=6)
 
             socketio.emit('progress', {'progress': 86, 'message': 'Matching career roles...'})
             seen = set()

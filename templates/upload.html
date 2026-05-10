@@ -127,6 +127,73 @@
         </div>
 
       </form>
+
+      <!-- ── Loading Skeleton (shown after Analyze submit) ── -->
+      <div class="skeleton-overlay" id="sk-overlay">
+        <div class="sk-status">
+          <span class="sk-spinner"></span>
+          <span class="sk-msg" id="sk-msg">Initializing analysis...</span>
+          <span class="sk-pct" id="sk-pct">0%</span>
+        </div>
+        <div class="sk-wrap">
+          <div class="sk-mast">
+            <div>
+              <div class="sk-line sk-mast-tag"></div>
+              <div class="sk-line sk-mast-h" style="margin-top:14px;"></div>
+            </div>
+            <div class="sk-mast-act">
+              <div class="sk-line"></div>
+              <div class="sk-line"></div>
+            </div>
+          </div>
+          <div class="sk-score">
+            <div class="sk-score-l">
+              <div class="sk-line" style="width:140px;"></div>
+              <div class="sk-line sk-score-num"></div>
+              <div class="sk-line sk-score-rate"></div>
+            </div>
+            <div class="sk-bd">
+              <div><div class="sk-line"></div><div class="sk-line"></div><div class="sk-line"></div></div>
+              <div><div class="sk-line"></div><div class="sk-line"></div><div class="sk-line"></div></div>
+              <div><div class="sk-line"></div><div class="sk-line"></div><div class="sk-line"></div></div>
+              <div><div class="sk-line"></div><div class="sk-line"></div><div class="sk-line"></div></div>
+              <div><div class="sk-line"></div><div class="sk-line"></div><div class="sk-line"></div></div>
+            </div>
+          </div>
+          <div class="sk-grid">
+            <div>
+              <div class="sk-line" style="width:60px;"></div>
+              <div class="sk-line" style="width:130px;height:24px;margin-top:12px;"></div>
+            </div>
+            <div class="sk-grid-c">
+              <div class="sk-line"></div><div class="sk-line"></div>
+              <div class="sk-line"></div><div class="sk-line"></div>
+            </div>
+          </div>
+          <div class="sk-grid">
+            <div>
+              <div class="sk-line" style="width:60px;"></div>
+              <div class="sk-line" style="width:150px;height:24px;margin-top:12px;"></div>
+            </div>
+            <div class="sk-grid-c">
+              <div class="sk-line"></div>
+              <div class="sk-line"></div>
+              <div class="sk-line"></div>
+            </div>
+          </div>
+          <div class="sk-grid">
+            <div>
+              <div class="sk-line" style="width:60px;"></div>
+              <div class="sk-line" style="width:120px;height:24px;margin-top:12px;"></div>
+            </div>
+            <div class="sk-grid-c">
+              <div class="sk-line"></div><div class="sk-line"></div>
+              <div class="sk-line"></div><div class="sk-line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </section>
@@ -224,23 +291,19 @@
     btnArrow.textContent = '→';
   }
 
+  const skOverlay = document.getElementById('sk-overlay');
+  const skMsg     = document.getElementById('sk-msg');
+  const skPct     = document.getElementById('sk-pct');
+
   const socket = io();
   socket.on('progress', d => {
     prog.classList.add('show');
     progFill.style.width = d.progress + '%';
     progMsg.textContent = '— ' + (d.message || '').toUpperCase();
-    updateSteps(d.progress);
+    if (skMsg) skMsg.textContent = d.message || '...';
+    if (skPct) skPct.textContent = d.progress + '%';
     if (d.progress === 100 || (d.message && d.message.startsWith('Error'))) setReady();
   });
-
-  function updateSteps(p) {
-    [['ps-1',25],['ps-2',50],['ps-3',75],['ps-4',100]].forEach(([id, thr]) => {
-      const el = document.getElementById(id);
-      el.classList.remove('active','completed');
-      if (p >= thr)         el.classList.add('completed');
-      else if (p >= thr-25) el.classList.add('active');
-    });
-  }
 
   document.getElementById('upload-form').addEventListener('submit', e => {
     if (!fileInput.files.length) { e.preventDefault(); alert('Please select a PDF file first.'); return; }
@@ -248,6 +311,11 @@
     prog.classList.add('show');
     progFill.style.width = '5%';
     progMsg.textContent = '— STARTING';
+    // Show skeleton overlay
+    if (skOverlay) {
+      skOverlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
   });
 </script>
 </body>

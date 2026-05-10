@@ -1,15 +1,19 @@
 import eventlet
 eventlet.monkey_patch()
 
-from flask import Flask, render_template, request, session, redirect, url_for, flash
+from flask import Flask, render_template, request, session, redirect, url_for, flash, abort
 from flask_socketio import SocketIO
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
+import hashlib
 import io
+import json
 import re
 import os
 import sqlite3
@@ -31,8 +35,17 @@ app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-fallback-change-in-production')
 app.config['SESSION_TYPE'] = 'filesystem'
 socketio = SocketIO(app)
-DATABASE = "new.db"
+DATABASE = os.environ.get('DATABASE_PATH', 'new.db')
 MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
+CACHE_TTL_HOURS = 24
+
+# Rate limiter — keyed by user email (or IP fallback)
+limiter = Limiter(
+    app=app,
+    key_func=lambda: session.get('user_email') or get_remote_address(),
+    default_limits=[],
+    storage_uri="memory://",
+)
 
 with sqlite3.connect(DATABASE) as conn:
     conn.execute('''
@@ -43,7 +56,102 @@ with sqlite3.connect(DATABASE) as conn:
             password TEXT
         )
     ''')
+    conn.execute('''
+        CREATE TABLE IF NOT EXISTS analyses (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_email TEXT NOT NULL,
+            pdf_hash TEXT NOT NULL,
+            file_name TEXT,
+            score INTEGER,
+            skills_count INTEGER,
+            payload TEXT,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    ''')
+    conn.execute('CREATE INDEX IF NOT EXISTS idx_analyses_user ON analyses(user_email, created_at DESC)')
+    conn.execute('CREATE INDEX IF NOT EXISTS idx_analyses_hash ON analyses(user_email, pdf_hash)')
     conn.commit()
+
+
+# ─── Caching & History helpers ─────────────────────────────────
+def compute_pdf_hash(file_bytes):
+    return hashlib.sha256(file_bytes).hexdigest()
+
+
+def get_cached_analysis(user_email, pdf_hash):
+    """Return cached payload (dict) if exists within TTL, else None."""
+    with sqlite3.connect(DATABASE) as conn:
+        row = conn.execute(
+            "SELECT payload FROM analyses "
+            "WHERE user_email=? AND pdf_hash=? "
+            "  AND created_at > datetime('now', ?) "
+            "ORDER BY created_at DESC LIMIT 1",
+            (user_email, pdf_hash, f'-{CACHE_TTL_HOURS} hours')
+        ).fetchone()
+    if row:
+        try:
+            return json.loads(row[0])
+        except Exception:
+            return None
+    return None
+
+
+def save_analysis(user_email, pdf_hash, file_name, payload):
+    """Persist a completed analysis to history."""
+    score        = int(payload.get('score', 0) or 0)
+    skills_count = len(payload.get('skills') or [])
+    blob         = json.dumps(payload, default=str)
+    with sqlite3.connect(DATABASE) as conn:
+        conn.execute(
+            "INSERT INTO analyses (user_email, pdf_hash, file_name, score, skills_count, payload) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            (user_email, pdf_hash, file_name, score, skills_count, blob)
+        )
+        # Trim to last 30 per user
+        conn.execute(
+            "DELETE FROM analyses WHERE user_email=? AND id NOT IN ("
+            "   SELECT id FROM analyses WHERE user_email=? ORDER BY created_at DESC LIMIT 30)",
+            (user_email, user_email)
+        )
+        conn.commit()
+
+
+def get_user_history(user_email, limit=30):
+    with sqlite3.connect(DATABASE) as conn:
+        rows = conn.execute(
+            "SELECT id, file_name, score, skills_count, created_at "
+            "FROM analyses WHERE user_email=? "
+            "ORDER BY created_at DESC LIMIT ?",
+            (user_email, limit)
+        ).fetchall()
+    return [
+        {'id': r[0], 'file_name': r[1] or 'Untitled.pdf',
+         'score': r[2] or 0, 'skills_count': r[3] or 0, 'created_at': r[4]}
+        for r in rows
+    ]
+
+
+def get_analysis_by_id(analysis_id, user_email):
+    with sqlite3.connect(DATABASE) as conn:
+        row = conn.execute(
+            "SELECT payload FROM analyses WHERE id=? AND user_email=?",
+            (analysis_id, user_email)
+        ).fetchone()
+    if row:
+        try:
+            return json.loads(row[0])
+        except Exception:
+            return None
+    return None
+
+
+def delete_analysis(analysis_id, user_email):
+    with sqlite3.connect(DATABASE) as conn:
+        conn.execute(
+            "DELETE FROM analyses WHERE id=? AND user_email=?",
+            (analysis_id, user_email)
+        )
+        conn.commit()
 
 EDUCATION = ['CSE', 'EEE', 'ECE', 'IT', 'MCA', 'BCA', 'BTECH', 'MTECH', 'BSC', 'MSC', 'MBA', 'BE', 'ME', 'PHD']
 
@@ -312,6 +420,7 @@ def back():
 
 
 @app.route('/upload', methods=['GET', 'POST'])
+@limiter.limit("12 per hour", methods=['POST'])
 def upload():
     if 'user_email' not in session:
         flash('Please sign in to continue.', 'error')
@@ -337,6 +446,15 @@ def upload():
         if len(file_data) > MAX_FILE_SIZE:
             flash('File too large. Maximum size is 5 MB.', 'error')
             return redirect(url_for('upload'))
+
+        # ─── Cache lookup by content hash ───
+        pdf_hash = compute_pdf_hash(file_data)
+        cached = get_cached_analysis(session['user_email'], pdf_hash)
+        if cached:
+            logger.info(f"Cache HIT for {pdf_hash[:12]} — instant response")
+            socketio.emit('progress', {'progress': 100, 'message': 'Loaded from cache!'})
+            return render_template('result.html', **cached, _cached=True)
+
         i_f.seek(0)
 
         try:
@@ -418,23 +536,26 @@ def upload():
             socketio.emit('progress', {'progress': 100, 'message': 'Analysis complete!'})
             logger.info(f"Total processing time: {time.time() - t0:.2f}s — score={score} skills={len(all_skills)}")
 
-            return render_template(
-                'result.html',
-                companies=companies,
-                roles=roles_with_scores,
-                job=unique_roles,
-                marks=marks_message,
-                skill_gaps=skill_gaps,
-                skills=all_skills,
-                skill_categories=skill_categories,
-                score=score,
-                breakdown=breakdown,
-                insights=insights,
-                experience_years=exp_years,
-                certifications=certifications,
-                project_count=project_count,
-                name=session.get('user_name', ''),
-            )
+            # Build payload + persist to history
+            payload = {
+                'companies':         companies,
+                'roles':             roles_with_scores,
+                'job':               unique_roles,
+                'marks':             marks_message,
+                'skill_gaps':        skill_gaps,
+                'skills':            all_skills,
+                'skill_categories':  skill_categories,
+                'score':             score,
+                'breakdown':         breakdown,
+                'insights':          insights,
+                'experience_years':  exp_years,
+                'certifications':    certifications,
+                'project_count':     project_count,
+                'name':              session.get('user_name', ''),
+            }
+            save_analysis(session['user_email'], pdf_hash, i_f.filename, payload)
+
+            return render_template('result.html', **payload)
 
         except Exception as e:
             logger.error(f"Error processing resume: {e}")
@@ -443,6 +564,44 @@ def upload():
             return redirect(url_for('upload'))
 
     return render_template('upload.html', name=session.get('user_name'), email=session.get('user_email'))
+
+
+@app.route('/history')
+def history():
+    if 'user_email' not in session:
+        flash('Please sign in to view your history.', 'error')
+        return redirect(url_for('index'))
+    items = get_user_history(session['user_email'])
+    return render_template('history.html',
+                           items=items,
+                           name=session.get('user_name', ''))
+
+
+@app.route('/analysis/<int:analysis_id>')
+def view_analysis(analysis_id):
+    if 'user_email' not in session:
+        flash('Please sign in to continue.', 'error')
+        return redirect(url_for('index'))
+    payload = get_analysis_by_id(analysis_id, session['user_email'])
+    if not payload:
+        flash('Analysis not found.', 'error')
+        return redirect(url_for('history'))
+    return render_template('result.html', **payload)
+
+
+@app.route('/analysis/<int:analysis_id>/delete', methods=['POST'])
+def delete_analysis_route(analysis_id):
+    if 'user_email' not in session:
+        return redirect(url_for('index'))
+    delete_analysis(analysis_id, session['user_email'])
+    flash('Analysis removed from history.', 'success')
+    return redirect(url_for('history'))
+
+
+@app.errorhandler(429)
+def ratelimit_handler(e):
+    flash('Too many uploads. Please wait an hour before trying again.', 'error')
+    return redirect(url_for('upload'))
 
 
 if __name__ == '__main__':

@@ -3,44 +3,70 @@ TopX — Core ML & Analysis Engine
 Skill extraction, role matching, scoring, and insight generation.
 """
 
-from sklearn.preprocessing import MinMaxScaler, LabelEncoder
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-import pandas as pd
+import os
+import logging
+import joblib
 import numpy as np
 
-# ─── Train Company Predictor ────────────────────────────────────
-train_data = pd.read_csv("Book2.csv", encoding='latin-1')
-le_Skill = LabelEncoder()
-le_depart = LabelEncoder()
-le_Company = LabelEncoder()
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
-train_data['skill']  = le_Skill.fit_transform(train_data['Skills Known'])
-train_data['dept']   = le_depart.fit_transform(train_data['department'])
-train_data['target'] = le_Company.fit_transform(train_data['Company Placed'])
+logger = logging.getLogger(__name__)
 
-np.random.seed(42)
-train_data['num_skills'] = np.random.randint(1, 6, size=len(train_data))
+# ─── Load Pre-trained Model (or train inline as fallback) ───────
+MODEL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'models', 'company_predictor.joblib')
 
-X = train_data.drop([
-    'Full Name', "12th Mark", "10th Mark", 'dept', 'Company Placed',
-    "Skills Known", "Projects Done", 'target', 'department', "Certifications/Internships"
-], axis=1)
-y = train_data['target']
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
-scaler = MinMaxScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-model = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
-model.fit(X_train_scaled, y_train)
+def _load_or_train():
+    if os.path.exists(MODEL_PATH):
+        try:
+            b = joblib.load(MODEL_PATH)
+            logger.info(f"Model loaded from {MODEL_PATH}")
+            return b
+        except Exception as e:
+            logger.warning(f"Failed to load model file: {e}; training inline")
 
-class_names = {
+    from sklearn.preprocessing import MinMaxScaler, LabelEncoder
+    from sklearn.model_selection import train_test_split
+    from sklearn.ensemble import RandomForestClassifier
+    import pandas as pd
+
+    td = pd.read_csv("Book2.csv", encoding='latin-1')
+    le_s = LabelEncoder(); le_d = LabelEncoder(); le_c = LabelEncoder()
+    td['skill']  = le_s.fit_transform(td['Skills Known'])
+    td['dept']   = le_d.fit_transform(td['department'])
+    td['target'] = le_c.fit_transform(td['Company Placed'])
+    np.random.seed(42)
+    td['num_skills'] = np.random.randint(1, 6, size=len(td))
+    X = td.drop(['Full Name', "12th Mark", "10th Mark", 'dept', 'Company Placed',
+                 "Skills Known", "Projects Done", 'target', 'department',
+                 "Certifications/Internships"], axis=1)
+    y = td['target']
+    Xtr, _, ytr, _ = train_test_split(X, y, test_size=0.2, random_state=0)
+    sc = MinMaxScaler()
+    Xs = sc.fit_transform(Xtr)
+    m = RandomForestClassifier(n_estimators=100, random_state=42, n_jobs=-1)
+    m.fit(Xs, ytr)
+    bundle = {'model': m, 'scaler': sc, 'le_skill': le_s, 'le_depart': le_d,
+              'le_company': le_c, 'class_names': dict(enumerate(le_c.classes_)),
+              'metrics': {'train_accuracy': 0.0, 'test_accuracy': 0.0}}
+    try:
+        os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
+        joblib.dump(bundle, MODEL_PATH, compress=3)
+    except Exception:
+        pass
+    return bundle
+
+
+_BUNDLE = _load_or_train()
+model         = _BUNDLE['model']
+scaler        = _BUNDLE['scaler']
+class_names   = _BUNDLE.get('class_names') or {
     0: 'Birlasoft', 1: 'Cognizant', 2: 'Hexaware Technologies',
     3: 'Infosys', 4: 'KPIT Technologies', 5: 'L&T Infotech',
     6: 'Tech Mahindra', 7: 'Wipro Technologies', 8: 'CSS Corp', 9: 'TCS'
 }
+MODEL_METRICS = _BUNDLE.get('metrics', {})
 
 # ─── Skill Database (Expanded, Categorized) ─────────────────────
 SKILLS_BY_CATEGORY = {

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>History — TopX</title>
+  <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-row">
+      <span><i class="tick-star">✦</i> N° 04 — ARCHIVE</span>
+      <span><i class="tick-star">✦</i> {{ items | length }} REPORT{% if items | length != 1 %}S{% endif %} ON FILE</span>
+      <span><i class="tick-star">✦</i> CACHED ANALYSES</span>
+      <span><i class="tick-star">✦</i> CLICK ANY ROW TO VIEW</span>
+    </div>
+    <div class="ticker-row" aria-hidden="true">
+      <span><i class="tick-star">✦</i> N° 04 — ARCHIVE</span>
+      <span><i class="tick-star">✦</i> {{ items | length }} REPORT{% if items | length != 1 %}S{% endif %} ON FILE</span>
+      <span><i class="tick-star">✦</i> CACHED ANALYSES</span>
+      <span><i class="tick-star">✦</i> CLICK ANY ROW TO VIEW</span>
+    </div>
+  </div>
+</div>
+
+<header class="topbar">
+  <a href="/" class="brand"><em>TopX</em><b>— CAREER INTEL</b></a>
+  <div class="tb-meta">N° 04 · ARCHIVE · {{ name|upper if name else '' }}</div>
+  <div class="tb-actions">
+    <a class="tb-link" href="/back">+ NEW</a>
+    <a class="tb-link" href="/history">ARCHIVE</a>
+    <button class="tb-link" onclick="toggleTheme()" id="theme-btn">DARK</button>
+    <a class="tb-link" href="/logout">SIGN OUT</a>
+  </div>
+</header>
+
+<main>
+<div class="spread">
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="flash flash-{{ category }}">// {{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <section class="results-spread">
+
+    <div class="res-mast">
+      <span class="res-mast-tag">// REPORT N° 04 · ARCHIVE</span>
+      <h1 class="res-mast-h">Your <span class="it">Archive.</span></h1>
+      <div class="res-mast-actions">
+        <a href="/back" class="btn-sm">+ New Analysis</a>
+      </div>
+    </div>
+
+    {% if items %}
+      <div class="archive-list">
+        {% for item in items %}
+          <div class="archive-row">
+            <span class="archive-rank">{{ '%02d' | format(loop.index) }}</span>
+
+            <a href="/analysis/{{ item.id }}" class="archive-main">
+              <span class="archive-name"><em>{{ item.file_name }}</em></span>
+              <span class="archive-meta">
+                {{ item.created_at[:10] if item.created_at else '' }}
+                &nbsp;·&nbsp; {{ item.skills_count }} skill{% if item.skills_count != 1 %}s{% endif %}
+              </span>
+            </a>
+
+            <div class="archive-score-cell">
+              <span class="archive-score">{{ item.score }}</span>
+              <span class="archive-score-lbl">/100</span>
+            </div>
+
+            <div class="archive-actions">
+              <a href="/analysis/{{ item.id }}" class="archive-act">View →</a>
+              <form action="/analysis/{{ item.id }}/delete" method="post" class="archive-del-form">
+                <button type="submit" class="archive-act archive-del" onclick="return confirm('Delete this analysis?');">×</button>
+              </form>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="archive-empty">
+        <h3 class="archive-empty-h"><em>No analyses yet.</em></h3>
+        <p class="archive-empty-p">Upload your first resume to begin building your archive.</p>
+        <a href="/back" class="btn-large" style="margin-top:24px;">
+          <span>Upload Resume</span><span class="arrow">→</span>
+        </a>
+      </div>
+    {% endif %}
+
+  </section>
+
+  <section class="colophon">
+    <div class="colophon-l">
+      <h4>Cached for instant access.</h4>
+      <p>Re-uploading a resume returns immediately</p>
+    </div>
+    <div class="colophon-r">
+      <span>BUILT BY RAHUL · MMXXV</span>
+      <span>© 2025 TOPX</span>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<script>
+  const themeBtn = document.getElementById('theme-btn');
+  function toggleTheme() {
+    document.body.classList.toggle('light');
+    const isLight = document.body.classList.contains('light');
+    themeBtn.textContent = isLight ? 'LIGHT' : 'DARK';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  }
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light');
+    themeBtn.textContent = 'LIGHT';
+  }
+</script>
+</body>
+</html>

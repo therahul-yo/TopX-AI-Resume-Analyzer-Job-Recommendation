@@ -68,6 +68,51 @@ class_names   = _BUNDLE.get('class_names') or {
 }
 MODEL_METRICS = _BUNDLE.get('metrics', {})
 
+# ─── Resume Category Classifier (TF-IDF + LogReg on 2,483 real resumes) ──
+CATEGORY_MODEL_PATH = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), 'models', 'category_classifier.joblib'
+)
+_CATEGORY_BUNDLE = None
+try:
+    if os.path.exists(CATEGORY_MODEL_PATH):
+        _CATEGORY_BUNDLE = joblib.load(CATEGORY_MODEL_PATH)
+        m = _CATEGORY_BUNDLE.get('metrics', {})
+        logger.info(
+            f"Category classifier loaded "
+            f"(test_acc={m.get('test_accuracy', 0):.3f}, "
+            f"top3_acc={m.get('top3_accuracy', 0):.3f})"
+        )
+except Exception as e:
+    logger.warning(f"Category classifier unavailable: {e}")
+    _CATEGORY_BUNDLE = None
+
+
+def predict_categories(resume_text, top_k=4):
+    """
+    Predict job categories from resume text.
+    Returns list of {'name': str, 'score': int} sorted by confidence.
+    Returns [] if classifier not trained or text too short.
+    """
+    if not _CATEGORY_BUNDLE or not resume_text or len(resume_text) < 50:
+        return []
+    try:
+        pipe    = _CATEGORY_BUNDLE['pipeline']
+        classes = _CATEGORY_BUNDLE['classes']
+        probs   = pipe.predict_proba([resume_text])[0]
+        idxs    = np.argsort(probs)[::-1][:top_k]
+        out = []
+        for i in idxs:
+            score = int(round(probs[i] * 100))
+            if score < 2:
+                continue
+            name = classes[i].replace('-', ' ').title()
+            out.append({'name': name, 'score': score})
+        return out
+    except Exception as e:
+        logger.warning(f"Category prediction failed: {e}")
+        return []
+
+
 # ─── Skill Database (Expanded, Categorized) ─────────────────────
 SKILLS_BY_CATEGORY = {
     'Languages': [

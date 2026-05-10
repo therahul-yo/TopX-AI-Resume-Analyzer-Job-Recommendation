@@ -24,6 +24,7 @@ from main import (
     predict, suggest_roles, analyze_skill_gaps,
     calculate_score_breakdown, generate_insights,
     categorize_skills, normalize_aliases, role_match_scores,
+    predict_categories,
     ALL_SKILLS, SKILL_CATEGORY,
 )
 
@@ -489,7 +490,10 @@ def upload():
             socketio.emit('progress', {'progress': 72, 'message': 'Counting projects...'})
             project_count = count_projects(txt)
 
-            socketio.emit('progress', {'progress': 80, 'message': 'Predicting companies...'})
+            socketio.emit('progress', {'progress': 78, 'message': 'Classifying job category...'})
+            categories = predict_categories(txt)
+
+            socketio.emit('progress', {'progress': 82, 'message': 'Predicting companies...'})
             mark_value = get_cgpa_value(marks)
             dominant = next(
                 (s.lower() for s in all_skills if s.lower() in SKILL_PRIORITY),
@@ -539,6 +543,7 @@ def upload():
             # Build payload + persist to history
             payload = {
                 'companies':         companies,
+                'categories':        categories,
                 'roles':             roles_with_scores,
                 'job':               unique_roles,
                 'marks':             marks_message,

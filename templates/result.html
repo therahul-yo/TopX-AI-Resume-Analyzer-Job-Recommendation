@@ -193,11 +193,44 @@
       </div>
     </div>
 
-    <!-- ─── III. Companies ─── -->
+    {% if categories %}
+    <!-- ─── III. Predicted Category (NEW: real ML on 2,483 resumes) ─── -->
     <div class="data-block">
       <div class="data-block-h">
         <div class="data-block-num">III.</div>
-        <div class="data-block-cap">— SECTION 03</div>
+        <div class="data-block-cap">— SECTION 03 · ML CLASSIFIER</div>
+        <h3 class="data-block-h-title">Predicted <span class="it">category.</span></h3>
+      </div>
+      <div class="data-block-c">
+        <div class="cat-headline">
+          <span class="cat-headline-tag">— TOP MATCH</span>
+          <span class="cat-headline-name"><em>{{ categories[0].name }}</em></span>
+          <span class="cat-headline-pct">{{ categories[0].score }}%</span>
+        </div>
+        {% if categories | length > 1 %}
+          <div class="cat-table">
+            {% for c in categories[1:] %}
+              <div class="cat-row">
+                <span class="cat-rank">{{ '%02d' | format(loop.index + 1) }}</span>
+                <span class="cat-name">{{ c.name }}</span>
+                <div class="cat-bar">
+                  <div class="cat-bar-fill" data-target="{{ c.score }}"></div>
+                </div>
+                <span class="cat-pct">{{ c.score }}%</span>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+        <p class="cat-note">— Trained on 2,483 real resumes across 24 industry categories</p>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ─── IV. Companies ─── -->
+    <div class="data-block">
+      <div class="data-block-h">
+        <div class="data-block-num">{% if categories %}IV.{% else %}III.{% endif %}</div>
+        <div class="data-block-cap">— {% if categories %}SECTION 04{% else %}SECTION 03{% endif %}</div>
         <h3 class="data-block-h-title">Company <span class="it">matches.</span></h3>
       </div>
       <div class="data-block-c">

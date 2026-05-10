@@ -25,7 +25,7 @@ from main import (
     calculate_score_breakdown, generate_insights,
     categorize_skills, normalize_aliases, role_match_scores,
     predict_categories,
-    ALL_SKILLS, SKILL_CATEGORY,
+    ALL_SKILLS, SKILL_CATEGORY, AMBIGUOUS_SKILLS,
 )
 
 load_dotenv()
@@ -209,11 +209,20 @@ def split_sections(text):
 
 
 def extract_skills_smart(text):
-    """Section-aware skill extraction with confidence ranking."""
+    """
+    Section-aware skill extraction with confidence ranking.
+
+    Ambiguous skills (e.g. 'swift', 'go', 'r', 'sales', 'communication')
+    only count if they appear inside an explicit Skills section — this
+    prevents false positives like 'Swift ProSys' (a company name) being
+    matched as the Swift programming language.
+    """
     sections = split_sections(text)
 
-    # Skills section gets highest weight; full text gets lower weight
-    skills_section_text = normalize_aliases(sections.get('skills', '').lower())
+    skills_section_raw  = sections.get('skills', '')
+    has_skills_section  = bool(skills_section_raw.strip())
+    skills_section_text = normalize_aliases(skills_section_raw.lower())
+
     full_text = normalize_aliases(text.lower())
     full_text = re.sub(r'[,;:|•\-–—]', ' ', full_text)
     full_text = re.sub(r'\s+', ' ', full_text)
@@ -221,20 +230,32 @@ def extract_skills_smart(text):
     found = {}  # skill -> confidence
 
     for skill in ALL_SKILLS:
-        if ' ' in skill or '.' in skill or '/' in skill or '+' in skill or '#' in skill:
-            # Multi-word or special-char skill: substring match
-            if skill in full_text:
-                found[skill] = 70
-            if skill in skills_section_text:
-                found[skill] = 100
-        else:
-            pattern = r'\b' + re.escape(skill) + r'\b'
-            if re.search(pattern, full_text):
-                found[skill] = 70
-            if re.search(pattern, skills_section_text):
-                found[skill] = 100
+        is_ambiguous = skill in AMBIGUOUS_SKILLS
+        is_multi_or_special = (
+            ' ' in skill or '.' in skill or '/' in skill or '+' in skill or '#' in skill
+        )
 
-    # Sort by confidence then alphabetical, cap at 35
+        if is_multi_or_special:
+            in_full   = skill in full_text
+            in_skills = skill in skills_section_text
+        else:
+            pat = r'\b' + re.escape(skill) + r'\b'
+            in_full   = bool(re.search(pat, full_text))
+            in_skills = bool(re.search(pat, skills_section_text))
+
+        # Ambiguous skills MUST be in skills section (or in full text only
+        # if there's no explicit skills section in the resume at all)
+        if is_ambiguous:
+            if in_skills:
+                found[skill] = 100
+            elif in_full and not has_skills_section:
+                found[skill] = 60  # lower confidence
+        else:
+            if in_skills:
+                found[skill] = 100
+            elif in_full:
+                found[skill] = 70
+
     sorted_skills = sorted(found.items(), key=lambda x: (-x[1], x[0]))
     return [s[0].title() for s in sorted_skills[:35]]
 

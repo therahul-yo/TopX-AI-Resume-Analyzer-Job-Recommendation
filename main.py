@@ -257,10 +257,64 @@ COMPANIES = {
         'min_exp': 0, 'tier': 'enterprise',
     },
     'McKinsey': {
-        'core_skills': ['python', 'sql', 'tableau', 'power bi', 'excel'],
-        'nice_skills': ['r', 'machine learning', 'consulting'],
+        'core_skills': ['python', 'sql', 'tableau', 'power bi', 'ms excel', 'business analysis'],
+        'nice_skills': ['r', 'machine learning', 'ms powerpoint', 'presentation'],
         'industries': ['CONSULTANT', 'BUSINESS-DEVELOPMENT'],
         'min_exp': 1, 'tier': 'top-tier',
+    },
+
+    # ── Big 4 / Audit & Consulting ──
+    'EY': {
+        'core_skills': ['ms excel', 'sap', 'accounting', 'auditing', 'taxation', 'financial reporting', 'tally'],
+        'nice_skills': ['power bi', 'tableau', 'sql', 'gst', 'sap'],
+        'industries': ['FINANCE', 'CONSULTANT', 'BANKING', 'BUSINESS-DEVELOPMENT'],
+        'min_exp': 0, 'tier': 'enterprise',
+    },
+    'PwC': {
+        'core_skills': ['ms excel', 'sap', 'accounting', 'auditing', 'taxation', 'financial reporting'],
+        'nice_skills': ['tableau', 'power bi', 'tally', 'gst', 'sql'],
+        'industries': ['FINANCE', 'CONSULTANT', 'BANKING', 'BUSINESS-DEVELOPMENT'],
+        'min_exp': 0, 'tier': 'enterprise',
+    },
+    'KPMG': {
+        'core_skills': ['ms excel', 'auditing', 'accounting', 'sap', 'taxation', 'financial reporting'],
+        'nice_skills': ['power bi', 'tableau', 'tally'],
+        'industries': ['FINANCE', 'CONSULTANT', 'BANKING'],
+        'min_exp': 0, 'tier': 'enterprise',
+    },
+
+    # ── FMCG / Retail (operations, supply chain) ──
+    'Hindustan Unilever': {
+        'core_skills': ['supply chain management', 'ms excel', 'sap', 'data analysis', 'business operations'],
+        'nice_skills': ['power bi', 'sql', 'logistics', 'inventory management'],
+        'industries': ['SALES', 'BUSINESS-DEVELOPMENT', 'CONSULTANT', 'AGRICULTURE'],
+        'min_exp': 0, 'tier': 'enterprise',
+    },
+    'ITC': {
+        'core_skills': ['supply chain management', 'sap', 'ms excel', 'business operations', 'logistics'],
+        'nice_skills': ['power bi', 'inventory management', 'procurement'],
+        'industries': ['SALES', 'BUSINESS-DEVELOPMENT', 'AGRICULTURE'],
+        'min_exp': 0, 'tier': 'enterprise',
+    },
+    'Reliance Retail': {
+        'core_skills': ['supply chain management', 'inventory management', 'ms excel', 'sap', 'sales'],
+        'nice_skills': ['power bi', 'logistics', 'procurement', 'crm'],
+        'industries': ['SALES', 'BUSINESS-DEVELOPMENT', 'APPAREL'],
+        'min_exp': 0, 'tier': 'enterprise',
+    },
+
+    # ── Logistics ──
+    'DHL': {
+        'core_skills': ['supply chain management', 'logistics', 'ms excel', 'sap', 'inventory management', 'procurement'],
+        'nice_skills': ['power bi', 'sql', 'vendor management'],
+        'industries': ['INFORMATION-TECHNOLOGY', 'BUSINESS-DEVELOPMENT', 'AVIATION'],
+        'min_exp': 0, 'tier': 'enterprise',
+    },
+    'FedEx': {
+        'core_skills': ['supply chain management', 'logistics', 'ms excel', 'inventory management'],
+        'nice_skills': ['sap', 'power bi', 'vendor management'],
+        'industries': ['BUSINESS-DEVELOPMENT', 'AVIATION'],
+        'min_exp': 0, 'tier': 'enterprise',
     },
 }
 
@@ -440,6 +494,67 @@ SKILLS_BY_CATEGORY = {
         'agile', 'scrum', 'kanban', 'waterfall', 'lean', 'pair programming',
         'code review', 'design patterns', 'solid principles',
     ],
+
+    # ── Non-engineering categories ──────────────────────────────
+    'Office & Productivity': [
+        'ms excel', 'ms word', 'ms powerpoint', 'ms office', 'microsoft office',
+        'google sheets', 'google docs', 'google slides', 'outlook',
+        'sharepoint', 'visio', 'onenote', 'notion', 'airtable',
+    ],
+    'Accounting & Finance': [
+        'tally', 'sap', 'oracle erp', 'quickbooks', 'zoho books', 'busy',
+        'accounting', 'bookkeeping', 'financial reporting', 'auditing',
+        'taxation', 'gst', 'income tax', 'tds', 'financial modeling',
+        'forecasting', 'budgeting', 'reconciliation', 'accounts payable',
+        'accounts receivable', 'payroll', 'cost accounting',
+    ],
+    'Business Operations': [
+        'supply chain', 'supply chain management', 'logistics', 'inventory management',
+        'inventory tracking', 'procurement', 'vendor management', 'warehouse management',
+        'operations management', 'process improvement', 'six sigma', 'lean six sigma',
+        'business analysis', 'requirements gathering', 'stakeholder management',
+        'project management', 'change management', 'erp', 'crm',
+        'customer relations', 'business operations',
+    ],
+    'Marketing & Sales': [
+        'digital marketing', 'seo', 'sem', 'content marketing', 'social media marketing',
+        'email marketing', 'google ads', 'facebook ads', 'salesforce', 'hubspot',
+        'mailchimp', 'sales', 'lead generation', 'crm', 'b2b sales', 'b2c sales',
+        'market research', 'brand management', 'copywriting', 'content writing',
+        'wordpress', 'canva', 'video editing',
+    ],
+    'Communication & Soft Skills': [
+        'communication', 'teamwork', 'leadership', 'critical thinking',
+        'problem solving', 'time management', 'negotiation', 'presentation',
+        'research', 'analytical thinking', 'attention to detail', 'collaboration',
+        'mentoring', 'public speaking', 'documentation', 'data analysis',
+    ],
+    'Healthcare': [
+        'patient care', 'clinical research', 'medical records', 'phlebotomy',
+        'cpr', 'first aid', 'medical coding', 'icd-10', 'electronic health records',
+        'pharmacology', 'nursing', 'therapy',
+    ],
+    'Education': [
+        'curriculum development', 'lesson planning', 'classroom management',
+        'student assessment', 'tutoring', 'mentoring', 'teaching', 'instructional design',
+    ],
+    'Design & Creative': [
+        'photoshop', 'illustrator', 'indesign', 'after effects', 'premiere pro',
+        'lightroom', 'canva', 'sketch', 'figma', 'adobe xd', 'ui design', 'ux design',
+        'graphic design', 'typography', 'video editing', 'motion graphics',
+    ],
+}
+
+# Skills that are common English words or company-name-fragments —
+# these MUST appear in the explicit Skills section to count, otherwise
+# we get false positives like "Swift" matching "Swift ProSys".
+AMBIGUOUS_SKILLS = {
+    'swift', 'go', 'r', 'c', 'rust', 'kotlin', 'dart', 'lua', 'erlang',
+    'elixir', 'julia', 'perl', 'tcl', 'haskell', 'sas', 'd3.js', 'busy',
+    'sales', 'research', 'teaching', 'tutoring', 'mentoring',
+    'communication', 'teamwork', 'leadership', 'collaboration',
+    'cpr', 'gst', 'tds', 'crm', 'erp', 'sem', 'seo',
+    'machine learning',  # also commonly written but easy to false-positive
 }
 
 # Build flat skill set + reverse map
@@ -488,6 +603,22 @@ SKILL_ALIASES = {
     'shell script': 'shell scripting',
     'large language model': 'llm',
     'large language models': 'llm',
+
+    # Non-tech aliases
+    'microsoft excel': 'ms excel', 'excel': 'ms excel',
+    'microsoft word':  'ms word',
+    'microsoft powerpoint': 'ms powerpoint', 'powerpoint': 'ms powerpoint',
+    'microsoft office': 'ms office',
+    'sap erp': 'sap', 'sap fico': 'sap', 'sap mm': 'sap',
+    'tally erp': 'tally', 'tally erp 9': 'tally',
+    'g.s.t': 'gst',
+    'scm': 'supply chain management',
+    'supply chain mgmt': 'supply chain management',
+    'inventory mgmt': 'inventory management',
+    'six sigma green belt': 'six sigma',
+    'business analyst': 'business analysis',
+    'cust support': 'customer relations',
+    'customer support': 'customer relations',
 }
 
 # ─── Role / Skill mapping ───────────────────────────────────────
@@ -519,6 +650,29 @@ ROLE_SKILLS = {
     'software engineer':           ['python', 'java', 'sql', 'git', 'design patterns'],
     'computer vision engineer':    ['python', 'opencv', 'pytorch', 'cnn', 'computer vision'],
     'nlp engineer':                ['python', 'nlp', 'spacy', 'huggingface', 'transformer'],
+
+    # ── Non-engineering roles ────────────────────────────────────
+    'business analyst':            ['ms excel', 'sql', 'power bi', 'tableau', 'business analysis', 'requirements gathering'],
+    'data analyst':                ['ms excel', 'sql', 'power bi', 'tableau', 'python', 'data analysis'],
+    'financial analyst':           ['ms excel', 'financial modeling', 'sql', 'accounting', 'forecasting', 'budgeting'],
+    'supply chain analyst':        ['supply chain management', 'ms excel', 'sap', 'inventory management', 'logistics', 'sql'],
+    'operations analyst':          ['ms excel', 'sql', 'process improvement', 'business operations', 'six sigma'],
+    'logistics coordinator':       ['logistics', 'ms excel', 'inventory management', 'supply chain management', 'vendor management'],
+    'procurement specialist':      ['procurement', 'vendor management', 'ms excel', 'sap', 'negotiation'],
+    'accountant':                  ['tally', 'sap', 'accounting', 'gst', 'taxation', 'bookkeeping', 'ms excel'],
+    'audit associate':             ['accounting', 'auditing', 'sap', 'ms excel', 'taxation', 'financial reporting'],
+    'tax associate':               ['taxation', 'gst', 'income tax', 'ms excel', 'tally', 'accounting'],
+    'consultant':                  ['ms excel', 'ms powerpoint', 'tableau', 'sql', 'business analysis', 'presentation'],
+    'marketing analyst':           ['google analytics', 'ms excel', 'seo', 'social media marketing', 'market research'],
+    'digital marketing executive': ['digital marketing', 'seo', 'social media marketing', 'google ads', 'content marketing'],
+    'sales executive':             ['sales', 'crm', 'communication', 'negotiation', 'lead generation', 'ms excel'],
+    'crm administrator':           ['salesforce', 'sql', 'ms excel', 'crm', 'business analysis'],
+    'project coordinator':         ['project management', 'ms excel', 'communication', 'jira', 'stakeholder management'],
+    'human resources executive':   ['communication', 'ms excel', 'recruitment', 'training', 'leadership'],
+    'graphic designer':            ['photoshop', 'illustrator', 'figma', 'graphic design', 'typography'],
+    'content writer':              ['copywriting', 'content writing', 'seo', 'wordpress', 'communication'],
+    'teacher':                     ['lesson planning', 'classroom management', 'teaching', 'curriculum development'],
+    'customer service representative': ['customer relations', 'communication', 'ms excel', 'crm'],
 }
 
 SKILL_TO_ROLES = {
@@ -566,6 +720,33 @@ SKILL_TO_ROLES = {
     'opencv':           ['Computer Vision Engineer', 'AI Engineer'],
     'spacy':            ['NLP Engineer', 'AI Engineer'],
     'huggingface':      ['NLP Engineer', 'AI Engineer'],
+
+    # ── Non-tech skill → role mappings ─────────────────────────
+    'ms excel':            ['Data Analyst', 'Business Analyst', 'Financial Analyst', 'Operations Analyst'],
+    'ms powerpoint':       ['Consultant', 'Business Analyst', 'Marketing Analyst'],
+    'ms word':             ['Content Writer', 'HR Executive', 'Project Coordinator'],
+    'tally':               ['Accountant', 'Tax Associate', 'Audit Associate'],
+    'sap':                 ['Supply Chain Analyst', 'Accountant', 'SAP Consultant'],
+    'gst':                 ['Tax Associate', 'Accountant', 'Audit Associate'],
+    'taxation':            ['Tax Associate', 'Accountant', 'Audit Associate'],
+    'auditing':            ['Audit Associate', 'Accountant'],
+    'accounting':          ['Accountant', 'Audit Associate', 'Tax Associate', 'Financial Analyst'],
+    'supply chain management': ['Supply Chain Analyst', 'Logistics Coordinator', 'Operations Analyst'],
+    'logistics':           ['Logistics Coordinator', 'Supply Chain Analyst', 'Operations Analyst'],
+    'inventory management':['Supply Chain Analyst', 'Operations Analyst', 'Logistics Coordinator'],
+    'procurement':         ['Procurement Specialist', 'Supply Chain Analyst'],
+    'business analysis':   ['Business Analyst', 'Consultant', 'Operations Analyst'],
+    'data analysis':       ['Data Analyst', 'Business Analyst', 'Financial Analyst'],
+    'salesforce':          ['CRM Administrator', 'Salesforce Developer', 'Sales Executive'],
+    'sales':               ['Sales Executive', 'Business Development', 'Account Manager'],
+    'digital marketing':   ['Digital Marketing Executive', 'Marketing Analyst'],
+    'seo':                 ['Digital Marketing Executive', 'Content Writer'],
+    'social media marketing': ['Digital Marketing Executive', 'Marketing Analyst'],
+    'photoshop':           ['Graphic Designer', 'UI/UX Designer'],
+    'illustrator':         ['Graphic Designer', 'UI/UX Designer'],
+    'wordpress':           ['Content Writer', 'Web Developer'],
+    'communication':       ['HR Executive', 'Customer Service Representative', 'Sales Executive'],
+    'teaching':            ['Teacher', 'Trainer'],
 }
 
 
@@ -698,7 +879,7 @@ def generate_insights(skills, skill_categories, score, gaps, exp_years, cert_cou
         insights.append({'type': 'strength', 'title': 'Project-Heavy Profile',
                          'body': f'{project_count} projects demonstrate strong applied experience.'})
 
-    # Profile signals
+    # Profile signals — Tech
     if 'AI / ML' in skill_categories and len(skill_categories.get('AI / ML', [])) >= 4:
         insights.append({'type': 'note', 'title': 'AI / ML Profile',
                          'body': 'Skills align strongly with ML Engineer and AI Engineer roles.'})
@@ -708,6 +889,20 @@ def generate_insights(skills, skill_categories, score, gaps, exp_years, cert_cou
     if 'Frontend' in skill_categories and 'Backend' in skill_categories:
         insights.append({'type': 'note', 'title': 'Fullstack Capable',
                          'body': 'Both frontend and backend skills — well-positioned for fullstack roles.'})
+
+    # Profile signals — Non-tech
+    if 'Accounting & Finance' in skill_categories and len(skill_categories.get('Accounting & Finance', [])) >= 2:
+        insights.append({'type': 'note', 'title': 'Finance / Accounting Profile',
+                         'body': 'Strong fit for Accountant, Tax Associate, or Audit Associate roles.'})
+    if 'Business Operations' in skill_categories and len(skill_categories.get('Business Operations', [])) >= 2:
+        insights.append({'type': 'note', 'title': 'Operations / Supply Chain Profile',
+                         'body': 'Skills align with Supply Chain Analyst, Logistics, or Operations roles.'})
+    if 'Marketing & Sales' in skill_categories and len(skill_categories.get('Marketing & Sales', [])) >= 2:
+        insights.append({'type': 'note', 'title': 'Marketing / Sales Profile',
+                         'body': 'Strong fit for Digital Marketing, Sales, or Marketing Analyst roles.'})
+    if 'BI & Analytics' in skill_categories and 'Office & Productivity' in skill_categories:
+        insights.append({'type': 'note', 'title': 'Business Analytics Profile',
+                         'body': 'Excel + BI tools — well-positioned for Business Analyst or Data Analyst roles.'})
 
     # Recommendations
     gap_skills = set()

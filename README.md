@@ -4,7 +4,7 @@ An editorial dark-themed resume analyzer that combines real ML, transparent heur
 
 **Live demo:** [topx-ai-resume-analyzer.onrender.com](https://topx-ai-resume-analyzer.onrender.com/)
 
-![TopX Landing Page](screenshot.png)
+![TopX Landing Page](screenshot.png?v=2)
 
 ---
 

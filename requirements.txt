@@ -6,3 +6,5 @@ scikit-learn
 numpy
 gunicorn
 eventlet
+python-dotenv
+werkzeug

@@ -1,221 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="TopX - AI-Powered Resume Analyzer. Get instant insights into your resume and discover your perfect career path." />
-    
-    <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png" type="image/x-icon" />
-    <title>TopX - AI Resume Analyzer</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="TopX – AI-powered resume analyzer. Get instant skill insights, company matches, and a personalized career roadmap." />
+  <link rel="icon" href="https://cdn3.emoji.gg/emojis/4063-na-rocket.png" />
+  <title>TopX – AI Resume Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  </head>
-  <body>
-    <!-- Background -->
-    <div class="bg-gradient">
-      <div class="bg-glow bg-glow-1"></div>
-      <div class="bg-glow bg-glow-2"></div>
-    </div>
+<div class="bg-layer">
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+</div>
 
-    <!-- Header -->
-    <header class="header">
-      <div class="header-inner">
-        <a href="/" class="logo">
-          <div class="logo-icon">🚀</div>
-          <span>TopX</span>
-        </a>
-        <div class="header-actions">
-          <button class="btn btn-ghost btn-icon" onclick="toggleTheme()" title="Toggle theme">
-            <i class="fas fa-moon" id="theme-icon"></i>
-          </button>
-          <button class="btn btn-secondary" onclick="showAuthModal('login')">Sign in</button>
-          <button class="btn btn-primary" onclick="showAuthModal('signup')">Get Started</button>
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-mark">⚡</div>
+      TopX
+    </a>
+    <nav class="header-nav">
+      <button class="btn btn-ghost btn-icon" onclick="toggleTheme()" title="Toggle theme">
+        <i class="fas fa-moon" id="theme-icon"></i>
+      </button>
+      <button class="btn btn-outline" onclick="openModal('login')">Sign In</button>
+      <button class="btn btn-primary" onclick="openModal('signup')">Get Started</button>
+    </nav>
+  </div>
+</header>
+
+<!-- Main -->
+<main class="main-content">
+  <div class="container">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash flash-{{ category }}">
+            <i class="fas {% if category == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}"></i>
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        AI-Powered &nbsp;·&nbsp; Free Analysis
+      </div>
+
+      <h1 class="hero-title">
+        Your Resume,<br><em>Analyzed by AI.</em>
+      </h1>
+
+      <p class="hero-sub">
+        Upload your PDF resume and get instant insights — skills extraction, company match predictions, and a personalized career growth roadmap.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="openModal('signup')">
+          <i class="fas fa-bolt"></i>&nbsp; Analyze My Resume
+        </button>
+        <button class="btn btn-outline btn-lg" onclick="openModal('login')">
+          Sign In
+        </button>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-num">2,500+</span>
+          <span class="stat-label">Resumes Analyzed</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-num">10</span>
+          <span class="stat-label">Companies Matched</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-num">30+</span>
+          <span class="stat-label">Career Roles</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-num">60+</span>
+          <span class="stat-label">Skills Detected</span>
         </div>
       </div>
-    </header>
+    </section>
 
-    <!-- Main -->
-    <main class="main-content">
-      <div class="container">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            {% for category, message in messages %}
-              <div class="flash-message flash-{{ category }}">
-                <i class="fas {% if category == 'success' %}fa-check-circle{% else %}fa-exclamation-circle{% endif %}"></i>
-                {{ message }}
-              </div>
-            {% endfor %}
-          {% endif %}
-        {% endwith %}
-
-        <section class="hero">
-          <div class="hero-badge">
-            <span class="hero-badge-dot"></span>
-            AI-Powered Analysis
-          </div>
-          
-          <h1 class="hero-title">
-            Analyze Your Resume.<br/>
-            <span class="hero-title-gradient">Land Your Dream Job.</span>
-          </h1>
-          
-          <p class="hero-subtitle">
-            Upload your resume and get AI-powered insights, skill analysis, and personalized career recommendations in seconds.
-          </p>
-          
-          <div class="hero-actions">
-            <button class="btn btn-primary btn-lg" onclick="showAuthModal('signup')">
-              <i class="fas fa-rocket"></i> Analyze Resume
-            </button>
-            <button class="btn btn-secondary btn-lg" onclick="showAuthModal('login')">
-              Sign In
-            </button>
-          </div>
-        </section>
-
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-brain"></i></div>
-            <h3 class="feature-title">AI Analysis</h3>
-            <p class="feature-desc">Advanced skill extraction and matching</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-building"></i></div>
-            <h3 class="feature-title">Company Match</h3>
-            <p class="feature-desc">Find companies that fit your profile</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-            <h3 class="feature-title">Resume Score</h3>
-            <p class="feature-desc">Get a score from 0-100 with tips</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon"><i class="fas fa-lightbulb"></i></div>
-            <h3 class="feature-title">Skill Gaps</h3>
-            <p class="feature-desc">Discover skills to learn next</p>
-          </div>
+    <!-- How it works -->
+    <section class="section">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">Three steps to your dream career</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3 class="step-title">Upload Resume</h3>
+          <p class="step-desc">Drag &amp; drop your PDF resume into our secure analyzer.</p>
+        </div>
+        <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3 class="step-title">AI Extraction</h3>
+          <p class="step-desc">Our ML model extracts 60+ skills and academic data.</p>
+        </div>
+        <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3 class="step-title">Get Results</h3>
+          <p class="step-desc">Receive your score, top companies, roles &amp; skill gaps.</p>
         </div>
       </div>
-    </main>
+    </section>
 
-    <!-- Login Modal -->
-    <div class="auth-modal" id="login-modal">
-      <form action="/login" method="post" class="auth-form">
-        <button type="button" class="auth-form-close" onclick="hideAuthModal('login')">
-          <i class="fas fa-times"></i>
-        </button>
-        
-        <h2 class="auth-form-title">Welcome back</h2>
-        
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-input" name="user_email" placeholder="you@example.com" required />
+    <!-- Features -->
+    <section class="section">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-brain"></i></div>
+          <h3 class="feature-title">Smart Skill Extraction</h3>
+          <p class="feature-desc">Detects 60+ technical skills with alias matching — React.js, sklearn, k8s and more.</p>
         </div>
-        
-        <div class="form-group">
-          <label class="form-label">Password</label>
-          <input type="password" class="form-input" name="password" placeholder="••••••••" required />
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-building"></i></div>
+          <h3 class="feature-title">Company Matching</h3>
+          <p class="feature-desc">ML-powered predictions for TCS, Infosys, Wipro, Cognizant and 6 more top companies.</p>
         </div>
-        
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 class="feature-title">Resume Score</h3>
+          <p class="feature-desc">A real score from 0–100 based on your skills, education, certifications and projects.</p>
         </div>
-        
-        <div class="form-footer">
-          Don't have an account? <a href="#" onclick="switchModal('login', 'signup')">Sign up</a>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-map-signs"></i></div>
+          <h3 class="feature-title">Skill Gap Roadmap</h3>
+          <p class="feature-desc">Discover exactly which skills to learn next for your top matched job roles.</p>
         </div>
-      </form>
-    </div>
+      </div>
+    </section>
 
-    <!-- Signup Modal -->
-    <div class="auth-modal" id="signup-modal">
-      <form action="/register" method="post" class="auth-form">
-        <button type="button" class="auth-form-close" onclick="hideAuthModal('signup')">
-          <i class="fas fa-times"></i>
-        </button>
-        
-        <h2 class="auth-form-title">Create account</h2>
-        
-        <div class="form-group">
-          <label class="form-label">Full Name</label>
-          <input type="text" class="form-input" name="user_name" placeholder="John Doe" required />
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" class="form-input" name="user_email" placeholder="you@example.com" required />
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">Password</label>
-          <input type="password" class="form-input" name="password" placeholder="••••••••" required />
-        </div>
-        
-        <div class="form-actions">
-          <button type="submit" class="btn btn-primary btn-lg">Get Started</button>
-        </div>
-        
-        <div class="form-footer">
-          Already have an account? <a href="#" onclick="switchModal('signup', 'login')">Sign in</a>
-        </div>
-      </form>
-    </div>
+  </div>
+</main>
 
-    <!-- Footer -->
-    <footer class="footer">
-      <span class="footer-text">© 2025 TopX. Made by Rahul</span>
-    </footer>
+<footer class="footer">
+  <span class="footer-text">© 2025 TopX &nbsp;·&nbsp; Made by Rahul</span>
+</footer>
 
-    <script>
-      function toggleTheme() {
-        document.body.classList.toggle('light-theme');
-        const icon = document.getElementById('theme-icon');
-        icon.classList.toggle('fa-moon');
-        icon.classList.toggle('fa-sun');
-        localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
-      }
+<!-- Login Modal -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('login')"><i class="fas fa-times"></i></button>
+    <h2 class="modal-title">Welcome back</h2>
+    <p class="modal-sub">Sign in to analyze your resume</p>
+    <form action="/login" method="post">
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" name="user_email" placeholder="you@example.com" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-input" name="password" placeholder="••••••••" required />
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary btn-lg">Sign In</button>
+      </div>
+      <p class="form-footer">No account? <a href="#" onclick="switchModal('login','signup')">Create one</a></p>
+    </form>
+  </div>
+</div>
 
-      if (localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light-theme');
-        document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
-      }
+<!-- Signup Modal -->
+<div class="modal-overlay" id="signup-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('signup')"><i class="fas fa-times"></i></button>
+    <h2 class="modal-title">Create account</h2>
+    <p class="modal-sub">Free forever. No credit card needed.</p>
+    <form action="/register" method="post">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-input" name="user_name" placeholder="Jane Doe" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" name="user_email" placeholder="you@example.com" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Password <span style="color:var(--t3);font-size:11px;">(min 6 chars)</span></label>
+        <input type="password" class="form-input" name="password" placeholder="••••••••" minlength="6" required />
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn btn-primary btn-lg">Get Started Free</button>
+      </div>
+      <p class="form-footer">Already have an account? <a href="#" onclick="switchModal('signup','login')">Sign in</a></p>
+    </form>
+  </div>
+</div>
 
-      function showAuthModal(type) {
-        document.getElementById(`${type}-modal`).classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle('light-theme');
+    const ic = document.getElementById('theme-icon');
+    ic.classList.toggle('fa-moon');
+    ic.classList.toggle('fa-sun');
+    localStorage.setItem('theme', document.body.classList.contains('light-theme') ? 'light' : 'dark');
+  }
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light-theme');
+    document.getElementById('theme-icon').classList.replace('fa-moon','fa-sun');
+  }
 
-      function hideAuthModal(type) {
-        document.getElementById(`${type}-modal`).classList.remove('active');
-        document.body.style.overflow = '';
-      }
+  function openModal(id) {
+    document.getElementById(id + '-modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(id) {
+    document.getElementById(id + '-modal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function switchModal(from, to) {
+    closeModal(from);
+    setTimeout(() => openModal(to), 180);
+  }
 
-      function switchModal(from, to) {
-        hideAuthModal(from);
-        setTimeout(() => showAuthModal(to), 200);
-      }
-
-      document.querySelectorAll('.auth-modal').forEach(modal => {
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-          }
-        });
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          document.querySelectorAll('.auth-modal.active').forEach(modal => {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-          });
-        }
-      });
-    </script>
-  </body>
+  document.querySelectorAll('.modal-overlay').forEach(m => {
+    m.addEventListener('click', e => { if (e.target === m) { m.classList.remove('active'); document.body.style.overflow = ''; } });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.active').forEach(m => { m.classList.remove('active'); document.body.style.overflow = ''; });
+  });
+</script>
+</body>
 </html>

@@ -4,6 +4,8 @@ from pdfminer.pdfpage import PDFPage
 from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import TextConverter
 from pdfminer.layout import LAParams
+from werkzeug.security import generate_password_hash, check_password_hash
+from dotenv import load_dotenv
 import io
 import re
 import os
@@ -11,39 +13,39 @@ import sqlite3
 import logging
 import time
 
-from main import predict, suggest_roles, analyze_skill_gaps
+from main import predict, suggest_roles, analyze_skill_gaps, calculate_resume_score
 
-# Set up logging
+load_dotenv()
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 app = Flask(__name__)
-app.secret_key = 'jndjsahdjxasudhas-09vzx2223'
+app.secret_key = os.environ.get('SECRET_KEY', 'dev-fallback-change-in-production')
 app.config['SESSION_TYPE'] = 'filesystem'
 socketio = SocketIO(app)
 DATABASE = "new.db"
+MAX_FILE_SIZE = 5 * 1024 * 1024  # 5 MB
 
-# Initialize database
 with sqlite3.connect(DATABASE) as conn:
     cursor = conn.cursor()
     cursor.execute('''
         CREATE TABLE IF NOT EXISTS register (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_name TEXT, user_email TEXT, password TEXT
+            user_name TEXT,
+            user_email TEXT UNIQUE,
+            password TEXT
         )
     ''')
     conn.commit()
 
-# Load external skills database
 LINKEDIN_SKILLS = set()
 try:
     with open('linkedin skill', encoding='utf-8') as f:
         for line in f:
             LINKEDIN_SKILLS.add(line.strip().lower())
-except:
+except Exception:
     pass
 
-# Common programming skills list
 COMMON_SKILLS = {
     'python', 'java', 'javascript', 'typescript', 'c++', 'c#', 'php', 'ruby',
     'go', 'rust', 'swift', 'kotlin', 'scala', 'r', 'matlab', 'perl',
@@ -61,118 +63,170 @@ COMMON_SKILLS = {
     'unity', 'unreal engine', 'flutter', 'react native', 'android', 'ios',
     'laravel', 'rails', 'express', 'fastapi', 'spring boot',
     'hibernate', 'maven', 'gradle', 'webpack', 'vite',
-    'sass', 'less', 'bootstrap', 'tailwind', 'material ui'
+    'sass', 'less', 'bootstrap', 'tailwind', 'material ui',
+    'nextjs', 'svelte', 'firebase', 'supabase', 'prisma',
+    'jwt', 'oauth', 'websocket', 'grpc', 'redis',
 }
 
-# Education keywords
+SKILL_ALIASES = {
+    'react.js': 'react', 'reactjs': 'react',
+    'node.js': 'nodejs', 'node js': 'nodejs',
+    'vue.js': 'vue', 'vuejs': 'vue',
+    'next.js': 'nextjs', 'nuxt.js': 'nuxt',
+    'express.js': 'express',
+    'mongo': 'mongodb', 'mongo db': 'mongodb',
+    'postgres': 'postgresql', 'psql': 'postgresql',
+    'scikit learn': 'scikit-learn', 'sklearn': 'scikit-learn',
+    'natural language processing': 'nlp',
+    'tailwind css': 'tailwind', 'tailwindcss': 'tailwind',
+    'material-ui': 'material ui', 'mui': 'material ui',
+    'google cloud': 'gcp', 'google cloud platform': 'gcp',
+    'amazon web services': 'aws',
+    'microsoft azure': 'azure',
+    'spring boot': 'spring boot',
+    'react native': 'react native',
+    'ci cd': 'ci/cd', 'cicd': 'ci/cd',
+    'rest': 'rest api', 'restful': 'rest api',
+    'artificial intelligence': 'artificial intelligence',
+    'ml': 'machine learning',
+    'dl': 'deep learning',
+    'js': 'javascript',
+    'ts': 'typescript',
+    'k8s': 'kubernetes',
+}
+
+SKILL_ENCODING = {
+    'python': 0, 'java': 1, 'javascript': 2, 'sql': 3,
+    'php': 4, 'css': 5, 'html': 6, 'c++': 7, 'ruby': 8,
+    'typescript': 2, 'react': 2, 'nodejs': 2, 'angular': 2, 'vue': 2,
+    'mysql': 3, 'postgresql': 3, 'mongodb': 3,
+    'django': 0, 'flask': 0, 'fastapi': 0,
+    'machine learning': 0, 'deep learning': 0, 'tensorflow': 0,
+    'pytorch': 0, 'pandas': 0, 'numpy': 0, 'scikit-learn': 0,
+    'aws': 3, 'azure': 3, 'gcp': 3, 'docker': 3, 'kubernetes': 3,
+    'spring': 1, 'spring boot': 1, 'kotlin': 1, 'scala': 1,
+    'go': 0, 'rust': 7, 'swift': 6, 'c#': 7,
+    'linux': 5, 'git': 2,
+}
+
+SKILL_PRIORITY = ['python', 'java', 'javascript', 'machine learning', 'sql', 'c++', 'php']
+
 EDUCATION = ['CSE', 'EEE', 'ECE', 'IT', 'MCA', 'BCA', 'BTECH', 'MTECH', 'BSC', 'MSC', 'MBA', 'BE', 'ME']
 
+
+def normalize_skill_text(text):
+    for alias, canonical in SKILL_ALIASES.items():
+        text = re.sub(r'\b' + re.escape(alias) + r'\b', canonical, text)
+    return text
+
+
 def extract_skills(resume_text):
-    """Extract skills using keyword matching (works with Python 3.14)"""
     text_lower = resume_text.lower()
-    
-    # Clean the text - replace common separators with spaces
     text_clean = re.sub(r'[,;:\|\•\-–—]', ' ', text_lower)
     text_clean = re.sub(r'\s+', ' ', text_clean)
-    
+    text_clean = normalize_skill_text(text_clean)
+
     found_skills = set()
-    
-    # Check common skills with whole word matching
     for skill in COMMON_SKILLS:
-        # For multi-word skills
         if ' ' in skill:
             if skill in text_clean:
                 found_skills.add(skill.title())
         else:
-            # For single word skills, use word boundary matching
             pattern = r'\b' + re.escape(skill) + r'\b'
             if re.search(pattern, text_clean):
                 found_skills.add(skill.title())
-    
-    # Filter out any garbage (must be at least 2 chars and not just numbers)
-    valid_skills = []
-    for skill in found_skills:
-        if len(skill) >= 2 and not skill.isdigit():
-            valid_skills.append(skill)
-    
-    return valid_skills[:20]  # Limit to top 20 skills
+
+    return [s for s in found_skills if len(s) >= 2 and not s.isdigit()][:25]
+
 
 def extract_marks(resume_text):
-    """Extract marks/percentages from resume using regex"""
     patterns = [
-        r'(\d{1,2}(?:\.\d+)?)\s*%',  # Percentages like 85% or 85.5%
-        r'cgpa[:\s]*(\d+(?:\.\d+)?)',  # CGPA patterns
-        r'gpa[:\s]*(\d+(?:\.\d+)?)',   # GPA patterns
+        r'cgpa[:\s]*(\d+(?:\.\d+)?)',
+        r'gpa[:\s]*(\d+(?:\.\d+)?)',
         r'(\d{1,2}(?:\.\d+)?)\s*cgpa',
+        r'(\d{1,2}(?:\.\d+)?)\s*%',
         r'percentage[:\s]*(\d{1,2}(?:\.\d+)?)',
     ]
-    
     marks = []
     for pattern in patterns:
-        matches = re.findall(pattern, resume_text.lower())
-        for match in matches:
-            if isinstance(match, tuple):
-                match = match[0]
+        for match in re.findall(pattern, resume_text.lower()):
+            val_str = match if isinstance(match, str) else match[0]
             try:
-                val = float(match)
-                if 0 < val <= 10:  # GPA/CGPA
+                val = float(val_str)
+                if 0 < val <= 10:
                     marks.append(f"CGPA: {val}")
-                elif 30 <= val <= 100:  # Percentage
+                elif 30 <= val <= 100:
                     marks.append(f"{val}%")
-            except:
+            except Exception:
                 pass
-    
-    return marks[:5]  # Limit to 5 marks
+    return marks[:5]
+
+
+def get_cgpa_value(marks):
+    for m in marks:
+        if 'CGPA' in m:
+            try:
+                return float(m.split(':')[1].strip())
+            except Exception:
+                pass
+        elif '%' in m:
+            try:
+                val = float(m.replace('%', '').strip())
+                return round(val / 10, 1)
+            except Exception:
+                pass
+    return 7.0
+
 
 def extract_education(resume_text):
-    """Extract education from resume"""
     education = []
     text_upper = resume_text.upper()
-    
     for edu in EDUCATION:
         if edu in text_upper:
             education.append(edu)
-    
     return list(set(education))
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
+
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        user_name = request.form['user_name']
-        user_email = request.form['user_email']
+        user_name = request.form['user_name'].strip()
+        user_email = request.form['user_email'].strip().lower()
         password = request.form['password']
+        if len(password) < 6:
+            flash('Password must be at least 6 characters.', 'error')
+            return redirect(url_for('index'))
+        hashed = generate_password_hash(password)
         try:
             with sqlite3.connect(DATABASE) as conn:
-                cursor = conn.cursor()
-                cursor.execute(
+                conn.execute(
                     "INSERT INTO register (user_name, user_email, password) VALUES (?, ?, ?)",
-                    (user_name, user_email, password)
+                    (user_name, user_email, hashed)
                 )
                 conn.commit()
-                flash('Registration successful! Please log in.', 'success')
-                return redirect(url_for('index'))
+            flash('Account created! Please sign in.', 'success')
+            return redirect(url_for('index'))
         except sqlite3.IntegrityError:
             flash('Email already registered.', 'error')
             return redirect(url_for('index'))
     return render_template('index.html')
 
+
 @app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        user_email = request.form['user_email']
+        user_email = request.form['user_email'].strip().lower()
         password = request.form['password']
         with sqlite3.connect(DATABASE) as conn:
-            cursor = conn.cursor()
-            cursor.execute(
-                "SELECT * FROM register WHERE user_email=? AND password=?",
-                (user_email, password)
-            )
-            user = cursor.fetchone()
-        if user:
+            user = conn.execute(
+                "SELECT * FROM register WHERE user_email=?", (user_email,)
+            ).fetchone()
+        if user and check_password_hash(user[3], password):
             session['user_email'] = user_email
             session['user_name'] = user[1]
             return render_template('upload.html', name=user[1], email=user_email)
@@ -181,29 +235,36 @@ def login():
             return redirect(url_for('index'))
     return render_template('index.html')
 
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
+
 @app.route('/back')
 def back():
     if 'user_email' not in session:
-        flash('Please log in to upload a resume.', 'error')
+        flash('Please sign in to continue.', 'error')
         return redirect(url_for('index'))
     return render_template('upload.html', name=session.get('user_name'), email=session.get('user_email'))
+
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     if 'user_email' not in session:
-        flash('Please log in to upload a resume.', 'error')
+        flash('Please sign in to continue.', 'error')
         return redirect(url_for('index'))
 
     if request.method == 'POST':
         start_time = time.time()
-        logger.info("Starting file upload processing...")
 
         if 'resume_file' not in request.files:
-            flash('No file part in the request.', 'error')
+            flash('No file in request.', 'error')
             return redirect(url_for('upload'))
 
         i_f = request.files['resume_file']
-        if i_f.filename == '':
+        if not i_f.filename:
             flash('No file selected.', 'error')
             return redirect(url_for('upload'))
 
@@ -211,98 +272,81 @@ def upload():
             flash('Only PDF files are allowed.', 'error')
             return redirect(url_for('upload'))
 
+        file_data = i_f.read()
+        if len(file_data) > MAX_FILE_SIZE:
+            flash('File too large. Maximum size is 5 MB.', 'error')
+            return redirect(url_for('upload'))
+        i_f.seek(0)
+
         try:
-            # Step 1: Extract text from PDF
             socketio.emit('progress', {'progress': 10, 'message': 'Extracting text from PDF...'})
-            logger.info("Extracting text from PDF...")
-            
             resMgr = PDFResourceManager()
             retData = io.StringIO()
-            TxtConverter = TextConverter(resMgr, retData, laparams=LAParams())
-            interpreter = PDFPageInterpreter(resMgr, TxtConverter)
+            converter = TextConverter(resMgr, retData, laparams=LAParams())
+            interpreter = PDFPageInterpreter(resMgr, converter)
             for page in PDFPage.get_pages(i_f):
                 interpreter.process_page(page)
             txt = retData.getvalue()
             retData.close()
-            TxtConverter.close()
-            logger.info(f"Text extraction completed in {time.time() - start_time:.2f} seconds")
+            converter.close()
 
-            # Step 2: Extract skills
             socketio.emit('progress', {'progress': 30, 'message': 'Analyzing skills...'})
-            logger.info("Extracting skills...")
             all_skills = extract_skills(txt)
-            
-            # Step 3: Extract marks/education
+
             socketio.emit('progress', {'progress': 50, 'message': 'Processing academic info...'})
-            logger.info("Extracting marks and education...")
             marks = extract_marks(txt)
             education = extract_education(txt)
-            
-            # Format marks message
-            if marks:
-                marks_message = "Detected: " + ", ".join(marks[:5])
-            else:
-                marks_message = "No specific marks/grades detected"
-            
-            # Step 4: Predict companies
+
+            marks_message = "Detected: " + ", ".join(marks[:5]) if marks else "No grades detected"
+
             socketio.emit('progress', {'progress': 70, 'message': 'Matching companies...'})
-            logger.info("Predicting companies...")
-            
-            # Get first skill for prediction
-            first_skill = all_skills[0].lower() if all_skills else 'python'
-            
-            # Simple skill encoding
-            skill_mapping = {
-                'python': 0, 'java': 1, 'javascript': 2, 'sql': 3,
-                'php': 4, 'css': 5, 'html': 6, 'c++': 7, 'ruby': 0
-            }
-            skill_encoded = skill_mapping.get(first_skill, 0)
-            
-            mark_value = 7.0
-            num_skills = len(all_skills)
-            companies = predict(mark_value, skill_encoded, num_skills)
-            
-            # Step 5: Suggest job roles
-            socketio.emit('progress', {'progress': 85, 'message': 'Finding job matches...'})
-            logger.info("Suggesting job roles...")
-            
-            job_roles = []
-            for skill in all_skills[:5]:
-                role = suggest_roles(skill)
-                if role != 'Unknown Role':
-                    job_roles.append(role)
-            
-            # Remove duplicates
+            mark_value = get_cgpa_value(marks)
+            dominant_skill = next(
+                (s.lower() for s in all_skills if s.lower() in SKILL_PRIORITY),
+                all_skills[0].lower() if all_skills else 'python'
+            )
+            skill_encoded = SKILL_ENCODING.get(dominant_skill, 0)
+            companies = predict(mark_value, skill_encoded, len(all_skills))
+
+            socketio.emit('progress', {'progress': 82, 'message': 'Finding job matches...'})
+            seen_roles = set()
             unique_roles = []
-            for role in job_roles:
-                if role not in unique_roles:
-                    unique_roles.append(role)
-            
-            # Step 6: Analyze skill gaps
-            socketio.emit('progress', {'progress': 95, 'message': 'Analyzing skill gaps...'})
-            logger.info("Analyzing skill gaps...")
+            for skill in all_skills[:10]:
+                for role in suggest_roles(skill):
+                    if role not in seen_roles:
+                        unique_roles.append(role)
+                        seen_roles.add(role)
+            unique_roles = unique_roles[:8]
+
+            socketio.emit('progress', {'progress': 92, 'message': 'Analyzing skill gaps...'})
             skill_gaps = analyze_skill_gaps(all_skills, unique_roles)
-            
-            # Complete
+
+            has_certs = any(w in txt.lower() for w in ['certif', 'certified', 'certificate', 'certification'])
+            has_projects = any(w in txt.lower() for w in ['project', 'developed', 'built', 'created', 'implemented'])
+            score = calculate_resume_score(all_skills, len(education), has_certs, has_projects)
+
             socketio.emit('progress', {'progress': 100, 'message': 'Analysis complete!'})
-            logger.info(f"Total processing time: {time.time() - start_time:.2f} seconds")
-            
+            logger.info(f"Processing done in {time.time() - start_time:.2f}s")
+
             return render_template(
                 'result.html',
                 companies=companies,
                 job=unique_roles,
                 marks=marks_message,
                 skill_gaps=skill_gaps,
-                skills=all_skills
+                skills=all_skills,
+                score=score,
+                name=session.get('user_name', ''),
             )
 
         except Exception as e:
-            logger.error(f"Error processing the resume: {str(e)}")
+            logger.error(f"Error: {e}")
             socketio.emit('progress', {'progress': 0, 'message': f'Error: {str(e)}'})
-            flash(f'Error processing the resume: {str(e)}', 'error')
+            flash(f'Error processing resume: {str(e)}', 'error')
             return redirect(url_for('upload'))
 
     return render_template('upload.html', name=session.get('user_name'), email=session.get('user_email'))
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5001))

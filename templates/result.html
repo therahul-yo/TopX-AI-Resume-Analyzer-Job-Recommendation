@@ -137,12 +137,16 @@
       </div>
     </div>
 
-    <!-- ─── I. Insights ─── -->
+    {% set ns = namespace(n=0) %}
+    {% set roman = ['I.','II.','III.','IV.','V.','VI.','VII.','VIII.','IX.','X.'] %}
+
     {% if insights %}
+    {% set ns.n = ns.n + 1 %}
+    <!-- ── Insights ── -->
     <div class="data-block">
       <div class="data-block-h">
-        <div class="data-block-num">I.</div>
-        <div class="data-block-cap">— SECTION 01</div>
+        <div class="data-block-num">{{ roman[ns.n - 1] }}</div>
+        <div class="data-block-cap">— SECTION {{ '%02d' | format(ns.n) }}</div>
         <h3 class="data-block-h-title">Key <span class="it">insights.</span></h3>
       </div>
       <div class="data-block-c">
@@ -165,11 +169,12 @@
     </div>
     {% endif %}
 
-    <!-- ─── II. Skills (Categorized) ─── -->
+    {% set ns.n = ns.n + 1 %}
+    <!-- ── Skills (Categorized) ── -->
     <div class="data-block">
       <div class="data-block-h">
-        <div class="data-block-num">II.</div>
-        <div class="data-block-cap">— SECTION 02</div>
+        <div class="data-block-num">{{ roman[ns.n - 1] }}</div>
+        <div class="data-block-cap">— SECTION {{ '%02d' | format(ns.n) }}</div>
         <h3 class="data-block-h-title">Skills <span class="it">detected.</span></h3>
       </div>
       <div class="data-block-c">
@@ -194,11 +199,12 @@
     </div>
 
     {% if categories %}
-    <!-- ─── III. Predicted Category (NEW: real ML on 2,483 resumes) ─── -->
+    {% set ns.n = ns.n + 1 %}
+    <!-- ── Predicted Category (real ML on 2,483 resumes) ── -->
     <div class="data-block">
       <div class="data-block-h">
-        <div class="data-block-num">III.</div>
-        <div class="data-block-cap">— SECTION 03 · ML CLASSIFIER</div>
+        <div class="data-block-num">{{ roman[ns.n - 1] }}</div>
+        <div class="data-block-cap">— SECTION {{ '%02d' | format(ns.n) }} · ML CLASSIFIER</div>
         <h3 class="data-block-h-title">Predicted <span class="it">category.</span></h3>
       </div>
       <div class="data-block-c">
@@ -226,11 +232,12 @@
     </div>
     {% endif %}
 
-    <!-- ─── IV. Companies ─── -->
+    {% set ns.n = ns.n + 1 %}
+    <!-- ── Companies ── -->
     <div class="data-block">
       <div class="data-block-h">
-        <div class="data-block-num">{% if categories %}IV.{% else %}III.{% endif %}</div>
-        <div class="data-block-cap">— {% if categories %}SECTION 04{% else %}SECTION 03{% endif %}</div>
+        <div class="data-block-num">{{ roman[ns.n - 1] }}</div>
+        <div class="data-block-cap">— SECTION {{ '%02d' | format(ns.n) }}</div>
         <h3 class="data-block-h-title">Company <span class="it">matches.</span></h3>
       </div>
       <div class="data-block-c">
@@ -259,11 +266,12 @@
       </div>
     </div>
 
-    <!-- ─── IV. Recommended Roles (with TF-IDF match scores) ─── -->
+    {% set ns.n = ns.n + 1 %}
+    <!-- ── Recommended Roles (TF-IDF match scores) ── -->
     <div class="data-block">
       <div class="data-block-h">
-        <div class="data-block-num">IV.</div>
-        <div class="data-block-cap">— SECTION 04</div>
+        <div class="data-block-num">{{ roman[ns.n - 1] }}</div>
+        <div class="data-block-cap">— SECTION {{ '%02d' | format(ns.n) }}</div>
         <h3 class="data-block-h-title">Recommended <span class="it">roles.</span></h3>
       </div>
       <div class="data-block-c">
@@ -286,11 +294,12 @@
       </div>
     </div>
 
-    <!-- ─── V. Skill Gaps ─── -->
+    {% set ns.n = ns.n + 1 %}
+    <!-- ── Skill Gaps ── -->
     <div class="data-block">
       <div class="data-block-h">
-        <div class="data-block-num">V.</div>
-        <div class="data-block-cap">— SECTION 05</div>
+        <div class="data-block-num">{{ roman[ns.n - 1] }}</div>
+        <div class="data-block-cap">— SECTION {{ '%02d' | format(ns.n) }}</div>
         <h3 class="data-block-h-title">Skills to <span class="it">learn.</span></h3>
       </div>
       <div class="data-block-c">
@@ -313,12 +322,13 @@
       </div>
     </div>
 
-    <!-- ─── VI. Certifications ─── -->
     {% if certifications %}
+    {% set ns.n = ns.n + 1 %}
+    <!-- ── Certifications ── -->
     <div class="data-block">
       <div class="data-block-h">
-        <div class="data-block-num">VI.</div>
-        <div class="data-block-cap">— SECTION 06</div>
+        <div class="data-block-num">{{ roman[ns.n - 1] }}</div>
+        <div class="data-block-cap">— SECTION {{ '%02d' | format(ns.n) }}</div>
         <h3 class="data-block-h-title">Certifications <span class="it">detected.</span></h3>
       </div>
       <div class="data-block-c">

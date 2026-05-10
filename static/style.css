@@ -2604,3 +2604,67 @@ body.light {
   .sk-score { grid-template-columns: 1fr; }
   .sk-grid { grid-template-columns: 1fr; }
 }
+
+/* ════════════════════════════════════════════════════════════════
+   PRINT COVER FIX — eliminate orphaned footer on page 2
+   The old flex layout with `margin-top: auto` was pushing the footer
+   past page 1. Switch to plain block flow with fixed margins so the
+   cover content fits within a single A4 page.
+   ════════════════════════════════════════════════════════════════ */
+@media print {
+  .print-cover {
+    /* Force block layout — no flex, no auto-margins */
+    display: block !important;
+    min-height: 0 !important;
+    height: auto !important;
+    page-break-after: always;
+    break-after: page;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Tighter title — was 72pt (too tall), now scales to content */
+  .print-cover-title {
+    font-size: 60pt !important;
+    margin: 30pt 0 24pt !important;
+    line-height: 0.9 !important;
+  }
+
+  /* Compact name + score blocks */
+  .print-cover-name,
+  .print-cover-score {
+    margin: 14pt 0 !important;
+  }
+
+  .print-cover-score-num {
+    font-size: 72pt !important;
+  }
+
+  .print-cover-val {
+    font-size: 22pt !important;
+  }
+
+  /* Summary: fixed top margin instead of `margin-top: auto` */
+  .print-cover-summary {
+    margin-top: 24pt !important;
+    padding-top: 18pt !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 12pt !important;
+  }
+
+  .print-cover-num {
+    font-size: 28pt !important;
+  }
+
+  /* Footer sits right after summary — no auto margins */
+  .print-cover-footer {
+    margin-top: 14pt !important;
+    padding-top: 10pt !important;
+  }
+
+  /* Force cover content to honor break-inside avoid */
+  .print-cover > * {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
